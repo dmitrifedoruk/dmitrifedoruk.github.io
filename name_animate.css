@@ -194,59 +194,59 @@ section.name-animation{
 }
 
 
-.letter-block:hover{
+.letter-block:active{
     background: transparent;
     color: darkorchid;
 }
 
 
 
-#block-d:hover::after{
+#block-d:active::after{
     content: "MITRI";
     color: green;
 }
 
-#block-m:hover::before{
+#block-m:active::before{
     content: "D";
     color: green;
 }
 
-#block-m:hover::after{
+#block-m:active::after{
     content: "ITRI";
     color: green;
 }
 
-#block-i:hover::before{
+#block-i:active::before{
     content: "DM";
     color: green;
 }
 
-#block-i:hover::after{
+#block-i:active::after{
     content: "TRI";
     color: green;
 }
 
-#block-t:hover::before{
+#block-t:active::before{
     content: "DMI";
     color: green;
 }
 
-#block-t:hover::after{
+#block-t:active::after{
     content: "RI";
     color: green;
 }
 
-#block-r:hover::before{
+#block-r:active::before{
     content: "DMIT";
     color: green;
 }
 
-#block-r:hover::after{
+#block-r:active::after{
     content: "I";
     color: green;
 }
 
-#block-i2:hover::before{
+#block-i2:active::before{
     content: "DMITR";
     color: green;
 }
