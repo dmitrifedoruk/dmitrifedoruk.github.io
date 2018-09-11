@@ -195,7 +195,7 @@ section.name-animation{
 
 
 .letter-block:hover{
-    background: yellow;
+    background: transparent;
     color: darkorchid;
 }
 
