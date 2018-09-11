@@ -1,327 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <link href="reset.css" rel="stylesheet" />
-    <title>Lab 1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Lab 2</title>
     <style>
+        @import url(name_animate.css);
         @import url("https://fonts.googleapis.com/css?family=Iceberg");
 
-
-        @keyframes revolve1 {
-            0%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 8;
-            }
-            20%{
-                transform: scale(1.0) translateX(55vw);
-                z-index: 8;
-            }
-            36%{
-                transform: scale(.1) translateX(2100%);
-                z-index: 8;
-            }
-            40%{
-                transform: scale(.1) translateX(-275%);
-                z-index: 1;
-            }
-            50%{
-                transform: scale(.2) translateX(-400%);
-                z-index: 1;
-            }
-            100%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 1;
-            }
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: cadetblue;
         }
 
-        @keyframes revolve2 {
-            0%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 6;
-            }
-            19%{
-                transform: scale(1.0) translateX(45vw);
-                z-index: 6;
-            }
-            31%{
-                transform: scale(.1) translateX(1700%);
-                z-index: 6;
-            }
-            44%{
-                transform: scale(.1) translateX(-350%);
-                z-index: 3;
-            }
-            50%{
-                transform: scale(.2) translateX(-650%);
-                z-index: 3;
-            }
-            100%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 3;
-            }
+        .container > header{
+            grid-area: header;
         }
 
-        @keyframes revolve3 {
-            0%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 5;
-            }
-            19%{
-                transform: scale(1.0) translateX(40vw);
-                z-index: 5;
-            }
-            29%{
-                transform: scale(.1) translateX(1300%);
-                z-index: 5;
-            }
-            42%{
-                transform: scale(.1) translateX(-450%);
-                z-index: 4;
-            }
-            50%{
-                transform: scale(.2) translateX(-1000%);
-                z-index: 4;
-            }
-            100%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 4;
-            }
+        .container > header:hover{
+            grid-area: header;
+
         }
 
-        @keyframes revolve4 {
-            0%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 4;
-            }
-            12%{
-                transform: scale(1.0) translateX(24vw);
-                z-index: 4;
-            }
-            27%{
-                transform: scale(.1) translateX(1050%);
-                z-index: 4;
-            }
-            40%{
-                transform: scale(.1) translateX(-600%);
-                z-index: 4;
-            }
-            50%{
-                transform: scale(.2) translateX(-1200%);
-                z-index: 5;
-            }
-            100%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 5;
-            }
+        .container > nav{
+            grid-area: nav;
+            width: 1fr;
         }
 
-        @keyframes revolve5 {
-            0%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 3;
-            }
-            7%{
-                transform: scale(1.0) translateX(10vw);
-                z-index: 3;
-            }
-            24%{
-                transform: scale(.1) translateX(750%);
-                z-index: 3;
-            }
-            33%{
-                transform: scale(.1) translateX(-950%);
-                z-index: 6;
-            }
-            50%{
-                transform: scale(.2) translateX(-1450%);
-                z-index: 6;
-            }
-            100%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 6;
-            }
+        .container > nav:hover{
+            background: mediumorchid;
         }
 
-        @keyframes revolve6 {
-            0%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 2;
-            }
-            25%{
-                transform: scale(.1) translateX(550%);
-                z-index: 2;
-            }
-            33%{
-                transform: scale(.1) translateX(-1100%);
-                z-index: 2;
-            }
-            50%{
-                transform: scale(.2) translateX(-1800%);
-                z-index: 7;
-            }
-            100%{
-                transform: scale(1.0) translateX(0%);
-                z-index: 7;
-            }
+        .container > .article-one{
+            grid-area: article-one;
+            font-size: 1em;
+            width: 1fr;
         }
 
-
-        @keyframes spin {
-            0%{
-                transform: scale(1.0) rotateY(0deg);
-            }
-            100%{
-                transform: scale(1.0) rotateY(360deg);
-            }
+        .container > .article-one ul{
+            list-style: none;
         }
 
+        .container > .article-one:hover{
+            background: rebeccapurple;
+        }
 
-        main{
-            background: linear-gradient(0deg, purple, chartreuse, navy);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .container > .article-two{
+            grid-area: article-two;
+            font-size: 1em;
+            width: 1fr;
+        }
+
+        .container > .article-two:hover{
+            background: cornflowerblue;
+        }
+
+        .container > sidebar{
+            grid-area: aside;
+            width: 1fr;
+        }
+
+        .container > nav{
+            grid-area: nav;
+        }
+
+        .container > footer{
+            grid-area: footer;
+        }
+
+        .container {
+            display: grid;
             height: 100vh;
-            width: 100vw;
+            grid-gap: 0;
+            grid-template-areas:
+                    "header"
+                    "nav"
+                    "article-one"
+                    "article-two"
+                    "aside"
+                    "footer";
         }
 
-        .letter-block{
+        .container > *{
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: yellow;
-            font-family: 'Iceberg', cursive;
-            font-size: 4vw;
-            background: linear-gradient(-24deg, orange, darkcyan, fuchsia);
-            height: 8vw;
-            width: 8vw;
-            margin-right: 1rem;
-            border-radius: 50% 50%;
-            border: .1em outset;
+            justify-content: center;
+            background-color: cadetblue;
+            color: navy;
+            text-align: center;
+            font-family: "Iceberg", "Continuum Medium", monospace;
+            font-size: 1rem;
+        }
+
+        @media screen and (min-width: 768px){
+            .container{
+                grid-template-areas:
+                        "nav header header aside aside"
+                        "nav article-one article-two aside aside"
+                        "nav article-one article-two footer footer";
+            }
+
         }
 
 
-        .letter-block:hover{
-            background: yellow;
-            color: darkorange;
-        }
 
-
-
-        #block-d:hover::after{
-            content: "MITRI";
-            color: green;
-        }
-
-        #block-m:hover::before{
-            content: "D";
-            color: green;
-        }
-
-        #block-m:hover::after{
-            content: "ITRI";
-            color: green;
-        }
-
-        #block-i:hover::before{
-            content: "DM";
-            color: green;
-        }
-
-        #block-i:hover::after{
-            content: "TRI";
-            color: green;
-        }
-
-        #block-t:hover::before{
-            content: "DMI";
-            color: green;
-        }
-
-        #block-t:hover::after{
-            content: "RI";
-            color: green;
-        }
-
-        #block-r:hover::before{
-            content: "DMIT";
-            color: green;
-        }
-
-        #block-r:hover::after{
-            content: "I";
-            color: green;
-        }
-
-        #block-i2:hover::before{
-            content: "DMITR";
-            color: green;
-        }
-
-        #block-d{
-            animation: revolve1 10000ms linear 3750ms infinite;
-        }
-
-        #block-m{
-            animation: revolve2 10000ms linear 3000ms infinite;
-        }
-
-        #block-i{
-            animation: revolve3 10000ms linear 2250ms infinite;
-        }
-
-        #block-t{
-            animation: revolve4 10000ms linear 1500ms infinite;
-        }
-
-        #block-r{
-            animation: revolve5 10000ms linear 750ms infinite;
-        }
-
-        #block-i2{
-            animation: revolve6 10000ms linear 0ms infinite;
-        }
-
-        .letter{
-            animation: spin 6000ms linear infinite;
-        }
 
 
     </style>
-
 </head>
+<body>
+<div class="container">
+    <header>
+        <section class="name-animation">
 
-<main>
-
-
-    <div onmouseover="PlaySound('dSound')" class="letter-block" id="block-d"><span class="letter" id="letter-d">D</span></div>
-    <div onmouseover="PlaySound('mSound')" class="letter-block" id="block-m"><span class="letter" id="letter-m">M</span></div>
-    <div onmouseover="PlaySound('iSound')" class="letter-block" id="block-i"><span class="letter" id="letter-i">I</span></div>
-    <div onmouseover="PlaySound('tSound')" class="letter-block" id="block-t"><span class="letter" id="letter-t">T</span></div>
-    <div onmouseover="PlaySound('rSound')" class="letter-block" id="block-r"><span class="letter" id="letter-r">R</span></div>
-    <div onmouseover="PlaySound('i2Sound')" class="letter-block" id="block-i2"><span class="letter" id="letter-i2">I</span></div>
-
-    <audio id='dSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/f1.mp3'></audio>
-    <audio id='mSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/c2.mp3'></audio>
-    <audio id='iSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/b1.mp3'></audio>
-    <audio id='tSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/g1.mp3'></audio>
-    <audio id='rSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/e1.mp3'></audio>
-    <audio id='i2Sound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/c1.mp3'></audio>
+            <div class="letter-block" id="block-d"><span class="letter" id="letter-d">D</span></div>
+            <div class="letter-block" id="block-m"><span class="letter" id="letter-m">M</span></div>
+            <div class="letter-block" id="block-i"><span class="letter" id="letter-i">I</span></div>
+            <div class="letter-block" id="block-t"><span class="letter" id="letter-t">T</span></div>
+            <div class="letter-block" id="block-r"><span class="letter" id="letter-r">R</span></div>
+            <div class="letter-block" id="block-i2"><span class="letter" id="letter-i2">I</span></div>
 
 
-</main>
 
-<script>
-
-    function PlaySound(sound) {
-        var thissound=document.getElementById(sound);
-        var play = thissound.play();
-    }
-
-</script>
+        </section>
 
 
+    </header>
+    <nav></nav>
+    <article class="article-one">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </article>
+    <article class="article-two"></article>
+    <aside class="sidebar"></aside>
+    <footer></footer>
+
+
+
+
+
+</div>
 </body>
-
 </html>
