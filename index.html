@@ -44,59 +44,59 @@
             height: 100%;
         }
 
-        .container > .aside-one:hover{
+        .container > .aside-one{
             background: mediumorchid;
             height: 1fr;
         }
 
 
-        .container > .aside-one p:hover::after {
-            content: "To-morrow, and to-morrow, and to-morrow, Creeps in this petty pace from day to day, To the last syllable of recorded time; And all our yesterdays have lighted fools The way to dusty death. Out, out, brief candle! Life's but a walking shadow, a poor player That struts and frets his hour upon the stage And then is heard no more. It is a tale Told by an idiot, full of sound and fury Signifying nothing."
+        .container > .aside-one p:hover::after{
+            content: "To-morrow, and to-morrow, and to-morrow, creeps in this petty pace from day to day, to the last syllable of recorded time; and all our yesterdays have lighted fools the way to dusty death. Out, out, brief candle! Life's but a walking shadow, a poor player that struts and frets his hour upon the stage and then is heard no more. It is a tale told by an idiot, full of sound and fury signifying nothing."
         }
 
         .container > .article-one{
             grid-area: article-one;
             width: 1fr;
+            background: rebeccapurple;
         }
-
-
-
 
 
         .container > .article-one:hover{
-            background: rebeccapurple;
+
         }
+
 
         .container > .article-two{
             grid-area: article-two;
             font-size: 1em;
             width: 1fr;
+            background: cornflowerblue;
         }
 
         .container > .article-two:hover{
-            background: cornflowerblue;
+
         }
 
         .container > .aside-two{
             grid-area: aside-two;
             width: 1fr;
-        }
-
-        .container > .aside-two:hover{
             background: darkseagreen;
         }
 
+        .container > .aside-two:hover{
 
+        }
 
 
 
         .container > footer{
             grid-area: footer;
             height: 1fr;
+            background: olive;
         }
 
         .container > footer:hover{
-            background: olive;
+
         }
 
         .container {
@@ -146,6 +146,44 @@
                 height: 100%;
             }
 
+            .container > .aside-one{
+                background: transparent;
+            }
+
+            .container > .article-one{
+                background: transparent;
+            }
+
+            .container > .article-two{
+                background: transparent;
+            }
+
+
+            .container > .aside-two{
+                background: transparent;
+            }
+
+            .container > footer{
+                background: transparent;
+            }
+
+            .container > .article-one:hover{
+                background: rebeccapurple;
+            }
+
+            .container > .article-two:hover{
+                background: cornflowerblue;
+            }
+
+
+            .container > .aside-two:hover{
+                background: darkseagreen;
+            }
+
+            .container > footer:hover{
+                background: olive;
+            }
+
             .container > .aside-one:hover{
                 background: mediumorchid;
                 height: 100vh;
@@ -158,6 +196,7 @@
             .aside-one p:hover{
                 animation: move-up 30s linear 1;
             }
+
 
         }
 
