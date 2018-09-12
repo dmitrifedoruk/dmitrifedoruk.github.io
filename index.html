@@ -7,40 +7,63 @@
     <style>
         @import url(name_animate.css);
         @import url("https://fonts.googleapis.com/css?family=Iceberg");
+        @import url("https://fonts.googleapis.com/css?family=Press+Start+2P|VT323");
+
+        @keyframes move-up {
+            0%{
+                transform: translateY(90vh);
+            }
+            100%{
+                transform: translateY(0vh);
+            }
+        }
+
 
         body{
             margin: 0;
             padding: 0;
-            background-color: cadetblue;
+            background-color: hsl(181.85, 25.49%, 42%); /*darker cadetblue*/
         }
 
         .container > header{
             grid-area: header;
+            width: max-content;
+            height: 0.5fr;
         }
 
-        .container > header:hover{;
+
+        .container > .aside-one{
+            grid-area: aside-one;
+            padding: 1rem 0 0 0;
+            width: 0.5fr;
+            height: 0.5fr;
         }
 
-        .container > nav{
-            grid-area: nav;
-            width: 1fr;
+        .aside-one p{
+            width: 30ch;
+            height: 100%;
         }
 
-        .container > nav:active{
+        .container > .aside-one:hover{
             background: mediumorchid;
+            height: 1fr;
+        }
+
+
+        .container > .aside-one p:hover::after {
+            content: "To-morrow, and to-morrow, and to-morrow, Creeps in this petty pace from day to day, To the last syllable of recorded time; And all our yesterdays have lighted fools The way to dusty death. Out, out, brief candle! Life's but a walking shadow, a poor player That struts and frets his hour upon the stage And then is heard no more. It is a tale Told by an idiot, full of sound and fury Signifying nothing."
         }
 
         .container > .article-one{
             grid-area: article-one;
-            font-size: 1em;
             width: 1fr;
         }
 
-        .container > .article-one ul{
-            list-style: none;
-        }
 
-        .container > .article-one:active{
+
+
+
+        .container > .article-one:hover{
             background: rebeccapurple;
         }
 
@@ -50,25 +73,29 @@
             width: 1fr;
         }
 
-        .container > .article-two:active{
+        .container > .article-two:hover{
             background: cornflowerblue;
         }
 
-        .container > aside{
-            grid-area: aside;
+        .container > .aside-two{
+            grid-area: aside-two;
             width: 1fr;
         }
 
-        .container > aside:active{
+        .container > .aside-two:hover{
             background: darkseagreen;
         }
 
 
+
+
+
         .container > footer{
             grid-area: footer;
+            height: 1fr;
         }
 
-        .container > footer:active{
+        .container > footer:hover{
             background: olive;
         }
 
@@ -78,10 +105,10 @@
             grid-gap: 0;
             grid-template-areas:
                     "header"
-                    "nav"
+                    "aside-one"
                     "article-one"
                     "article-two"
-                    "aside"
+                    "aside-two"
                     "footer";
         }
 
@@ -89,19 +116,47 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: cadetblue;
-            color: navy;
+            background-color: hsl(181.85, 25.49%, 42%); /*darker cadetblue*/
+            color: hsl(248.35, 53.49%, 45%); /*basically slateblue*/
             text-align: center;
-            font-family: "Iceberg", "Continuum Medium", monospace;
-            font-size: 1rem;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.7rem;
         }
 
         @media screen and (min-width: 768px){
+
+            body{
+                margin: 0;
+                padding: 0;
+                background-color: hsl(181.85, 25.49%, 42%); /*darker cadetblue*/
+                overflow: hidden;
+            }
+
             .container{
                 grid-template-areas:
-                        "nav header header aside aside"
-                        "nav article-one article-two aside aside"
-                        "nav article-one article-two footer footer";
+                        "aside-one header header aside-two aside-two"
+                        "aside-one article-one article-two aside-two aside-two"
+                        "aside-one article-one article-two footer footer";
+            }
+
+            .container > header{
+                grid-area: header;
+                max-width: calc(100% - 100px); /*keeps animated name in-screen*/
+                width: max-content;
+                height: 100%;
+            }
+
+            .container > .aside-one:hover{
+                background: mediumorchid;
+                height: 100vh;
+            }
+
+            .container > .aside-one p:hover::after {
+                content: "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep No more; and by a sleep, to say we end the heart-ache, and the thousand natural shocks that Flesh is heir to? 'Tis a consummation devoutly to be wished. To die, to sleep, To sleep, perchance to Dream; aye, there's the rub, for in that sleep of death, what dreams may come, when we have shuffled off this mortal coil, must give us pause. There's the respect  that makes Calamity of so long life: For who would bear the Whips and Scorns of time, the Oppressor's wrong, the proud man's Contumely, the pangs of despised Love, the Law’s delay, the insolence of Office, and the spurns that patient merit of the unworthy takes, when he himself might his Quietus make with a bare Bodkin? Who would Fardels bear, to grunt and sweat under a weary life, but that the dread of something after death, the undiscovered country, from whose bourn no traveller returns, puzzles the will, and makes us rather bear those ills we have, than fly to others that we know not of. Thus conscience does make cowards of us all, and thus the native hue of Resolution Is sicklied o'er, with the pale cast of Thought,  And enterprises of great pitch and moment, with this regard their Currents turn awry"
+            }
+
+            .aside-one p:hover{
+                animation: move-up 30s linear 1;
             }
 
         }
@@ -130,17 +185,11 @@
 
 
     </header>
-    <nav></nav>
-    <article class="article-one">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </article>
-    <article class="article-two"></article>
-    <aside class="sidebar"></aside>
-    <footer></footer>
+    <aside class="aside-one"><p></p></aside>
+    <article class="article-one"><p></p></article>
+    <article class="article-two"><p></p></article>
+    <aside class="aside-two"><p></p></aside>
+    <footer><p></p></footer>
 
 
 

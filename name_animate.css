@@ -11,7 +11,7 @@
         z-index: 8;
     }
     36%{
-        transform: scale(.1) translateX(2100%);
+        transform: scale(.1) translateX(2000%);
         z-index: 8;
     }
     40%{
@@ -183,72 +183,102 @@ section.name-animation{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: yellow;
+    color: gold;
     font-family: 'Iceberg', cursive;
-    font-size: 4vmax;
+    font-size: 4vw;
     background-color: blueviolet;
-    height: 8vmax;
-    width: 8vmax;
+    height: 8vw;
+    width: 8vw;
     margin-right: 1rem;
     border-radius: 50% 50%;
 }
 
+.letter-block:nth-of-type(1){
+    background: darkslateblue;
+    color: hsl(248.35, 53.49%, 65%); /*lighter slateblue*/
+}
 
-.letter-block:active{
+.letter-block:nth-of-type(2){
+    background: olive;
+    color: hsl(79.63, 60.45%, 40%); /*lighter olivedrab*/
+}
+
+.letter-block:nth-of-type(3){
+    background: firebrick;
+    color: hsl(16.24, 100%, 60%); /*lighter orangered*/
+}
+
+.letter-block:nth-of-type(4){
+    background: darkgoldenrod;
+    color: hsl(42.9, 74.4%, 55%); /*lighter goldenrod*/
+}
+
+.letter-block:nth-of-type(5){
+    background: orangered;
+    color: hsl(32.94, 100%, 60%); /*lighter darkorange*/
+}
+
+.letter-block:nth-of-type(6){
+    background: blueviolet;
+    color: hsl(248.35, 53.49%, 65%); /*lighter slateblue*/
+}
+
+
+.letter-block:hover{
     background: transparent;
     color: darkorchid;
 }
 
 
 
-#block-d:active::after{
+#block-d:hover::after{
     content: "MITRI";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-m:active::before{
+#block-m:hover::before{
     content: "D";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-m:active::after{
+#block-m:hover::after{
     content: "ITRI";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-i:active::before{
+#block-i:hover::before{
     content: "DM";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-i:active::after{
+#block-i:hover::after{
     content: "TRI";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-t:active::before{
+#block-t:hover::before{
     content: "DMI";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-t:active::after{
+#block-t:hover::after{
     content: "RI";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-r:active::before{
+#block-r:hover::before{
     content: "DMIT";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-r:active::after{
+#block-r:hover::after{
     content: "I";
-    color: green;
+    color: yellowgreen;
 }
 
-#block-i2:active::before{
+#block-i2:hover::before{
     content: "DMITR";
-    color: green;
+    color: yellowgreen;
 }
 
 #block-d{
@@ -277,4 +307,9 @@ section.name-animation{
 
 .letter{
     animation: spin 6000ms linear infinite;
+}
+
+@media screen and (min-width: 768px){
+
+
 }
