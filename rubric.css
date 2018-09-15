@@ -41,13 +41,13 @@ p:hover{
     width:30ch;
 }
 
-p:nth-of-type(1):active{
+p:nth-of-type(1):hover{
     font-size: inherit;
     color: navy;
     width:50ch;
 }
 
-ul p:nth-of-type(1):active{
+ul p:nth-of-type(1):hover{
     font-size: 0.9rem;
     color: darkslateblue;
     width:30ch;
