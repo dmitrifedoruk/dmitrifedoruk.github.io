@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Spectral');
+
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    background: yellowgreen;
+    font-family: "Bookman Old Style", Tahoma, Spectral, serif;
+    color: navy;
+    font-size: 4em;
+}
+
+h1{
+    background-color: yellowgreen;
+    position: sticky;
+    top: 0;
+    color:  rebeccapurple;
+}
+
+
+p{
+    width: 50ch;
+}
+
+ul{
+    display: contents;
+}
+
+ul p::first-letter{
+    color: mediumorchid;
+}
+
+
+
+p:hover{
+    font-size: 0.9rem;
+    color: darkslateblue;
+    width:30ch;
+}
+
+p:nth-of-type(1):hover{
+    font-size: inherit;
+    color: navy;
+    width:50ch;
+}
+
+ul p:nth-of-type(1):hover{
+    font-size: 0.9rem;
+    color: darkslateblue;
+    width:30ch;
+}
+
+
+
+article{
+    display: flex;
+    flex-flow: column;
+    margin: auto auto 4vh 3vw;
+}
+
+.value{
+    color: blueviolet;
+}
+
+
+
+/*desktop version*/
+@media screen and (min-width: 768px){
+
+    html, body {
+        min-height: 100%;
+    }
+
+    body {
+        font-size: 120%;
+    }
+
+    p{
+        width: 90ch;
+    }
+
+    p:nth-of-type(1):hover{
+        font-size: inherit;
+        color: navy;
+        width:90ch;
+    }
+
+    ul p:nth-of-type(1):hover{
+        font-size: 130%;
+        color: darkslateblue;
+        width:60ch;
+    }
+
+    p:hover{
+        font-size: 130%;
+        width:60ch;
+    }
+
+}
+
+
+
