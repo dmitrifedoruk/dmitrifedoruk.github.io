@@ -8,9 +8,15 @@ html, body {
 body {
     margin: 0;
     background: yellowgreen;
-    font-family: "Bookman Old Style", Tahoma, Spectral, serif;
+    font-family: Spectral, "Bookman Old Style", Tahoma,  serif;
     color: navy;
-    font-size: 4em;
+    font-size: 0.7em;
+}
+
+div{
+    display: contents;
+    width: 100vw;
+
 }
 
 h1{
@@ -22,7 +28,11 @@ h1{
 
 
 p{
-    width: 50ch;
+    width: 75vw;
+    padding-right: 25vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0 0;
 }
 
 ul{
@@ -38,19 +48,16 @@ ul p::first-letter{
 p:hover{
     font-size: 0.9rem;
     color: darkslateblue;
-    width:30ch;
 }
 
 p:nth-of-type(1):hover{
     font-size: inherit;
     color: navy;
-    width:50ch;
 }
 
 ul p:nth-of-type(1):hover{
     font-size: 0.9rem;
     color: darkslateblue;
-    width:30ch;
 }
 
 
@@ -76,10 +83,16 @@ article{
 
     body {
         font-size: 120%;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     p{
         width: 90ch;
+        padding-right: calc(100vw - 90ch);
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin: 0 0;
     }
 
     p:nth-of-type(1):hover{
@@ -97,6 +110,7 @@ article{
     p:hover{
         font-size: 130%;
         width:60ch;
+        padding-right: calc(100vw - 60ch);
     }
 
 }
