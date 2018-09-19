@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 3</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+    <style>
+        @import url(name_animate.css);
+        @import url("https://fonts.googleapis.com/css?family=Press+Start+2P|VT323");
+
+        html, body {
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background-color: hsl(181.85, 25.49%, 42%);
+        }
+
+        .container {
+            font-family: "Press Start 2P", sans-serif;
+            display: grid;
+            height: 100vh;
+            grid-gap: 0;
+            grid-template-areas:
+                    "header"
+                    "main"
+                    "footer"
+                    "nav";
+        }
+
+        .container > header {
+            grid-area: header;
+            width: max-content;
+            height: 3rem;
+            background-color: hsl(181.85, 25.49%, 42%);
+            padding: 1rem 1rem;
+        }
+
+        .container > main{
+            grid-area: main;
+            font-family: "Press Start 2P", sans-serif;
+            font-size: 0.7rem;
+            padding-left: 1rem;
+            padding-right: 3rem;
+            height: 1fr;
+        }
+
+
+
+        .container > footer {
+            grid-area: footer;
+            color: gold;
+            height: 100px;
+            font-size: 0.5rem;
+            background: darkcyan;
+            padding: 1rem 3rem 3rem 1rem;
+        }
+
+        .container > nav{
+            grid-area: nav;
+            height: 40px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+            position: fixed;
+            bottom: 0;
+            width: 100vw;
+        }
+
+        nav ul li {
+            display: flex;
+            flex-grow: 1;
+            font-size: 0.7rem;
+            font-family: "Press Start 2P", sans-serif;
+            background: seagreen;
+            padding: 1rem 1rem;
+        }
+
+        nav ul li a {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            color: slateblue;
+            text-decoration: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav ul li:hover {
+            background: lightseagreen;
+            color: darkslateblue;
+        }
+
+        nav ul li a i {
+            font-size: 2.5rem;
+        }
+
+
+
+
+        /* desktop version */
+        @media screen and (min-width: 768px) {
+
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .container > header {
+                grid-area: header;
+                width: max-content;
+                height: 100px;
+                padding: 20px 0;
+            }
+
+            .container > main{
+                padding: 2rem 3rem 5rem 1rem;
+            }
+
+
+            .container > footer {
+                grid-area: footer;
+                color: gold;
+                height: 100px;
+                font-size: 0.7rem;
+                background: darkcyan;
+                padding: 2rem 3rem 3rem 1rem;
+            }
+
+            nav{
+                display: contents;
+            }
+
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: space-evenly;
+                position: inherit;
+                width: 100vw;
+            }
+
+
+            .container {
+                grid-template-areas:
+                        "header"
+                        "navigation"
+                        "main"
+                        "footer";
+            }
+
+
+        }
+
+        .bg1{
+            background-color: mediumorchid;
+            color: goldenrod;
+        }
+
+        .bg2{
+            background-color: olive;
+            color: darkviolet;
+        }
+
+        .bg3{
+            background-color: teal;
+            color: darkorange;
+        }
+
+
+        .default{
+            background-color: firebrick;
+            color: lightseagreen;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <header>
+        <section class="name-animation">
+
+            <div class="letter-block" id="block-d"><span class="letter" id="letter-d">D</span></div>
+            <div class="letter-block" id="block-m"><span class="letter" id="letter-m">M</span></div>
+            <div class="letter-block" id="block-i"><span class="letter" id="letter-i">I</span></div>
+            <div class="letter-block" id="block-t"><span class="letter" id="letter-t">T</span></div>
+            <div class="letter-block" id="block-r"><span class="letter" id="letter-r">R</span></div>
+            <div class="letter-block" id="block-i2"><span class="letter" id="letter-i2">I</span></div>
+
+        </section>
+    </header>
+
+    <nav>
+        <ul>
+            <li id="one"><a href="#"><i class="fas fa-bowling-ball"></i></a></li>
+            <li id="two"><a href="#"><i class="fas fa-coffee"></i></a></li>
+            <li id="three"><a href="#"><i class="fas fa-flask"></i></a></li>
+            <li id="four"><a href="#"><i class="fas fa-wrench"></i></a></li>
+        </ul>
+
+    </nav>
+
+
+
+
+    <main id="main-article" class="default">
+
+        <p>Thoughts on letter frequencies etc:</p>
+
+        <p>Does the distribution of letter frequencies resemble a normal distribution?</p>
+
+        <p>How long, on average, is a selection of text, such as a complete sentence, which uses all 26 letters of the alphabet?  Is it better to count this length by words or letters?</p>
+
+        <p>Examples such as "The quick brown fox jumps over the lazy dog." or "Pack my box with five dozen liquor jugs."  work, but don't seem typical.  They contain all letters but appear to not be long enough for letter frequency analysis to be meaningful.</p>
+
+        <p>How long does a selection of text (on average) need to be for typical letter frequencies to apply?</p>
+
+        <p>Could programs be written to provide answers to these questions?  Probably</p>
+
+    </main>
+
+    <footer>
+        These are some thought processes I went through when considering heuristics for a Python program to solve simple "cryptogram" puzzles.
+        And the answer to at least the first question is that no, letter frequencies are not normally distributed.
+        But wouldn't it be something if they were?
+    </footer>
+
+</div>
+
+<script>
+    document.getElementById('one').addEventListener('click', e => {
+        document.getElementById('main-article').classList.remove(document.getElementById('main-article').className);
+        document.getElementById('main-article').classList.add('bg1');
+    });
+    document.getElementById('two').addEventListener('click', e => {
+        document.getElementById('main-article').classList.remove(document.getElementById('main-article').className);
+        document.getElementById('main-article').classList.add('bg2');
+    });
+    document.getElementById('three').addEventListener('click', e => {
+        document.getElementById('main-article').classList.remove(document.getElementById('main-article').className);
+        document.getElementById('main-article').classList.add('bg3');
+    });
+    document.getElementById('four').addEventListener('click', e => {
+        document.getElementById('main-article').classList.remove(document.getElementById('main-article').className);
+        document.getElementById('main-article').classList.add('default');
+    });
+</script>
+
+
+</body>
+</html>
