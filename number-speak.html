@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numbers</title>
+
+    <style>
+        body {
+            display: grid;
+            place-content: center;
+            background-color: #326a93;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background-color: #0f6674;
+            gap: 20px;
+            width: fit-content;
+            padding: 15px;
+            border: inset 10px #beb213;
+            place-items: center;
+        }
+
+        .cell {
+            display: grid;
+            min-width: 100px;
+            height: 100px;
+            background-color: #913697;
+            place-content: center;
+            color: olivedrab;
+            font-size: 2rem;
+            font-family: "Continuum Medium";
+            border: inset 5px #d44b57;
+            text-shadow: 1px 1px #bdc62c;
+            border-radius: 3px;
+        }
+
+        @media screen and (max-width: 480px) {
+
+            .wrapper {
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .cell {
+                min-width: 75px;
+                height: 80px;
+                font-size: 1.3rem;
+            }
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <button class="cell">aardvark</button>
+    <button class="cell">banana</button>
+    <button class="cell">orange</button>
+    <button class="cell">kazoo</button>
+    <button class="cell">orangutan</button>
+    <button class="cell">cabbage</button>
+    <button class="cell">Seattle</button>
+    <button class="cell">spaghetti</button>
+    <button class="cell">sousaphone</button>
+
+</div>
+
+<script>
+    let synth = window.speechSynthesis;
+    let voices = synth.getVoices()[1];
+
+    function speak(input) {
+        if (input !== '') {
+            let utterThis = new SpeechSynthesisUtterance(input);
+            utterThis.voice = voices;
+            synth.speak(utterThis);
+        }
+    }
+
+    let items = document.querySelectorAll(".cell");
+
+    items.forEach(function (item) {
+
+        item.addEventListener('click', function () {
+            speak(this.innerText);
+        }, false);
+
+    });
+
+
+
+</script>
+
+</body>
+</html>
