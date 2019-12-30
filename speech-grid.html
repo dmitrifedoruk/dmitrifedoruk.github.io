@@ -18,7 +18,7 @@
             background-color: #0f6674;
             gap: 0;
             width: 300px;
-            height: 100vh;
+            height: auto;
             padding: 5px;
             border: inset 10px #beb213;
             place-items: center;
@@ -83,7 +83,7 @@
 
 <script>
     let synth = window.speechSynthesis;
-    let voices = synth.getVoices()[1];
+    let voices = synth.getVoices()[0];
 
     function speak(input) {
         if (input !== '') {
