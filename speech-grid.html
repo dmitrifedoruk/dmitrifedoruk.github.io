@@ -83,12 +83,31 @@
 
 <script>
     let synth = window.speechSynthesis;
-    let voices = synth.getVoices()[0];
+    let voices = synth.getVoices();
+
+    let selectedVoice = '';
+
+    voices.forEach(function (voice) {
+
+        if(voice.lang === "eng-GBR-f00"){
+            selectedVoice = voice;
+        }
+        else if(voice.lang === "en-US"){
+            selectedVoice = voice;
+        }
+    });
+
+
+    if(selectedVoice === ''){
+        selectedVoice = voices[0];
+    }
+
+
 
     function speak(input) {
         if (input !== '') {
             let utterThis = new SpeechSynthesisUtterance(input);
-            utterThis.voice = voices;
+            utterThis.voice = selectedVoice;
             synth.speak(utterThis);
         }
     }
@@ -102,6 +121,8 @@
         }, false);
 
     });
+
+
 
 
 
