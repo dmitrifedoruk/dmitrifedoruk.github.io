@@ -36,18 +36,21 @@
             border-radius: 3px;
         }
 
-        @media screen and (max-width: 480px) {
+        @media only screen and (max-width: 500px) {
 
             .wrapper {
-                gap: 10px;
-                padding: 10px;
-                width: 100vw;
+                gap: 0;
+                padding: 5px;
+                width: 300px;
+                height: 100vh;
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-flow: dense;
             }
 
             .cell {
-                min-width: 75px;
-                height: 80px;
-                font-size: 1.3rem;
+                min-width: 150px;
+                height: 1fr;
+                font-size: 1.6rem;
             }
         }
 
@@ -68,7 +71,10 @@
     <button class="cell">cabbage</button>
     <button class="cell">Seattle</button>
     <button class="cell">spaghetti</button>
-    <button class="cell">sousaphone</button>
+    <button class="cell">harmonica</button>
+    <button class="cell">spatula</button>
+    <button class="cell">boulder</button>
+    <button class="cell">sandwich</button>
 
 </div>
 
