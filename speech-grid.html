@@ -6,6 +6,12 @@
     <title>Words and Such</title>
 
     <style>
+
+        :root {
+            --cellColor: #913697;
+            --alternateColor: #ccdf0d;
+        }
+
         body {
             display: grid;
             place-content: center;
@@ -28,14 +34,15 @@
             display: grid;
             min-width: 150px;
             height: 100px;
-            background-color: #913697;
+            background-color: var(--cellColor);
             place-content: center;
             color: olivedrab;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-family: "Continuum Medium";
             border: inset 5px #d44b57;
             text-shadow: 1px 1px #bdc62c;
             border-radius: 3px;
+            transition: background-color 1s ease;
         }
 
 
@@ -82,6 +89,48 @@
 </div>
 
 <script>
+
+
+    const greWords = [
+        'Aberrant', 'Abscond', 'Advocate', 'Aggrandize', 'Amalgamate', 'Ambiguous', 'Ambrosial', 'Anachronism', 'Anomalous', 'Antediluvian', 'Antipathy', 'Arbitrate', 'Assuage', 'Attenuate', 'Audacious', 'Aver', 'Banal', 'Barefaced', 'Blandishment', 'Bombast', 'Breach', 'Burgeon', 'Buttress', 'Cadge', 'Caprice', 'Castigate', 'Catalyst', 'Caustic', 'Chicanery', 'Complaisant', 'Conflagration', 'Corporeal', 'Corporal', 'Corroborate', 'Craven', 'Culpable', 'Dearth', 'Deference', 'Depict', 'Deprecation', 'Depredation', 'Descry', 'Desiccate', 'Diatribe', 'Diffident', 'Disabuse', 'Disparaging', 'Dispassionate', 'Dissemble', 'Dogged', 'Dogmatic', 'Eclectic', 'Efficacy', 'Effluent', 'Emollient', 'Emulate', 'Encomium', 'Endemic', 'Enervate', 'Engender', 'Enigma', 'Ephemeral', 'Equivocal', 'Erudite', 'Esoteric', 'Eulogy', 'Exacerbate', 'Exculpate', 'Exorbitant', 'Explicit', 'Extant', 'Fathom', 'Fawn', 'Feign', 'Fervent', 'Fledgling', 'Florid', 'Floundering', 'Garrulous', 'Gossamer', 'Guile', 'Guileless', 'Hapless', 'Headlong', 'Homogenous', 'Iconoclast', 'Impecunious', 'Imperious', 'Implication', 'Imply', 'Improvidence', 'Inchoate', 'Incorrigible', 'Indelible', 'Ineffable', 'Infer', 'Ingenious', 'Ingenuous', 'Inhibit', 'Innocuous', 'Insensible', 'Insipid', 'Insular', 'Intransigent', 'Irascible', 'Laconic', 'Latent', 'Laudable', 'Leviathan', 'Loquacious', 'Lucid', 'Lugubrious', 'Magnanimity', 'Malevolent', 'Misanthrope', 'Misnomer', 'Misogynist', 'Mitigate', 'Nefarious', 'Noisome', 'Obdurate', 'Obviate', 'Occlude', 'Opaque', 'Ossified', 'Panegyric', 'Peccadillo', 'Pedantic', 'Perfidious', 'Petulant', 'Philanthropy', 'Phlegmatic', 'Placate', 'Plastic', 'Plethora', 'Ponderous', 'Pragmatic', 'Precipice', 'Precipitate', 'Precursor', 'Prevaricate', 'Prodigal', 'Propitiate', 'Pulchritudinous', 'Pusillanimous', 'Quiescence', 'Rarefy', 'Reproof', 'Rescind', 'Sagacious', 'Sanguine', 'Sate', 'Saturnine', 'Savant', 'Sedulous', 'Specious', 'Superficial', 'Tacit', 'Taciturn', 'Temperate', 'Tirade', 'Tractable', 'Turpitude', 'Tyro', 'Vacuous', 'Venerate', 'Verbose', 'Vex', 'Viscous', 'Volatile', 'Voracious', 'Waver', 'Zeal'
+    ];
+
+    function randomNumbers(amount,limit) {
+
+        let numbers = [];
+
+        let number = Math.floor(Math.random() * Math.floor(limit));
+
+        numbers.push(number);
+
+        for(let i = 0; i < amount; i++) {
+
+            number = Math.floor(Math.random() * Math.floor(limit));
+
+            while(numbers.includes(number)) {
+                number = Math.floor(Math.random() * Math.floor(limit));
+            }
+
+            numbers.push(number);
+        }
+
+        return numbers;
+    }
+
+    function randomWords(amount, limit) {
+
+        let words = [];
+
+        const myNumbers = randomNumbers(amount, limit);
+
+        myNumbers.forEach(function(i){
+            words.push(greWords[i]);
+        })
+
+        return words;
+    }
+
+
     let synth = window.speechSynthesis;
     let voices = synth.getVoices();
 
@@ -114,10 +163,23 @@
 
     let items = document.querySelectorAll(".cell");
 
+    let gridWords = randomWords(items.length,greWords.length);
+
+    for(let i = 0; i < items.length; i++){
+        items[i].innerText = gridWords[i];
+    }
+
     items.forEach(function (item) {
 
         item.addEventListener('click', function () {
             speak(this.innerText);
+
+            item.style.backgroundColor = "var(--alternateColor)";
+
+            window.setTimeout(function() {
+                item.style.backgroundColor = "var(--cellColor)";
+            }, 900);
+
         }, false);
 
     });
