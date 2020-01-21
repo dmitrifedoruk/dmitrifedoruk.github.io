@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body {
+            background-color: #107f0c;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            height: 100%;
+            width: 100%;
+            color:  #d02727;
+            font-size: 3rem;
+        }
+
+        .ripple {
+            background: radial-gradient(transparent 70%, #21f214 70%);
+            border-radius: 50%;
+            height: 1px;
+            width: 1px;
+            position: absolute;
+            transition: all 4s ease-in;
+        }
+
+        .grow {
+            transform: scale(2800,2800);
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="wrapper">
+
+</div>
+
+<script>
+
+    document.addEventListener('click', createRipple);
+
+    window.setInterval(removeRipples,5000);
+
+    function initializeRipple(e) {
+
+        let rippleDiv = document.createElement('div');
+        document.querySelector('.wrapper').appendChild(rippleDiv);
+        rippleDiv.classList.add('ripple');
+
+        rippleDiv.style.top = `${e.clientY}px`;
+        rippleDiv.style.left = `${e.clientX}px`;
+
+        window.setTimeout(function() {
+            rippleDiv.classList.add('grow');
+        }, 10);
+    }
+
+    function createRipple(e) {
+        window.setTimeout(function() {
+            initializeRipple(e);
+        }, 10);
+        window.setTimeout(function() {
+            initializeRipple(e);
+        }, 110);
+        window.setTimeout(function() {
+            initializeRipple(e);
+        }, 210);
+    }
+
+    function removeRipples() {
+        const ripples = document.querySelectorAll(".grow");
+
+        ripples.forEach(
+            function (item) {
+                let scale = item.style.width;
+                if(scale === "2500") {
+                    document.removeChild(item);
+                    console.log("ripple removed");
+                }
+            }
+        )
+    }
+
+
+</script>
+
+
+
+</body>
+</html>
