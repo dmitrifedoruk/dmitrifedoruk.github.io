@@ -213,10 +213,10 @@
             pos3 = e.clientX;
             pos4 = e.clientY;
             document.onmouseup = closeDragElement;
-            elmnt.addEventListener("touchend", closeDragElement, false);
+            document.addEventListener("touchend", closeDragElement, false);
             // call a function whenever the cursor moves:
             document.onmousemove = elementDrag;
-            elmnt.addEventListener("touchmove", elementDrag, false);
+            document.addEventListener("touchmove", elementDrag, false);
 
         }
 
@@ -238,9 +238,9 @@
         function closeDragElement() {
             // stop moving when mouse button is released:
             document.onmouseup = null;
-            elmnt.addEventListener("touchend", null, false);
+            document.addEventListener("touchend", null, false);
             document.onmousemove = null;
-            elmnt.addEventListener("touchmove", null, false);
+            document.addEventListener("touchmove", null, false);
 
             //elmnt.onmouseup = checkCave(elmnt);
 
