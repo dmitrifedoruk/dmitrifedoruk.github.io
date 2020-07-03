@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A's Forest</title>
+
+
+    <style>
+        body {
+            background-color: #0f6674;
+            background-image:  url("../demo2.svg"),url("images/282.jpg");
+            transition: background-color 2s;
+        }
+
+        .draggable:hover {
+            filter: brightness(108%);
+        }
+
+        .animal, .people {
+            position: absolute;
+            z-index: 8;
+            background-color: transparent;
+            background-size: 100% 100%;
+            height: 100px;
+            width: 100px;
+        }
+
+        .animal#fox {
+            background-image: url("images/013-fox.svg");
+            transform: scale(.5);
+        }
+
+        .animal#bear {
+            background-image: url("images/bear.svg");
+            transform: scale(.5);
+        }
+
+        .animal#raccoon {
+            background-image: url("images/027-raccoon.svg");
+            transform: scale(.5) rotateY(180deg);
+        }
+
+        .animal#cat {
+            background-image: url("images/005-cat.svg");
+            transform: scale(.4);
+        }
+
+        .animal#goose {
+            background-image: url("images/016-goose.svg");
+            transform: scale(.4) rotateY(180deg);
+        }
+
+
+        .people#king {
+            background-image: url("images/monarchy.svg");
+            transform: scale(.75);
+        }
+
+        .people#boy1 {
+            background-image: url("images/warrior.svg");
+            transform: scale(.5);
+        }
+
+        .people#boy2 {
+            background-image: url("images/warrior.svg");
+            transform: scale(.35);
+        }
+
+        .people#mom {
+            background-image: url("images/mother.svg");
+            transform: scale(.65);
+        }
+
+
+
+
+        .tree {
+            position: absolute;
+            z-index: 1;
+            background-color: transparent;
+            background-size: 100% 100%;
+            height: 150px;
+            width: 150px;
+        }
+
+        .tree#tree1 {
+            background-image: url("images/tree1.svg");
+        }
+
+        .tree#tree2 {
+            background-image: url("images/tree2.svg");
+        }
+
+        .tree#tree3 {
+            background-image: url("images/tree3.svg");
+        }
+
+
+        .scenery {
+            position: absolute;
+            z-index: 2;
+            background-color: transparent;
+            background-size: 100% 100%;
+        }
+
+        .scenery#cave {
+            height: 200px;
+            width: 200px;
+            top: 50vh;
+            left: 50vw;
+            background-image: url("images/cave.svg");
+        }
+
+        .scenery#house {
+            height: 150px;
+            width: 150px;
+            background-image: url("images/cabin.svg");
+        }
+
+
+    </style>
+
+    <link rel="icon"
+          type="image/png"
+          href="images/tree-and-man-icon.png">
+
+
+</head>
+
+<body>
+
+<div id="coords"></div>
+
+<div class="animal draggable" id="fox"></div>
+
+<div class="animal draggable" id="bear"></div>
+
+<div class="animal draggable" id="raccoon"></div>
+
+<div class="animal draggable" id="cat"></div>
+
+<div class="animal draggable" id="goose"></div>
+
+<div class="tree draggable" id="tree1"></div>
+
+<div class="tree draggable" id="tree2"></div>
+
+<div class="tree draggable" id="tree3"></div>
+
+<div class="people draggable" id="king"></div>
+
+<div class="people draggable" id="boy1"></div>
+
+<div class="people draggable" id="boy2"></div>
+
+<div class="people draggable" id="mom"></div>
+
+<div class="draggable scenery" id="house"></div>
+
+<div class="draggable scenery" id="cave"></div>
+
+<script>
+
+    // let screenLog = document.querySelector('#coords');
+    // document.addEventListener('mousemove', logKey);
+    //
+    // function logKey(e) {
+    //     screenLog.innerText = `
+    // Screen X/Y: ${e.screenX}, ${e.screenY}
+    // Client X/Y: ${e.clientX}, ${e.clientY}`;
+    // }
+
+
+
+    function getRectangle(element) {
+
+        let top = element.getBoundingClientRect().top;
+        let right = element.getBoundingClientRect().right;
+        let bottom = element.getBoundingClientRect().bottom;
+        let left = element.getBoundingClientRect().left;
+
+        return [top,right,bottom,left];
+    }
+
+    let caveBox = getRectangle(document.getElementById("cave"));
+
+    console.log(caveBox);
+
+
+
+
+    let objects = document.querySelectorAll('.draggable');
+
+    objects.forEach(
+        function(object) {dragElement(object)}
+    );
+
+
+    function dragElement(elmnt) {
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+        elmnt.onmousedown = dragMouseDown;
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+        }
+
+
+
+        function closeDragElement() {
+            // stop moving when mouse button is released:
+            document.onmouseup = null;
+            document.onmousemove = null;
+
+            //elmnt.onmouseup = checkCave(elmnt);
+
+        }
+    }
+
+    function checkCave(element) {
+
+        let elmntBox = getRectangle(element);
+
+        console.log(elmntBox);
+
+        // if (elmntBox[0] - 20 > caveBox[0] + 20 &&
+        //     elmntBox[0] - 20 > caveBox[0]
+        // )
+
+        // if (left1 < right2 &&
+        //     right1 > left2 &&
+        //     top1 < bottom2 &&
+        //     bottom1 > top2)
+
+        //[top,right,bottom,left]
+
+        if (elmntBox[0] - 20 > caveBox[0] + 20 &&
+            elmntBox[3] - 20 < caveBox[3] - 30
+        )
+        {
+            document.querySelector('body').style.backgroundColor = '#212f74';
+        }
+        else {
+            document.querySelector('body').style.backgroundColor = '#007463';
+        }
+
+    }
+
+
+
+</script>
+
+</body>
+</html>
