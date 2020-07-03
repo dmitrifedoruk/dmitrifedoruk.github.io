@@ -11,6 +11,15 @@
             background-color: #326a93;
         }
 
+        .wrapper {
+            height: 100vh;
+            width: 100vw;
+            touch-action: none;
+
+
+
+        }
+
         #object {
             position: absolute;
             height: 100px;
@@ -18,11 +27,13 @@
             left: 50vw;
             top: 50vh;
             background-color: #913697;
-            transition: background-color 1s;
+            transition: background-color 0.5s;
+            touch-action: none;
+            user-select: none;
         }
 
         .activated {
-            background-color: yellow;
+            background-color: cornflowerblue;
         }
 
 
@@ -32,18 +43,33 @@
 
 <body>
 
+<div class="wrapper">
+
 <div id="object"></div>
 
+</div>
 <script>
 
     let object = document.querySelector('#object');
 
+    object.onmousedown = function() {
+        console.log('123');
+        object.style.backgroundColor = 'red';
+    }
+
+    object.onmouseup = function() {
+        console.log('456');
+        object.style.backgroundColor = 'yellow';
+    }
+
     object.ontouchstart = function() {
-        object.classList.add('activated');
+        console.log('789');
+        object.style.backgroundColor = 'green';
     }
 
     object.ontouchend = function() {
-        object.classList.remove('activated');
+        console.log('101112');
+        object.style.backgroundColor = 'firebrick';
     }
 
 
