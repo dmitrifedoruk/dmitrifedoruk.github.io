@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Touch Experiment</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            background-color: #326a93;
+        }
+
+        #object {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            left: 50vw;
+            top: 50vh;
+            background-color: #913697;
+            transition: background-color 1s;
+        }
+
+        .activated {
+            background-color: yellow;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div id="object"></div>
+
+<script>
+
+    let object = document.querySelector('#object');
+
+    object.ontouchstart = function() {
+        object.classList.add('activated');
+    }
+
+    object.ontouchend = function() {
+        object.classList.remove('activated');
+    }
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
