@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Treasure Island Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="treasureIslandStory">
+        <p>Treasure Island</p>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=waiting type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=man type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=long type="text" placeholder="">
+        </div>
+        <div>
+            <label>Name</label>
+            <input class=john type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part</label>
+            <input class=leg type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part</label>
+            <input class=hip type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part</label>
+            <input class=shoulder1 type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=crutch type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=hopping type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=bird type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=tall type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=strong type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part</label>
+            <input class=face type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=ham type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=pale type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=smiling type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=cheerful type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=whistling type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=tables type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part</label>
+            <input class=shoulder2 type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=guests type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonsTreasureIsland">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="treasureIslandCreate">
+        <div>
+            <p class="storyTitle" id="titleTreasureIsland">Treasure Island</p>
+            <p class="story" id="storyTreasureIsland">As I was <span class='waiting'>waiting</span>, a <span
+                    class='man'>man</span> came out of a side room, and at a glance I was sure he must be <span
+                    class='long capitalize'>Long</span> <span class='john capitalize'>John</span>. His left <span class='leg'>leg</span> was
+                cut off close by the <span class='hip'>hip</span>, and under the left <span
+                        class='shoulder1'>shoulder</span> he carried a <span class='crutch'>crutch</span>, which he
+                managed with wonderful dexterity, <span class='hopping'>hopping</span> about upon it like a <span
+                        class='bird'>bird</span>. He was very <span class='tall'>tall</span> and <span class='strong'>strong</span>,
+                with a <span class='face'>face</span> as big as a <span class='ham'>ham</span> — plain and <span
+                        class='pale'>pale</span>, but intelligent and <span class='smiling'>smiling</span>. Indeed, he
+                seemed in the most <span class='cheerful'>cheerful</span> spirits, <span
+                        class='whistling'>whistling</span> as he moved about among the <span
+                        class='tables'>tables</span>, with a merry word or a slap on the <span
+                        class='shoulder2'>shoulder</span> for the more favoured of his <span class='guests'>guests</span>.
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

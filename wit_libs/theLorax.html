@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Lorax Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="theLoraxStory">
+        <p>The Lorax</p>
+        <div>
+            <label>Noun</label>
+            <input class=grass type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=pond type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=clouds type="text" placeholder="">
+        </div>
+        <div>
+            <label>Nonsense Wd</label>
+            <input class=swomee type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=glorious type="text" placeholder="">
+        </div>
+        <div>
+            <label>Nonsense Wd</label>
+            <input class=truffula type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=tufts type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=breeze type="text" placeholder="">
+        </div>
+        <div>
+            <label>Nonsense Wd</label>
+            <input class=bar-ba type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=frisking type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=shade type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=humming type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=splashing type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=silk type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=butterfly type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonsTheLorax">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="theLoraxCreate">
+        <div>
+            <p class="storyTitle" id="titleTheLorax">The Lorax</p>
+            <p class="story" id="storyTheLorax">Way back in the days when the <span class='grass'>grass</span> was still
+                green and the <span class='pond'>pond</span> was still wet and the <span class='clouds'>clouds</span>
+                were still clean, and the song of the <span class='swomee capitalize'>Swomee</span>-Swans rang out in space... one
+                morning, I came to this <span class='glorious'>glorious</span> place. And I first saw the trees! The
+                <span class='truffula capitalize'>Truffula</span> Trees! The bright-colored <span class='tufts'>tufts</span> of the
+                <span class='truffula capitalize'>Truffula</span> Trees! Mile after mile in the fresh morning <span class='breeze'>breeze</span>.
+                And under the trees, I saw Brown <span class='bar-ba capitalize'>Bar-ba</span>-loots <span class='frisking'>frisking</span>
+                about in their <span class='bar-ba capitalize'>Bar-ba</span>-loot suits as the played in the <span class='shade'>shade</span>
+                and ate <span class='truffula capitalize'>Truffula</span> Fruits. From the rippulous <span class='pond'>pond</span>
+                came the comfortable sound of the <span class='humming capitalize'>Humming</span>-Fish <span class='humming'>humming</span> while <span
+                        class='splashing'>splashing</span> around.
+                But those trees! Those trees! Those <span class='truffula capitalize'>Truffula</span> Trees! All my life I'd been
+                searching for trees such as these. The touch of their <span class='tufts'>tufts</span> was much softer
+                than <span class='silk'>silk</span>. And they had the sweet smell of fresh <span class='butterfly'>butterfly</span>
+                milk.
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

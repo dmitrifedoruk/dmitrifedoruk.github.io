@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teddy bear, teddy bear Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="teddyBearStory">
+        <p>Teddy bear, teddy bear...</p>
+        <div>
+            <label>Name</label>
+            <input class=teddy type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adverb</label>
+            <input class=around type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=ground type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adverb</label>
+            <input class=high type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=sky type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adverb</label>
+            <input class=low type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=toes type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonsTeddyBear">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="teddyBearCreate">
+        <div>
+            <p class="storyTitle" id="titleTeddyBear">Teddy bear, teddy bear...</p>
+            <p class="story" id="storyTeddyBear"><span class='teddy'>teddy</span> bear, <span class='teddy'>teddy</span> bear, turn <span class='around'>around</span>.<br>
+                <span class='teddy'>teddy</span> bear, <span class='teddy'>teddy</span> bear, touch the <span class='ground'>ground</span>.<br>
+                <span class='teddy'>teddy</span> bear, <span class='teddy'>teddy</span> bear, jump up <span class='high'>high</span>.<br>
+                <span class='teddy'>teddy</span> bear, <span class='teddy'>teddy</span> bear, touch the <span class='sky'>sky</span>.<br>
+                <span class='teddy'>teddy</span> bear, <span class='teddy'>teddy</span> bear, bend down <span class='low'>low</span>.<br>
+                <span class='teddy'>teddy</span> bear, <span class='teddy'>teddy</span> bear, touch your <span class='toes'>toes</span>.
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

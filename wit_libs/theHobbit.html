@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Hobbit Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="theHobbitStory">
+        <p>The Hobbit, Inside Information</p>
+        <div>
+            <label>Noun</label>
+            <input class=hill type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=air type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb (s)</label>
+            <input class=walks type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=clue type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=web type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=fly type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=number.. type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb (s)</label>
+            <input class=buries type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb (s)</label>
+            <input class=drowns type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb (s)</label>
+            <input class=draws type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=bag type="text" placeholder="">
+        </div>
+        <div>
+            <label>Animal (plural)</label>
+            <input class=bears type="text" placeholder="">
+        </div>
+        <div>
+            <label>Animal (plural)</label>
+            <input class=eagles type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=ring type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=luck type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=barrel type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonstheHobbit">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="theHobbitCreate">
+        <div>
+            <p class="storyTitle" id="titletheHobbit">The Hobbit, Inside Information</p>
+            <p class="story" id="storytheHobbit">...I come from under the
+                <span class='hill'>hill</span>, and under <span class='hill'>hills</span>s
+                and over the <span class='hill'>hills</span>s my paths led. And through the
+                <span class='air'>air</span>, I am he that <span class='walks'>walks</span>
+                unseen... I am the <span class='clue'>clue</span>-finder, the
+                <span class='web'>web</span>-cutter, the stinging <span class='fly'>fly</span>.
+                I as chosen for the lucky <span class='number..'>number..</span>. I am he
+                that <span class='buries'>buries</span> his friends alive and
+                <span class='drowns'>drowns</span> them and <span class='draws'>draws</span>
+                them alive again from the water. I came from the end of a
+                <span class='bag'>bag</span>, but no <span class='bag'>bag</span> went
+                over me... I am the friend of <span class='bears'>bears</span> and the
+                guest of <span class='eagles'>eagles</span>. I am <span class='ring'>Ring</span>winner
+                and <span class='luck'>Luck</span> wearer; and I am <span class='barrel'>Barrel</span>-rider...
+
+
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

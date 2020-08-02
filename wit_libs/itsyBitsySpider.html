@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Itsy Bitsy Spider Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="itsyBitsySpiderStory">
+        <p>Itsy Bitsy Spider</p>
+        <div>
+            <label>Adjective</label>
+            <input class=itsy type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=bitsy type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=spider type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=water type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=rain type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ed')</label>
+            <input class=washed type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=sun type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ed')</label>
+            <input class=dried type="text" placeholder="">
+        </div>
+
+
+
+
+
+        <div class="buttons" id="buttonsItsyBitsySpider">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="itsyBitsySpiderCreate">
+        <div>
+            <p class="storyTitle" id="titleItsyBitsySpider">Itsy Bitsy Spider</p>
+            <p class="story" id="storyItsyBitsySpider">The <span class='itsy'>itsy</span> <span class='bitsy'>bitsy</span> <span class='spider'>spider</span> climbed up the <span class='water'>water</span> spout.<br>
+                Down came the <span class='rain'>rain</span> and <span class='washed'>washed</span> the <span class='spider'>spider</span> out.<br>
+                Out came the <span class='sun'>sun</span> and <span class='dried'>dried</span> up all the <span class='rain'>rain</span>.<br>
+                And the <span class='itsy'>itsy</span> <span class='bitsy'>bitsy</span> <span class='spider'>spider</span> climbed up the spout again.
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

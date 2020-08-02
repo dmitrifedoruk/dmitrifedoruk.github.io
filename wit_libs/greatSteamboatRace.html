@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Great Steamboat Race Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="blackAdderStory">
+        <p>The Great Steamboat Race</p>
+        <div>
+            <label>Noun</label>
+            <input class=boat type="text" placeholder="">
+        </div>
+        <div>
+            <label>Superlative</label>
+            <input class=straining type="text" placeholder="">
+        </div>
+        <div>
+            <label>Superlative</label>
+            <input class=groaning type="text" placeholder="">
+        </div>
+        <div>
+            <label>Superlative</label>
+            <input class=quivering type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=pilots type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=wheel type="text" placeholder="">
+        </div>
+        <div>
+            <label>Clothing (pl)</label>
+            <input class=coats type="text" placeholder="">
+        </div>
+        <div>
+            <label>Clothing (pl)</label>
+            <input class=vests type="text" placeholder="">
+        </div>
+        <div>
+            <label>Clothing (pl)</label>
+            <input class=bosoms type="text" placeholder="">
+        </div>
+        <div>
+            <label>Clothing (pl)</label>
+            <input class=collars type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part (pl)</label>
+            <input class=faces type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=shore type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=willows type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonsGreatSteamboatRace">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="greatSteamboatRaceCreate">
+        <div>
+            <p class="storyTitle" id="titleGreatSteamboatRace">The Great Steamboat Race</p>
+            <p class="story" id="storyGreatSteamboatRace">The <span class='boat'>boat</span>
+                was <span class='straining'>straining</span>, and
+                <span class='groaning'>groaning</span> and
+                <span class='quivering'>quivering</span>, like a monster in pain.
+                Both <span class='pilots'>pilots</span> were at work now, one on each side
+                of the <span class='wheel'>wheel</span>, with their
+                <span class='coats'>coats</span> and <span class='vests'>vests</span> off,
+                their <span class='bosoms'>bosoms</span> and <span class='collars'>collars</span>
+                wide open, and the perspiration flowing down their <span class='faces'>faces</span>.
+                They were holding the <span class='boat'>boat</span> so close to the
+                <span class='shore'>shore</span> that the <span class='willows'>willows</span> swept
+                the guards almost from stem to stern.
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

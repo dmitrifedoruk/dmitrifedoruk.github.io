@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Major-General Song Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="majorGeneralSongStory">
+        <p>Major-General Song, First Stanza</p>
+        <div>
+            <label>Noun</label>
+            <input class=major type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=vegetable type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=animal type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=mineral type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=kings type="text" placeholder="">
+        </div>
+        <div>
+            <label>Country</label>
+            <input class=england type="text" placeholder="">
+        </div>
+        <div>
+            <label>Place</label>
+            <input class=marathon type="text" placeholder="">
+        </div>
+        <div>
+            <label>Place</label>
+            <input class=waterloo type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=mathematical type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=equations type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb (past)</label>
+            <input class=acquainted type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=simple type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=binomial type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=cheerful type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=hypotenuse type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonsMajorGeneralSong">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="majorGeneralSongCreate">
+        <div>
+            <p class="storyTitle" id="titlemajorGeneralSong">Major-General Song, First Stanza</p>
+            <p class="story" id="storyMajorGeneralSong">I am the very model of a modern <span class='major'>Major</span>-General,<br>
+                I've information <span class='vegetable'>vegetable</span>, <span class='animal'>animal</span>, and <span class='mineral'>mineral</span>,<br>
+                I know the <span class='kings'>kings</span> of <span class='england'>England</span>, and I quote the fights historical<br>
+                From <span class='marathon'>Marathon</span> to <span class='waterloo'>Waterloo</span>, in order categorical;<br>
+                I'm very well <span class='acquainted'>acquainted</span>, too, with matters <span class='mathematical'>mathematical</span>,<br>
+                I understand <span class='equations'>equations</span>, both the <span class='simple'>simple</span> and quadratical,<br>
+                About <span class='binomial'>binomial</span> theorem I'm teeming with a lot o' news,<br>
+                With many <span class='cheerful'>cheerful</span> facts about the square of the <span class='hypotenuse'>hypotenuse</span>.
+
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

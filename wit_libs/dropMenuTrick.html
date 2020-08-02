@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            background-color: #0f6674;
+        }
+
+        .wrapper {
+            display: grid;
+            justify-content: center;
+        }
+
+        .menu {
+            display: grid;
+        }
+
+        #menu-button {
+            display: grid;
+            justify-content: center;
+            font-size: 0.8rem;
+            width: 50px;
+            height: 50px;
+            background-color: #913697;
+            border: ridge #d473ff 10px;
+            border-radius: 7px;
+            z-index: 2;
+        }
+
+        #dropDown {
+            display: grid;
+            grid-template-columns: 150px;
+            grid-template-rows: repeat(3, 40px);
+            transition: top 1s;
+            position: relative;
+            top: -120px;
+        }
+
+
+
+        a {
+            display: grid;
+            align-content: center;
+            background-color: #beb213;
+            font-family: sans-serif;
+            color: #be4f64;
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+
+
+        .cover {
+            height: 120px;
+            width: 150px;
+            background-color: #0f6674;
+            position: relative;
+            top: -240px;
+            z-index: 1;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<div class="wrapper">
+    <div class="menu">
+        <div id="menu-button" onclick="moveDropDown()">
+            <div>menu</div>
+            <div>menu</div>
+            <div>menu</div>
+        </div>
+        <div id="dropDown">
+            <a href="number-speak.html">Bananas</a>
+            <a href="color-exp.html">Apples</a>
+            <a href="http://wikipedia.org">Oranges</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+</div>
+
+<script>
+
+    function moveDropDown() {
+
+        if(document.querySelector('#dropDown').style.top === '0px') {
+
+            document.querySelector('#dropDown').style.top = '-120px';
+        }
+        else {
+            document.querySelector('#dropDown').style.top = '0px';
+        }
+
+    }
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

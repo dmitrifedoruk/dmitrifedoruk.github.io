@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Black Adder Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="blackAdderStory">
+        <p>Black Adder Theme Song, Series One</p>
+        <div>
+            <label>Noun (plural)</label>
+            <input class='hoofbeats' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (person)</label>
+            <input class='son' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (person)</label>
+            <input class='daughter' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class='deadly' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ( 'ing' )</label>
+            <input class='flashing' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class='blade' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Comparative</label>
+            <input class='shorter' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class='steed' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class='bad' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Clothing (pl.)</label>
+            <input class='gloves' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Material</label>
+            <input class='mole' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Clothing</label>
+            <input class='codpiece' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Material</label>
+            <input class='metal' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class='vole' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class='pot' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class='kettle' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class='cunning' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class='horrid' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class='little' type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class='man' type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonsBlackAdder">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="blackAdderCreate">
+        <div>
+            <p class="storyTitle" id="titleBlackAdder">Black Adder Theme Song, Series One</p>
+            <p class="story" id="storyBlackAdder">The sound of <span class='hoofbeats'>hoof beats</span> 'cross the glade<br>
+                Good folk, lock up your <span  class='son'>son</span> and <span class='daughter'>daughter</span><br>
+                Beware the <span class='deadly'>deadly</span> <span class='flashing'>flashing</span> <span class='blade'>blade</span><br>
+                unless you want to end up <span class='shorter'>shorter</span><br>
+                <br>Black Adder, Black Adder! He rides a pitch black <span class='steed'>steed</span><br>
+                Black Adder, Black Adder! He's very <span class='bad'>bad</span> indeed<br>
+                <br>Black: his <span class='gloves'>gloves</span> of finest <span class='mole'>mole</span><br>
+                Black: his <span class='codpiece'>codpiece</span> made of <span class='metal'>metal</span><br>
+                His <span class='steed'>horse</span> is blacker than a <span class='vole'>vole</span><br>
+                his <span class='pot'>pot</span> is blacker than his <span class='kettle'>kettle</span><br>
+                <br>
+                Black Adder, Black Adder, with many a(n) <span class='cunning'>cunning</span> plan<br>
+                Black Adder, Black Adder, you <span class='horrid'>horrid</span> <span class='little'>little</span> <span class='man'>man</span>!
+
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

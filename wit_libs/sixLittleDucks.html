@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Six Little Ducks Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="sixLittleDucksStory">
+        <p>Six Little Ducks</p>
+        <div>
+            <label>Number</label>
+            <input class=six type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=little type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun #1 (sng)</label>
+            <input class=duck type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun #1 (pl)</label>
+            <input class=ducks type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=fat type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=skinny type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=fare type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=feather type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part</label>
+            <input class=back type="text" placeholder="">
+        </div>
+        <div>
+            <label>Sound</label>
+            <input class=quack type="text" placeholder="">
+        </div>
+
+
+
+
+        <div class="buttons" id="buttonsSixLittleDucks">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="sixLittleDucksCreate">
+        <div>
+            <p class="storyTitle" id="titleSixLittleDucks">Black Adder Theme Song, Series One</p>
+            <p class="story" id="storySixLittleDucks"><span class='six'>Six</span> <span class='little'>Little</span> <span class='ducks'>Ducks</span> that I once knew<br>
+                <span class='fat'>Fat</span> ones, <span class='skinny'>skinny</span> ones, <span class='fare'>fare</span> ones too<br>
+                But the one <span class='little'>little</span> <span class='duck'>duck</span> with the <span class='feather'>feather</span> on its <span class='back'>back</span><br>
+                He led the others with a <span class='quack'>quack</span>, <span class='quack'>quack</span>, <span class='quack'>quack</span>
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

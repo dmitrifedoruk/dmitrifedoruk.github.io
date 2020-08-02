@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Be or Not to Be Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="beNotBeStory">
+        <p>To Be or Not to Be</p>
+        <div>
+            <label>Verb</label>
+            <input class=be type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=question type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=mind type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=slings type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=arrows type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=arms type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=troubles type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=opposing type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adverb</label>
+            <input class=devoutly type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb</label>
+            <input class=die type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb</label>
+            <input class=sleep type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb</label>
+            <input class=end type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=heartache type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=flesh type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb</label>
+            <input class=dream type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=rub type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonsBenotBe">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="beNotBeCreate">
+        <div>
+            <p class="storyTitle" id="titleBeNotBe">To Be or Not to Be</p>
+            <p class="story" id="storyBeNotBe">To <span class='be'>be</span>, or not to <span class='be'>be</span>, that is the <span class='question'>question</span>:
+                Whether 'tis nobler in the <span class='mind'>mind</span> to suffer
+                The <span class='slings'>slings</span> and <span class='arrows'>arrows</span> of outrageous fortune,
+                Or to take <span class='arms'>arms</span> against a sea of <span class='troubles'>troubles</span>
+                And by <span class='opposing'>opposing</span> end them. To <span class='die'>die</span> — to <span class='sleep'>sleep</span>,
+                No more; and by a <span class='sleep'>sleep</span> to say we <span class='end'>end</span>
+                The <span class='heartache'>heart-ache</span> and the thousand natural shocks
+                That <span class='flesh'>flesh</span> is heir to: 'tis a consummation
+                <span class='devoutly'>Devoutly</span> to be wish'd. To <span class='die'>die</span>, to <span class='sleep'>sleep</span>;
+                To <span class='sleep'>sleep</span>, perchance to <span class='dream'>dream</span> — ay, there's the <span class='rub'>rub</span> :
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

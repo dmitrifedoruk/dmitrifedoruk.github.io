@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alas, poor Yorick! Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="hamletYorickStory">
+        <p>Alas, poor Yorick!</p>
+        <!-- Paste inputs html here       -->
+
+        <div>
+            <label>Name</label>
+            <input class=yorick type="text" placeholder="">
+        </div>
+        <div>
+            <label>Name</label>
+            <input class=horatio type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=jest type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=fancy type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb (past)</label>
+            <input class=borne type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part</label>
+            <input class=back type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=abhorred type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=gorge type="text" placeholder="">
+        </div>
+        <div>
+            <label>Body Part (pl.)</label>
+            <input class=lips type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=gibes type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=gambols type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=songs type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=merriment type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=table type="text" placeholder="">
+        </div>
+
+
+
+
+        <div class="buttons" id="buttonsHamletYorick">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="hamletYorickCreate">
+        <div>
+            <p class="storyTitle" id="titleHamletYorick">Alas, poor Yorick!</p>
+            <p class="story" id="storyHamletYorick">Alas, poor <span class='yorick'>Yorick</span>!
+                I knew him, <span class='horatio'>Horatio</span>; a fellow of infinite
+                <span class='jest'>jest</span>, of most excellent <span class='fancy'>fancy</span>;
+                he hath <span class='borne'>borne</span> me on his <span class='back'>back</span>
+                a thousand times; and now, how <span class='abhorred'>abhorred</span> in my
+                imagination it is! My <span class='gorge'>gorge</span> rises at it. Here hung
+                those <span class='lips'>lips</span> that I have kissed I know not how oft.
+                Where be your <span class='gibes'>gibes</span> now? Your
+                <span class='gambols'>gambols</span>? Your <span class='songs'>songs</span>?
+                Your flashes of <span class='merriment'>merriment</span>, that were wont to
+                set the <span class='table'>table</span> on a roar?
+
+
+
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

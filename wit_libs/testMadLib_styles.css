@@ -1,0 +1,29 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai|Mystery+Quest');
+
+/*
+
+   My MadLibs Test Style Sheet
+
+   Author: Trista Fedoruk
+   Date: 1/5/2020, last updated 1/12/2020
+
+   Filename:         testMadLib_styles.css
+
+*/
+
+
+/*html styles*/
+
+html {
+    background-image: url("9b066a3ae81e204a3cb8b98a1d0080e4.jpg");
+    background-size: cover;
+    font-family: "Baloo Bhai", sans-serif;
+}
+
+/*body styles*/
+
+body {
+    margin: 0;
+}
+

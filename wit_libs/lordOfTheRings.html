@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lord of the Rings Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="lordOfTheRingsStory">
+        <p>The Lord of the Rings, Ring Inscription</p>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=rings type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=elven type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=sky type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=dwarf type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=stone type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=men type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb (present)</label>
+            <input class=die type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=dark type="text" placeholder="">
+        </div>
+        <div>
+            <label>Place</label>
+            <input class=mordor type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=shadows type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=ring type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb (present)</label>
+            <input class=bind type="text" placeholder="">
+        </div>
+
+
+
+
+        <div class="buttons" id="buttonslordOfTheRings">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="lordOfTheRingsCreate">
+        <div>
+            <p class="storyTitle" id="titlelordOfTheRings">Black Adder Theme Song, Series One</p>
+            <p class="story" id="storylordOfTheRings">Three <span class='rings'>Rings</span> for the <span class='elven'>Elven</span>-Kings under the <span class='sky'>Sky</span>,<br>
+                Seven for the <span class='dwarf'>Dwarf</span>-lords in their halls of <span class='stone'>stone</span>,<br>
+                Nine for Mortal <span class='men'>Men</span> doomed to <span class='die'>die</span>,<br>
+                One for the <span class='dark'>Dark</span> Lord on his <span class='dark'>dark</span> throne<br>
+                In the Land of <span class='mordor'>Mordor</span> where the <span class='shadows'>Shadows</span> lie.<br>
+                One <span class='ring'>Ring</span> to rule them all, One <span class='ring'>Ring</span> to find them,<br>
+                One <span class='ring'>Ring</span> to bring them all and in the darkness <span class='bind'>bind</span> them<br>
+                In the Land of <span class='mordor'>Mordor</span> where the <span class='shadows'>Shadows</span> lie.
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>

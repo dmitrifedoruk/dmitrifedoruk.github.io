@@ -1,0 +1,186 @@
+
+/*
+
+   My Mad Libs Forms Style Sheet
+
+   Author: Trista Fedoruk
+   Date: 1/5/20
+
+   Filename:         madLibs_forms.css
+
+*/
+
+
+
+/* form styles*/
+
+form#cForm {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+    grid-gap: 30px;
+    justify-content: center;
+}
+
+form#cRate {
+    display: grid;
+    grid-template-columns: 350px;
+    justify-content: center;
+}
+
+/* fieldset styles*/
+
+fieldset {
+    background-color: rgba(11, 195, 213, 0.51);
+    color: #65c362;
+    text-shadow: black 1px 1px, #41025e 2px 2px;
+    border: solid #65c362;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 15px;
+    width: 350px;
+}
+
+fieldset legend {
+    font-size: 1.5rem;
+}
+
+fieldset p {
+    margin: 3px 0 12px 0;
+    color: rgb(101, 195, 98);
+    text-shadow: black 1px 1px, #41025e 2px 2px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+fieldset#custInfo {
+    justify-self: end;
+}
+
+fieldset#custOrder {
+    padding-bottom: 5px;
+    justify-self: start;
+}
+
+fieldset#custRate {
+    font-size: 1.3rem;
+}
+
+fieldset#custRate div {
+    padding-bottom: 10px;
+}
+
+fieldset input {
+    background-color: rgba(11, 195, 213, 0.51);
+    border-radius: 5px;
+}
+
+fieldset.optItems {
+    width: 35%;
+}
+
+fieldset.optItems input{
+    float: none;
+}
+
+
+/* div style*/
+
+div.formRow input {
+    float: right;
+    color: rgb(90, 20, 181);
+    text-shadow: black 0 1px;
+    text-align: right;
+    background-color:  rgba(11, 195, 213, 0.51);
+    border-color: #65c362;
+    border-radius: 5px;
+}
+
+div.formRow select {
+    background-color: rgba(11, 195, 213, 0.51);
+    border-radius: 5px;
+    float: right;
+    color: rgb(90, 20, 181);
+    text-shadow: black 0 1px;
+    text-align: center;
+    border-color: #65c362;
+}
+
+#hear {
+    padding-top: 42px;
+    font-size: 1.2rem;
+}
+
+#mail {
+    font-size: 1.2rem;
+    padding-top: 5px;
+}
+
+#mail input  {
+    float: none;
+}
+
+span.optItems, span.rateGroup {
+    background-color: rgba(11, 195, 213, 0.51);
+    border: solid #65c362;
+    border-radius: 5px;
+    float: right;
+}
+
+span.optItems input, span.rateGroup input {
+    float: none;
+    padding: 0 3px 0 3px;
+}
+
+div#dvdBurn, div#tuner, div#mediaCard {
+    padding: 5px 5px;
+}
+
+div#dvdBurn {
+    padding-top: 15px;
+}
+
+div#warranty {
+    padding-top: 20px;
+    font-size: 1.2rem;
+}
+
+div#warranty input {
+    float: none;
+}
+
+div#addComm {
+    padding-top: 30px;
+    font-size: 1.2rem;
+}
+
+div#addComm textarea, div#commRating textarea {
+    width: 50%;
+    height: 35px;
+    margin-bottom: 15px;
+    background-color:  rgba(11, 195, 213, 0.51);
+    border-color: #65c362;
+    border-radius: 5px;
+    color: rgb(90, 20, 181);
+    text-shadow: black 0 1px;
+}
+
+div#submit input {
+    margin: 5px 5px 0 5px;
+}
+
+
+/* media queries*/
+
+@media only screen and (max-width: 850px) {
+
+
+
+    form#cForm {
+        grid-template-columns: 350px;
+    }
+
+    fieldset#custInfo, fieldset#custOrder, fieldset#custRate {
+        justify-self: center;
+    }
+}

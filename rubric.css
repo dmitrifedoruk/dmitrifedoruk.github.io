@@ -45,20 +45,20 @@ ul p::first-letter{
 
 
 
-p:hover{
-    font-size: 0.9rem;
-    color: darkslateblue;
-}
+/*p:hover{*/
+/*    font-size: 0.9rem;*/
+/*    color: darkslateblue;*/
+/*}*/
 
-p:nth-of-type(1):hover{
-    font-size: inherit;
-    color: navy;
-}
+/*p:nth-of-type(1):hover{*/
+/*    font-size: inherit;*/
+/*    color: navy;*/
+/*}*/
 
-ul p:nth-of-type(1):hover{
-    font-size: 0.9rem;
-    color: darkslateblue;
-}
+/*ul p:nth-of-type(1):hover{*/
+/*    font-size: 0.9rem;*/
+/*    color: darkslateblue;*/
+/*}*/
 
 
 
@@ -95,23 +95,23 @@ article{
         margin: 0 0;
     }
 
-    p:nth-of-type(1):hover{
-        font-size: inherit;
-        color: navy;
-        width:90ch;
-    }
+    /*p:nth-of-type(1):hover{*/
+    /*    font-size: inherit;*/
+    /*    color: navy;*/
+    /*    width:90ch;*/
+    /*}*/
 
-    ul p:nth-of-type(1):hover{
-        font-size: 130%;
-        color: darkslateblue;
-        width:60ch;
-    }
+    /*ul p:nth-of-type(1):hover{*/
+    /*    font-size: 130%;*/
+    /*    color: darkslateblue;*/
+    /*    width:60ch;*/
+    /*}*/
 
-    p:hover{
-        font-size: 130%;
-        width:60ch;
-        padding-right: calc(100vw - 60ch);
-    }
+    /*p:hover{*/
+    /*    font-size: 130%;*/
+    /*    width:60ch;*/
+    /*    padding-right: calc(100vw - 60ch);*/
+    /*}*/
 
 }
 

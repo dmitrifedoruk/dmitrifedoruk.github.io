@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Cat in the Hat Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+    <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+        Your browser does not support the audio element.
+    </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+<div class="dropdown">
+    <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+    <div id="links" class="hideMenu">
+        <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+        <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+        <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+        <a href="#" class="menuLink"id="menuLink5">Contact</a>
+    </div>
+    <div class="cover"></div>
+</div>
+
+</nav>
+
+
+
+
+
+
+<div class="wrapper">
+
+<form class="storyLib" id="catHatStory">
+    <p>The Cat in the Hat</p>
+    <div>
+        <label>Noun</label>
+        <input class="sun" type="text" placeholder="">
+    </div>
+    <div>
+        <label>Adjective</label>
+        <input class="wet" type="text" placeholder="">
+    </div>
+    <div>
+        <label>Noun</label>
+        <input class="house" type="text" placeholder="">
+    </div>
+    <div>
+        <label>Adjective</label>
+        <input class="cold" type="text" placeholder="">
+    </div>
+    <div>
+        <label>Name</label>
+        <input class="sally" type="text" placeholder="">
+    </div>
+    <div>
+        <label>Number</label>
+        <input class="two" type="text" placeholder="">
+    </div>
+    <div>
+        <label>Verb</label>
+        <input class="do" type="text" placeholder="">
+    </div>
+    <div>
+        <label>Game</label>
+        <input class="ball" type="text" placeholder="">
+    </div>
+
+
+
+
+
+<div class="buttons" id="buttonsCatHat">
+    <input type="reset" id="reset" />
+    <button type="button" id="create">Create</button>
+</div>
+
+</form>
+
+
+<div class="storyCreate" id="catHatCreate">
+    <div>
+        <p class="storyTitle" id="titleCatHat">The Cat in the Hat</p>
+        <p class="story" id="storyCatHat">The <span class='sun'>sun</span>
+            did not shine.<br> It was too <span class='wet'>wet</span> to play.<br>
+        So we sat in the <span class='house'>house</span><br>
+        All that <span  class='cold'>cold</span>, <span  class='cold'>cold</span>,
+            <span  class='wet'>wet</span> day.<br>
+            <br>I sat there with <span class='sally'>Sally</span>. <br>
+            We sat there, we <span class='two'>two</span>.<br>
+            And I said, "How I wish<br>
+            We had something to <span class='do'>do</span>!"<br>
+            <br>Too <span class='wet'>wet</span> to go out<br>
+            And too <span class='cold'>cold</span> to play <span class='ball'>ball</span><br>
+            So we sat in the <span class='house'>house</span>.<br>
+            We did nothing at all.
+    </p>
+    </div>
+
+    <div class="buttons2">
+        <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+        <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script src="witLib_script.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<svg baseProfile="full" height="100" version="1.1" width="100" xmlns="http://www.w3.org/2000/svg">
+
+
+    <defs>
+        <style type="text/css"><![CDATA[
+
+        rect#dropIcon {
+            fill: rgba(72, 214, 31, 0);
+            width: 100px;
+            height: 100px;
+            rx: 20px;
+            ry: 20px;
+        }
+
+        rect.backLine {
+            fill: rgb(113, 5, 255);
+            width: 70px;
+            height: 20px;
+            rx: 5px;
+            ry: 5px;
+        }
+
+        rect.innerLine {
+            fill: #8200b4;
+            width: 68px;
+            height: 18px;
+            rx: 5px;
+            ry: 5px;
+        }
+
+       rect.frontLine {
+            fill: #8cd667;
+            width: 66px;
+            height: 16px;
+            rx: 5px;
+            ry: 5px;
+        }
+
+
+
+		]]></style>
+    </defs>
+
+
+    <rect id="dropIcon" x="0" y="0"/>
+
+    <rect class="backLine" id="underTopLine" x="15" y="15"/>
+
+    <rect class="backLine" id="underMiddleLine" x="15" y="40"/>
+
+    <rect class="backLine" id="underBottomLine" x="15" y="65"/>
+
+    <rect class="innerLine" id="topLine" x="15" y="15"/>
+
+    <rect class="innerLine" id="middleLine" x="15" y="40"/>
+
+    <rect class="innerLine" id="bottomLine" x="15" y="65"/>
+
+    <rect class="frontLine" id="overTopLine" x="15" y="15"/>
+
+    <rect class="frontLine" id="overMiddleLine" x="15" y="40"/>
+
+    <rect class="frontLine" id="overBottomLine" x="15" y="65"/>
+
+
+</svg>
+

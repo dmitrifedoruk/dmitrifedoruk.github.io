@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Brady Bunch Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div id="toggleMusic">
+        <audio id="music" src="The%20Trout%20(Piano%20Quintet%20in%20A%20major,%20D.%20667).mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <img id="mute" src="soundMute-icon.svg"/>
+        <img id="neutral" src="soundNeutral-icon.svg"/>
+    </div>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="#" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="bradyBunchStory">
+        <p>The Brady Bunch Theme Song</p>
+        <div>
+            <label>Adjective</label>
+            <input class=lovely type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=lady type="text" placeholder="">
+        </div>
+        <div>
+            <label>Number</label>
+            <input class=three type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=girls type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=hair type="text" placeholder="">
+        </div>
+        <div>
+            <label>Color</label>
+            <input class=gold type="text" placeholder="">
+        </div>
+        <div>
+            <label>Superlative</label>
+            <input class=youngest type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=man type="text" placeholder="">
+        </div>
+        <div>
+            <label>Surname</label>
+            <input class=brady type="text" placeholder="">
+        </div>
+        <div>
+            <label>Number</label>
+            <input class=three2 type="text" placeholder="">
+        </div>
+        <div>
+            <label>Prev. Num + 1</label>
+            <input class=four type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=boys type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=men type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=alone type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=hunch type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun</label>
+            <input class=family type="text" placeholder="">
+        </div>
+
+
+
+
+        <div class="buttons" id="buttonsBradyBunch">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="bradyBunchCreate">
+        <div>
+            <p class="storyTitle" id="titleBradyBunch">The Brady Bunch Theme Song</p>
+            <p class="story" id="storyBradyBunch">Here's the story<br>
+                Of a <span class='lovely'>lovely</span> <span class='lady'>lady</span><br>
+                Who was bringing up <span class='three'>three</span> very <span class='lovely'>lovely</span> <span class='girls'>girls</span><br>
+                All of them had <span class='hair'>hair</span> of <span class='gold'>gold</span><br>
+                Like their mother<br>
+                The <span class='youngest'>youngest</span> one in curls<br>
+                It's the story<br>
+                Of a <span class='man'>man</span> named <span class='brady capitalize'>Brady</span><br>
+                Who was busy with <span class='three2'>three</span> <span class='boys'>boys</span> of his own<br>
+                They were <span class='four'>four</span> <span class='men'>men</span><br>
+                Living all together<br>
+                Yet they were all <span class='alone'>alone</span><br>
+                'Til the one day when the <span class='lady'>lady</span> met this <span class='man'>fellow</span><br>
+                And they knew that it was much more than a <span class='hunch'>hunch</span><br>
+                That this group must somehow form a <span class='family'>family</span><br>
+                That's the way we all became the <span class='brady capitalize'>Brady</span> bunch<br>
+                The <span class='brady capitalize'>Brady</span> bunch, the <span class='brady capitalize'>Brady</span> bunch<br>
+                That's the way we became the <span class='brady capitalize'>Brady</span> bunch<br>
+
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>
