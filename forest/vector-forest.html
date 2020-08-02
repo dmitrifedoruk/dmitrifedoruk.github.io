@@ -2,29 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width,
-        initial-scale=1.0,
-        user-scalable=no" />
     <title>A's Forest</title>
 
 
     <style>
         body {
             background-color: #0f6674;
-            background-image:  url("images/landscape1.svg"),url("images/282.jpg");
+            background-image:  url("images/backgrounds/castle_landscape.svg"),url("images/backgrounds/starry_sky.jpg");
             transition: background-color 2s;
-            touch-action: none;
         }
 
-        .draggable {
-            touch-action: none;
-            user-select: none;
-        }
-
-        .draggable:hover {
-            filter: brightness(108%);
-        }
+        /*.draggable:hover {*/
+        /*    filter: brightness(108%);*/
+        /*}*/
 
         .animal, .people {
             position: absolute;
@@ -36,52 +26,98 @@
         }
 
         .animal#fox {
-            background-image: url("images/013-fox.svg");
+            background-image: url("images/animals/013-fox.svg");
             transform: scale(.5);
         }
 
         .animal#bear {
-            background-image: url("images/bear.svg");
+            background-image: url("images/animals/bear.svg");
             transform: scale(.5);
         }
 
         .animal#raccoon {
-            background-image: url("images/027-raccoon.svg");
+            background-image: url("images/animals/027-raccoon.svg");
             transform: scale(.5) rotateY(180deg);
         }
 
         .animal#cat {
-            background-image: url("images/005-cat.svg");
+            background-image: url("images/animals/005-cat.svg");
             transform: scale(.4);
         }
 
         .animal#goose {
-            background-image: url("images/016-goose.svg");
-            transform: scale(.4) rotateY(180deg);
+            background-image: url("images/animals/016-goose.svg");
+            transform: scale(.6) rotateY(180deg);
         }
 
+        .animal#monkey {
+            background-image: url("images/animals/021-monkey.svg");
+            transform: scale(.5);
+        }
+
+        .animal#lion {
+            background-image: url("images/animals/020-lion.svg");
+            transform: scale(.7);
+        }
+
+        .animal#gorilla {
+            background-image: url("images/animals/017-gorilla.svg");
+            transform: scale(.6);
+        }
+
+        .animal#dragon {
+            background-image: url("images/animals/dragon1.svg");
+            transform: scale(1.8);
+        }
+	
+	        .animal#caterpillar {
+            background-image: url("images/animals/caterpillar.svg");
+            transform: scale(.4);
+        }
 
         .people#king {
-            background-image: url("images/monarchy.svg");
+            background-image: url("images/people/monarchy.svg");
             transform: scale(.75);
         }
 
         .people#boy1 {
-            background-image: url("images/warrior.svg");
+            background-image: url("images/people/warrior.svg");
             transform: scale(.5);
         }
 
         .people#boy2 {
-            background-image: url("images/warrior.svg");
+            background-image: url("images/people/warrior.svg");
             transform: scale(.35);
         }
 
         .people#mom {
-            background-image: url("images/mother.svg");
+            background-image: url("images/people/mother.svg");
             transform: scale(.65);
         }
 
+        .people#archer {
+            background-image: url("images/people/archer.svg");
+            transform: scale(.65);
+        }
 
+        .people#doctor {
+            background-image: url("images/people/doctor.svg");
+            transform: scale(.65);
+        }
+
+        .people#surfer {
+            background-image: url("images/people/surfer.svg");
+            transform: scale(.65);
+        }
+
+        .people#herald {
+            background-image: url("images/people/herald.svg");
+            transform: scale(.65);
+        }
+	
+	.people#smiley {
+	    background-image: url("images/smiley.svg");
+	}
 
 
         .tree {
@@ -94,15 +130,15 @@
         }
 
         .tree#tree1 {
-            background-image: url("images/tree1.svg");
+            background-image: url("images/scenery/tree1.svg");
         }
 
         .tree#tree2 {
-            background-image: url("images/tree2.svg");
+            background-image: url("images/scenery/tree2.svg");
         }
 
         .tree#tree3 {
-            background-image: url("images/tree3.svg");
+            background-image: url("images/scenery/tree3.svg");
         }
 
 
@@ -113,19 +149,43 @@
             background-size: 100% 100%;
         }
 
+        .scenery#pond {
+            height: 200px;
+            width: 200px;
+            background-image: url("images/scenery/pond2.svg");
+            z-index: 0;
+        }
+
+
+
         .scenery#cave {
             height: 200px;
             width: 200px;
             top: 50vh;
             left: 50vw;
-            background-image: url("images/cave.svg");
+            background-image: url("images/scenery/cave.svg");
         }
 
         .scenery#house {
             height: 150px;
             width: 150px;
-            background-image: url("images/cabin.svg");
+            background-image: url("images/scenery/cabin.svg");
         }
+
+        .vehicle {
+            position: absolute;
+            z-index: 2;
+            background-color: transparent;
+            background-size: 100% 100%;
+        }
+
+        .vehicle#tank {
+            height: 110px;
+            width: 110px;
+            background-image: url("images/vehicles/tank2.svg");
+        }
+
+
 
 
     </style>
@@ -141,6 +201,8 @@
 
 <div id="coords"></div>
 
+<div class="draggable scenery" id="pond"></div>
+
 <div class="animal draggable" id="fox"></div>
 
 <div class="animal draggable" id="bear"></div>
@@ -150,6 +212,16 @@
 <div class="animal draggable" id="cat"></div>
 
 <div class="animal draggable" id="goose"></div>
+
+<div class="animal draggable" id="monkey"></div>
+
+<div class="animal draggable" id="lion"></div>
+
+<div class="animal draggable" id="gorilla"></div>
+
+<div class="animal draggable" id="dragon"></div>
+
+<div class="animal draggable" id="caterpillar"></div>
 
 <div class="tree draggable" id="tree1"></div>
 
@@ -165,9 +237,21 @@
 
 <div class="people draggable" id="mom"></div>
 
+<div class="people draggable" id="archer"></div>
+
+<div class="people draggable" id="doctor"></div>
+
+<div class="people draggable" id="surfer"></div>
+
+<div class="people draggable" id="herald"></div>
+
 <div class="draggable scenery" id="house"></div>
 
 <div class="draggable scenery" id="cave"></div>
+
+<div class="draggable vehicle" id="tank"></div>
+
+<div class="people draggable" id="smiley"></div>
 
 <script>
 
@@ -205,16 +289,11 @@
         function(object) {dragElement(object)}
     );
 
-    // container.addEventListener("touchstart", dragStart, false);
-    // container.addEventListener("touchend", dragEnd, false);
-    // container.addEventListener("touchmove", drag, false);
-
 
     function dragElement(elmnt) {
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
         elmnt.onmousedown = dragMouseDown;
-        elmnt.addEventListener("touchstart", dragMouseDown, false);
 
         function dragMouseDown(e) {
             e = e || window.event;
@@ -223,11 +302,8 @@
             pos3 = e.clientX;
             pos4 = e.clientY;
             document.onmouseup = closeDragElement;
-            document.addEventListener("touchend", closeDragElement, false);
             // call a function whenever the cursor moves:
             document.onmousemove = elementDrag;
-            document.addEventListener("touchmove", elementDrag, false);
-
         }
 
         function elementDrag(e) {
@@ -248,9 +324,7 @@
         function closeDragElement() {
             // stop moving when mouse button is released:
             document.onmouseup = null;
-            document.addEventListener("touchend", null, false);
             document.onmousemove = null;
-            document.addEventListener("touchmove", null, false);
 
             //elmnt.onmouseup = checkCave(elmnt);
 
