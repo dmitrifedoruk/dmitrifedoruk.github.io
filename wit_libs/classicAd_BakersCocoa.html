@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baker's Cocoa Lib</title>
+    <link href="witLib_styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar" id="top">
+    <a href="witLib_home.html" id="main-mc">Wit Libs</a>
+
+    <div class="dropdown">
+        <img class="dropbtn" id="menuButton" src="menu-icon.svg"/>
+        <div id="links" class="hideMenu">
+            <a href="witLib_home.html" class="menuLink" id="menuLink1">Home</a>
+            <a href="witLib_rules.html" class="menuLink" id="menuLink2">Rules</a>
+            <a href="witLib_about.html" class="menuLink"id="menuLink4">About</a>
+            <a href="witLib_contact.html" class="menuLink"id="menuLink5">Contact</a>
+        </div>
+        <div class="cover"></div>
+    </div>
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+
+    <form class="storyLib" id="bakersCocoaStory">
+        <p>Baker's Cocoa Ad,<br> circa 1878</p>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=oil type="text" placeholder="">
+        </div>
+        <div>
+            <label>Number</label>
+            <input class=three type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=starch type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=arrowroot type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=sugar type="text" placeholder="">
+        </div>
+        <div>
+            <label>Number</label>
+            <input class=one type="text" placeholder="">
+        </div>
+        <div>
+            <label>Measurement</label>
+            <input class=cup type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=delicious type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adjective</label>
+            <input class=nourishing type="text" placeholder="">
+        </div>
+        <div>
+            <label>Verb ('ing')</label>
+            <input class=strengthening type="text" placeholder="">
+        </div>
+        <div>
+            <label>Adverb</label>
+            <input class=easily type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=invalids type="text" placeholder="">
+        </div>
+        <div>
+            <label>Noun (plural)</label>
+            <input class=grocers type="text" placeholder="">
+        </div>
+
+
+
+        <div class="buttons" id="buttonsBakersCocoa">
+            <input type="reset" id="reset"/>
+            <button type="button" id="create">Create</button>
+        </div>
+
+    </form>
+
+    <div class="storyCreate" id="bakersCocoaCreate">
+        <div>
+            <p class="storyTitle" id="titleBakersCocoa">Baker's Cocoa Ad,<br> circa 1878</p>
+            <p class="story" id="storyBakersCocoa">Gold Medal, Paris, 1878.<br>
+                Baker's Breakfast Cocoa.<br>
+                <br>Warranted absolutely pure Cocoa, from which the excess of
+                <span class='oil capitalize'>Oil</span> has been removed. It has <span class='three'>three</span>
+                times the strength of Cocoa mixed with <span class='starch capitalize'>Starch</span>,
+                <span class='arrowroot capitalize'>Arrowroot</span> or <span class='sugar capitalize'>Sugar</span>,
+                and is therefore far more economical, costing less than <span class='one'>one</span>
+                cent(s) a <span class='cup'>cup</span>. It is <span class='delicious'>delicious</span>,
+                <span class='nourishing'>nourishing</span>, <span class='strengthening'>strengthening</span>,
+                <span class='easily'>easily</span> digested, and admirably adapted for the
+                <span class='invalids'>invalids</span> as well as for persons in health.<br>
+                Sold by <span class='grocers capitalize'>Grocers</span> everywhere.
+                W. BAKER & CO., Dorchester, Mass.
+            </p>
+
+
+        </div>
+
+        <div class="buttons2">
+            <button type="button" id="buttons2PlayAgain">Play Again</button>
+
+            <span>
+        <button type="button">Print</button>
+        <a href="witLib_home.html">
+            <button type="button">Home</button>
+        </a>
+        </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--extra script to quickly get class names from spans-->
+<!--<script>-->
+
+<!--    function getClasses() {-->
+
+<!--        let spans = document.querySelectorAll("span");-->
+
+<!--        spans.forEach(function (span) {-->
+<!--            console.log(span.classList[0]);-->
+<!--        });-->
+
+<!--    }-->
+<!--    getClasses();-->
+<!--</script>-->
+
+
+<script src="witLib_script.js"></script>
+
+</body>
+</html>
