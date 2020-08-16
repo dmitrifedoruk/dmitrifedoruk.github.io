@@ -1,0 +1,244 @@
+
+<!--
+
+   The Random Color Squares Page HTML
+   Author: Trista Fedoruk
+   Date: 8/2/20
+
+   Filename:   randomColorSquares.html
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Color Squares</title>
+    <link href="practice_javascript1_styles.css" rel="stylesheet"/>
+
+
+    <style>
+
+        :root {
+            --boxes-across: 6;
+            --border-thickness: 5px;
+            --box-width: 90px;
+        }
+
+
+        #tinyGrid {
+
+            width: calc(600px + var(--boxes-across) * var(--border-thickness) * 2);
+            height: calc(600px + var(--boxes-across) * var(--border-thickness) * 2);
+            background-color: transparent;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, calc(var(--box-width) + var(--border-thickness) * 2));
+            grid-template-rows: repeat(auto-fit, calc(var(--box-width) + var(--border-thickness) * 2));
+            grid-gap: 0px;
+            justify-content: center;
+            align-items: center;
+            /*filter: blur(10px);*/
+
+        }
+
+        .block {
+            width: var(--box-width);
+            height: var(--box-width);
+            background-color: #e2b7ff;
+            border-width: var(--border-thickness);
+            border-style: solid;
+            border-color: transparent;
+            transition: all 0.5s;
+        }
+
+        html {
+
+            font-family: Sarabun, sans-serif;
+        }
+
+        /*Body Styles*/
+
+
+        body {
+            background-color: deeppink;
+            padding-top: 5px;
+            display: grid;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        #tinyGrid {
+            place-self: center;
+            display: grid;
+        }
+
+
+        #gridWrapper {
+            place-self: center;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+
+
+        #box1 {
+            background-color: #00C957;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box2 {
+            background-color: #76EE00;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box3 {
+            background-color: #ADFF2F;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box4 {
+            background-color: #FFFFE0;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box5 {
+            background-color: #FFF68F;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box6 {
+            background-color: #FFFF00;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box7 {
+            background-color: #ED9121;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box8 {
+            background-color: #FF7F24;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box9 {
+            background-color: #FF6103;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box10 {
+            background-color: #FF1493;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box11 {
+            background-color: #BF3EFF;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box12 {
+            background-color: #912CEE;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box13 {
+            background-color: #551A8B;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box14 {
+            background-color: #436EEE;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box15 {
+            background-color: #00BFFF;
+            height: 100px;
+            width: 100px;
+        }
+
+        #box16 {
+            background-color: #71C671;
+            height: 100px;
+            width: 100px;
+        }
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div id="tinyGrid"></div>
+
+
+<script>
+
+    const borderStyles = ["solid", "dotted", "dashed", "double", "groove",
+                            "inset", "outset", "ridge"];
+
+
+    for (let i = 0; i < 36; i++) {
+
+        const grid = document.getElementById("tinyGrid");
+        let newBlock = document.createElement("div");
+        newBlock.classList.add("block");
+        newBlock.onmouseover = changeStyles;
+        grid.appendChild(newBlock);
+
+    }
+
+    function changeStyles() {
+
+        this.style.backgroundColor = randomColor();
+        this.style.borderColor = randomColor();
+        this.style.borderStyle = randomBorder();
+
+    }
+
+    function randomColor() {
+
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+
+        return "rgb("+r+", "+g+", "+b+")";
+
+
+    }
+
+    function randomBorder() {
+
+        let index = Math.floor(Math.random() * borderStyles.length);
+        return borderStyles[index];
+
+
+    }
+
+</script>
+
+
+
+</body>
+
+</html>
