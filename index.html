@@ -13,7 +13,7 @@
         @import url('https://fonts.googleapis.com/css?family=Spectral');
 
         body{
-            background: seagreen;
+            background: #37005f;
             background-image: url("images/sunset.JPG");
             background-attachment: fixed;
             background-size: cover;
@@ -38,6 +38,7 @@
         .gridWrapper {
             display: grid;
             padding-left: 25px;
+            padding-bottom: 50px;
             gap: 10px;
         }
 
@@ -104,6 +105,84 @@
             grid-column: 1 / 2;
         }
 
+        .techList {
+            font-size: 1.5rem;
+            color: rgba(24, 112, 86, 0.85);
+        }
+
+        @media only screen and (max-width: 480px) {
+
+            .gridWrapper {
+                display: grid;
+                padding-left: 10px;
+                gap: 10px;
+            }
+
+            #nameHeading {
+                font-size: 3rem;
+                color: rebeccapurple;
+                padding: 8px 0 0 8px;
+            }
+
+            .pageInfo {
+                display: grid;
+                gap: 5px;
+                grid-template-rows: auto auto;
+                width: 90vw;
+                margin-top: 30px;
+            }
+
+            .heading {
+                grid-row: 1 / 2;
+                font-size: 2rem;
+                color: rgb(0, 0, 238);
+            }
+
+            .infoContainer {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+                grid-row: 2 / 3;
+                background-color: rgba(214, 223, 218, 0.32);
+                padding: 15px;
+                border-radius: 1px;
+            }
+
+            .screenShot {
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;
+                height: auto;
+                width: 300px;
+            }
+
+            .summary {
+                grid-row: 2 / 3;
+                grid-column: 1 / 2;
+                font-size: 1rem;
+            }
+
+            .summary a {
+                justify-self: end;
+            }
+
+            .alternateLayout .screenShot {
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;
+            }
+
+            .alternateLayout .summary {
+                grid-row: 2 / 3;
+                grid-column: 1 / 2;
+            }
+
+            .alternateLayout .summary a {
+                justify-self: end;
+            }
+
+
+
+        }
+
 
 
 
@@ -120,7 +199,7 @@
     <div id="gridList">
 
         <div id="item0" class="pageInfo alternateLayout">
-            <div class="heading">Vue Notes</div>
+            <div class="heading">Notes<span class="techList"> (html,css,vue.js)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -132,7 +211,7 @@
         </div>
 
         <div id="item1" class="pageInfo">
-            <div class="heading">Weather Plus</div>
+            <div class="heading">Weather Plus<span class="techList"> (php,html,css,api's)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -144,7 +223,7 @@
         </div>
 
         <div id="item2" class="pageInfo alternateLayout">
-            <div class="heading">Characters of The Marvel Universe</div>
+            <div class="heading">Characters of The Marvel Universe<span class="techList"> (php,html,css,api's)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -156,7 +235,7 @@
         </div>
 
         <div id="item3" class="pageInfo">
-            <div class="heading">A's Slideshow</div>
+            <div class="heading">A's Slideshow<span class="techList"> (php,html,css)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -168,7 +247,7 @@
         </div>
 
         <div id="item4" class="pageInfo alternateLayout">
-            <div class="heading">Card Creator</div>
+            <div class="heading">Card Creator<span class="techList"> (Vue CLI, Node.js, Google Firebase)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -180,7 +259,7 @@
         </div>
 
         <div id="item5" class="pageInfo">
-            <div class="heading">Wit Libs</div>
+            <div class="heading">Wit Libs<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -192,7 +271,7 @@
         </div>
 
         <div id="item6" class="pageInfo alternateLayout">
-            <div class="heading">Lib Builder</div>
+            <div class="heading">Lib Builder<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -204,7 +283,7 @@
         </div>
 
         <div id="item7" class="pageInfo">
-            <div class="heading">Text-to-Speech Grid</div>
+            <div class="heading">Text-to-Speech Grid<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -216,7 +295,7 @@
         </div>
 
         <div id="item8" class="pageInfo alternateLayout">
-            <div class="heading">The Forest of Vectors</div>
+            <div class="heading">The Forest of Vectors<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -228,7 +307,7 @@
         </div>
 
         <div id="item9" class="pageInfo">
-            <div class="heading">HTML Named Color Explorer</div>
+            <div class="heading">HTML Named Color Explorer<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -240,7 +319,7 @@
         </div>
 
         <div id="item10" class="pageInfo alternateLayout">
-            <div class="heading">Random Color Squares</div>
+            <div class="heading">Random Color Squares<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -253,7 +332,7 @@
         </div>
 
         <div id="item11" class="pageInfo">
-            <div class="heading">Sudoku</div>
+            <div class="heading">Sudoku<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -266,7 +345,7 @@
 
 
         <div id="item12" class="pageInfo alternateLayout">
-            <div class="heading">Moon Animation</div>
+            <div class="heading">Moon Animation<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -278,7 +357,7 @@
         </div>
 
         <div id="item13" class="pageInfo">
-            <div class="heading">Animated Name</div>
+            <div class="heading">Animated Name<span class="techList"> (html,css)</span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -291,7 +370,7 @@
 
 
         <div id="item14" class="pageInfo alternateLayout">
-            <div class="heading">Smart Shopping List</div>
+            <div class="heading">Smart Shopping List<span class="techList"> (Symfony 4, Twig, Doctrine)</span></span></div>
             <div class="infoContainer">
                 <div class="summary">
                     <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
@@ -302,21 +381,8 @@
             </div>
         </div>
 
-
-
     </div>
 
-
-    <aside>
-        <ul>
-            <li><a href="colors.html"><p><i class="fas fa-flask"></i>&nbsp;HTML Named Color Explorer</p></a></li>
-            <li><a href="random-color-squares.html"><p><i class="fas fa-cloud"></i>&nbsp;Random Color Squares</p></a></li>
-            <li><a href="/wit_libs/witLib_home.html"><p><i class="fas fa-coffee"></i>&nbsp;Wit Libs (a variation on Mad Libs)</p></a></li>
-            <li><a href="/forest/vector-forest.html"><p><i class="fas fa-tree"></i>&nbsp;The Forest of Vectors</p></a></li>
-            <li><a href="speech-grid.html"><p><i class="fas fa-cookie-bite"></i>&nbsp;Text-to-speech button grid</p></a></li>
-
-        </ul>
-    </aside>
 </div>
 </body>
 </html>
