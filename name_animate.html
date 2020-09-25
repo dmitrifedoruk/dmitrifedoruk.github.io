@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link href="reset.css" rel="stylesheet" />
-    <title>Lab 1</title>
+    <title>Animated Name</title>
     <style>
         @import url("https://fonts.googleapis.com/css?family=Iceberg");
 
@@ -311,34 +311,14 @@
 <main>
 
 
-    <div onmouseover="PlaySound('dSound')" class="letter-block" id="block-d"><span class="letter" id="letter-d">D</span></div>
-    <div onmouseover="PlaySound('mSound')" class="letter-block" id="block-m"><span class="letter" id="letter-m">M</span></div>
-    <div onmouseover="PlaySound('iSound')" class="letter-block" id="block-i"><span class="letter" id="letter-i">I</span></div>
-    <div onmouseover="PlaySound('tSound')" class="letter-block" id="block-t"><span class="letter" id="letter-t">T</span></div>
-    <div onmouseover="PlaySound('rSound')" class="letter-block" id="block-r"><span class="letter" id="letter-r">R</span></div>
-    <div onmouseover="PlaySound('i2Sound')" class="letter-block" id="block-i2"><span class="letter" id="letter-i2">I</span></div>
-
-    <!--    <div id="star-block"></div>-->
-
-    <audio id='dSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/f1.mp3'></audio>
-    <audio id='mSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/c2.mp3'></audio>
-    <audio id='iSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/b1.mp3'></audio>
-    <audio id='tSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/g1.mp3'></audio>
-    <audio id='rSound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/e1.mp3'></audio>
-    <audio id='i2Sound' src='https://github.com/pffy/mp3-piano-sound/raw/master/mp3/c1.mp3'></audio>
-
+    <div class="letter-block" id="block-d"><span class="letter" id="letter-d">D</span></div>
+    <div class="letter-block" id="block-m"><span class="letter" id="letter-m">M</span></div>
+    <div class="letter-block" id="block-i"><span class="letter" id="letter-i">I</span></div>
+    <div class="letter-block" id="block-t"><span class="letter" id="letter-t">T</span></div>
+    <div class="letter-block" id="block-r"><span class="letter" id="letter-r">R</span></div>
+    <div class="letter-block" id="block-i2"><span class="letter" id="letter-i2">I</span></div>
 
 </main>
-
-<script>
-
-    function PlaySound(sound) {
-        var thissound=document.getElementById(sound);
-        var play = thissound.play();
-    }
-
-</script>
-
 
 </body>
 

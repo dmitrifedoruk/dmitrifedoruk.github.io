@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P|VT323");
+
+body{
+    background: seagreen;
+}
+
+ul p::first-letter{
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    margin: 20px;
+}
+
+a:hover {
+    color: darkgoldenrod;
+    background: linear-gradient(yellowgreen, greenyellow);
+}
+
+main {
+    padding-left: 5px;
+}
+
+h2 {
+    color: blueviolet;
+}
+
+article {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 310px));
+    grid-gap: 20px;
+}
+
+@media (max-width: 480px) {
+    #gridWrapper {
+        display: grid;
+        justify-content: center;
+    }
+    article {
+        justify-content: center;
+    }
+}
+
+p {
+    /*            text-align: justify;
+                text-justify: inter-word;*/
+    color: darkslateblue;
+    font-family: inherit,'Press Start 2P';
+    font-size: 1rem;
+    white-space: pre-wrap;
+}
+
+p:first-letter {
+    color: firebrick;
+    font-family: VT323,B790-Deco,sans-serif;
+    float: left;
+    font-weight: bold;
+    font-size: 75px;
+    line-height: 60px;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+}
+
+#taskCreator {
+    display: grid;
+    grid-template-rows: min-content min-content;
+}
+
+#textfield {
+    min-height: 50px;
+    height: 360px;
+    max-width: 300px;
+    min-width: 300px;
+    background-color: orchid;
+    color: olive;
+    font-family: VT323;
+    font-size: 1.2rem;
+
+}
+
+#submitTask {
+    height: 2rem;
+    width: 307px;
+    background-color: indigo;
+    color: yellowgreen;
+    font-family: VT323;
+    font-size: 1.2rem;
+    border-color: mediumvioletred;
+}
+
+#clear {
+    height: 2rem;
+    width: 307px;
+    background-color: indigo;
+    color: yellowgreen;
+    font-family: VT323;
+    font-size: 1.2rem;
+    border-color: mediumvioletred;
+}
+
+.deleteTask {
+    height: 2rem;
+    background-color: indigo;
+    color: yellowgreen;
+    font-family: VT323;
+    font-size: 1.2rem;
+    border-color: mediumvioletred;
+    margin-top: 20px;
+}
+
+task-display {
+    display: grid;
+}
+
+

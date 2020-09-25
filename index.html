@@ -14,27 +14,13 @@
 
         body{
             background: seagreen;
-            background-image: url("DSC07490_effect.JPG");
+            background-image: url("images/sunset.JPG");
             background-attachment: fixed;
-            background-size: auto;
+            background-size: cover;
             height: calc(100vh + 200px);
             margin: 0;
             font-family: Spectral, "Bookman Old Style", Tahoma,  serif;
             font-size: 120%;
-        }
-
-        h1{
-            color:  rebeccapurple;
-        }
-
-
-        ul {
-            list-style: none;
-        }
-
-        a {
-            text-decoration: none;
-            margin: 20px;
         }
 
         a:hover, a:visited:hover {
@@ -49,12 +35,278 @@
             padding-left: 5%;
         }
 
+        .gridWrapper {
+            display: grid;
+            padding-left: 25px;
+            gap: 10px;
+        }
+
+        #nameHeading {
+            font-size: 5rem;
+            color: rebeccapurple;
+            padding: 8px 0 0 8px;
+        }
+
+        .pageInfo {
+            display: grid;
+            gap: 10px;
+            grid-template-rows: 50px auto;
+            width: 95vw;
+            margin-top: 40px;
+        }
+
+        .heading {
+            grid-row: 1 / 2;
+            font-size: 2.7rem;
+            color: rgb(0, 0, 238);
+        }
+
+        .infoContainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            grid-row: 2 / 3;
+            background-color: rgba(214, 223, 218, 0.32);
+            padding: 15px;
+            border-radius: 1px;
+        }
+
+        .summary {
+            display: grid;
+            grid-column: 1 / 2;
+            text-align: justify;
+        }
+
+        .summary a {
+            justify-self: end;
+            text-decoration: underline;
+        }
+
+        .screenShot {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+            height: 290px;
+            margin-top: 20px;
+            box-shadow: 10px 10px 10px rgba(11, 11, 23, 0.91);
+            border-radius: 1px;
+        }
+
+        .alternateLayout .summary {
+            grid-column: 2 / 3;
+        }
+
+        .alternateLayout .summary a {
+            justify-self: start;
+        }
+
+
+        .alternateLayout .screenShot {
+            grid-column: 1 / 2;
+        }
+
+
+
+
 
     </style>
 </head>
 <body>
-<main>
-    <h1>Dmitri Fedoruk</h1>
+<div class="gridWrapper">
+
+    <header>
+    <div id="nameHeading">Dmitri Fedoruk</div>
+    </header>
+
+    <div id="gridList">
+
+        <div id="item0" class="pageInfo alternateLayout">
+            <div class="heading">Vue Notes</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="task-grid/index.html" target="_blank">View Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_vue_notes.png"></img>
+            </div>
+        </div>
+
+        <div id="item1" class="pageInfo">
+            <div class="heading">Weather Plus</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="https://damp-oasis-78791.herokuapp.com/" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_weather.png"></img>
+            </div>
+        </div>
+
+        <div id="item2" class="pageInfo alternateLayout">
+            <div class="heading">Characters of The Marvel Universe</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="https://pacific-thicket-99102.herokuapp.com/" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_characters.png"></img>
+            </div>
+        </div>
+
+        <div id="item3" class="pageInfo">
+            <div class="heading">A's Slideshow</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="https://agile-journey-57165.herokuapp.com/" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_slideshow.jpg"></img>
+            </div>
+        </div>
+
+        <div id="item4" class="pageInfo alternateLayout">
+            <div class="heading">Card Creator</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="https://card-creator-d.firebaseapp.com/" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_vue_card_creator.png"></img>
+            </div>
+        </div>
+
+        <div id="item5" class="pageInfo">
+            <div class="heading">Wit Libs</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="/wit_libs/witLib_home.html" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_wit_libs.png"></img>
+            </div>
+        </div>
+
+        <div id="item6" class="pageInfo alternateLayout">
+            <div class="heading">Lib Builder</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="word-picker-plus.html" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_lib_builder.png"></img>
+            </div>
+        </div>
+
+        <div id="item7" class="pageInfo">
+            <div class="heading">Text-to-Speech Grid</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="speech-grid.html" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_word_grid.png"></img>
+            </div>
+        </div>
+
+        <div id="item8" class="pageInfo alternateLayout">
+            <div class="heading">The Forest of Vectors</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="/forest/vector-forest.html" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_forest.png"></img>
+            </div>
+        </div>
+
+        <div id="item9" class="pageInfo">
+            <div class="heading">HTML Named Color Explorer</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="colors.html" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_colors.png"></img>
+            </div>
+        </div>
+
+        <div id="item10" class="pageInfo alternateLayout">
+            <div class="heading">Random Color Squares</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="/random-color-squares.html" target="_blank">Visit Page</a>
+                    <a href="/random-color-squares-fade.html" target="_blank">Alternate Version with Fade Effects</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_color_squares.png"></img>
+            </div>
+        </div>
+
+        <div id="item11" class="pageInfo">
+            <div class="heading">Sudoku</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="sudoku/index.html" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_sudoku.png"></img>
+            </div>
+        </div>
+
+
+        <div id="item12" class="pageInfo alternateLayout">
+            <div class="heading">Moon Animation</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="animation.html" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_moon.png"></img>
+            </div>
+        </div>
+
+        <div id="item13" class="pageInfo">
+            <div class="heading">Animated Name</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="name_animate.html" target="_blank">Visit Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_name_animate.png"></img>
+            </div>
+        </div>
+
+
+        <div id="item14" class="pageInfo alternateLayout">
+            <div class="heading">Smart Shopping List</div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                    <a href="https://app.moqups.com/u2SrpogS34/view/page/ad64222d5" target="_blank">View Moqups Page</a>
+                </div>
+                <img class="screenShot" src="images/screenshot_shopping_list.png"></img>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
     <aside>
         <ul>
             <li><a href="colors.html"><p><i class="fas fa-flask"></i>&nbsp;HTML Named Color Explorer</p></a></li>
@@ -65,6 +317,6 @@
 
         </ul>
     </aside>
-</main>
+</div>
 </body>
 </html>

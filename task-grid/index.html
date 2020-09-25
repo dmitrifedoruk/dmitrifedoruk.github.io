@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes/Tasks</title>
+    <script src="vue.js"></script>
+
+    <style>
+        @import url("main.css");
+
+    </style>
+</head>
+<body>
+<main id="app">
+    <div id='gridWrapper'>
+    <h2>Notes/Tasks</h2>
+    <article>
+        <task-creator @click="addToTasks"></task-creator>
+        <task-display
+                v-for="(task, index) in tasks"
+                :task="task"
+                :index="index"
+                :key="index"
+                @click="removeFromTasks"
+        ></task-display>
+    </article>
+    </div>
+
+</main>
+
+<script src="main.js"></script>
+
+</body>
+</html>
