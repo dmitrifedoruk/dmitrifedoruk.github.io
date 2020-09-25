@@ -6,12 +6,37 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <style>
-        @import url("styles.css");
+        @import url('https://fonts.googleapis.com/css?family=Spectral');
+
+        p{
+            width: 75vw;
+            padding-right: 25vw;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 0 0;
+        }
+
+        ul{
+            display: contents;
+        }
+
+        ul p::first-letter{
+            color: mediumorchid;
+        }
 
         body{
             background: seagreen;
             background-image: url("DSC07490_effect.JPG");
             background-attachment: fixed;
+            margin: 0;
+            font-family: Spectral, "Bookman Old Style", Tahoma,  serif;
+            color: navy;
+            font-size: 120%;
+
+        }
+
+        h1{
+            color:  rebeccapurple;
         }
 
         ul p::first-letter{
@@ -36,6 +61,8 @@
             padding-left: 5%;
         }
 
+
+
     </style>
 </head>
 <body>
@@ -49,8 +76,6 @@
             <li><a href="/forest/vector-forest.html"><p><i class="fas fa-tree"></i>&nbsp;The Forest of Vectors</p></a></li>
             <li><a href="color-change.html"><p><i class="fas fa-wrench"></i>&nbsp;Color changing nav bar</p></a></li>
             <li><a href="speech-grid.html"><p><i class="fas fa-cookie-bite"></i>&nbsp;Text-to-speech button grid</p></a></li>
-            <li><a href="speech-exp"><p><i class="fas fa-feather"></i>&nbsp;Debugging speech synthesis</p></a></li>
-            <li><a href="touch-exp.html"><p><i class="fas fa-broom"></i>&nbsp;Touchscreen functionality debugging</p></a></li>
 
         </ul>
     </aside>

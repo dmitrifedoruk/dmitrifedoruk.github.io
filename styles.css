@@ -16,12 +16,9 @@ body {
 div{
     display: contents;
     width: 100vw;
-
 }
 
 h1{
-    position: sticky;
-    top: 0;
     color:  rebeccapurple;
 }
 
