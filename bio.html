@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="icon"
+          type="image/png"
+          href="icons/woodcut-icon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Spectral');
+
+        body{
+            background: #37005f;
+            background-image: url("images/sunset.JPG");
+            background-attachment: fixed;
+            background-size: cover;
+            height: calc(100vh + 200px);
+            margin: 0;
+            font-family: Spectral, "Bookman Old Style", Tahoma,  serif;
+            font-size: 120%;
+        }
+
+        a:hover, a:visited:hover {
+            color: darkgoldenrod;
+        }
+
+        a:visited {
+            color: rgb(0, 0, 238);
+        }
+
+
+        .gridWrapper {
+            display: grid;
+            padding-left: 25px;
+            padding-bottom: 50px;
+            gap: 10px;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 10px;
+        }
+
+        #nameHeading {
+            font-size: 5rem;
+            color: rebeccapurple;
+            grid-column: 1 / 2;
+        }
+
+        #profile {
+            padding-right: 10px;
+            display: grid;
+            grid-column: 2 / 3;
+        }
+
+        #profile img {
+            border-radius: 1px;
+            justify-self: end;
+            height: 0px;
+        }
+
+        #profile #bioLink {
+            text-align: right;
+        }
+
+        #profile #bioLink a{
+            color: #146097;
+        }
+
+
+        .pageInfo {
+            display: grid;
+            gap: 10px;
+            grid-template-rows: 50px auto;
+            width: 60vw;
+            margin-top: 0px;
+        }
+
+        .heading {
+            grid-row: 1 / 2;
+            font-size: 2.7rem;
+            color: rgb(0, 0, 238);
+        }
+
+        .infoContainer {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 15px;
+            grid-row: 2 / 3;
+            background-color: rgba(214, 223, 218, 0.32);
+            padding: 15px;
+            border-radius: 1px;
+        }
+
+        .summary {
+            display: grid;
+            grid-column: 1 / 2;
+            text-align: justify;
+        }
+
+        .summary a {
+            justify-self: end;
+            text-decoration: underline;
+        }
+
+        .screenShot {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+            height: 290px;
+            margin-top: 20px;
+            box-shadow: 10px 10px 10px rgba(11, 11, 23, 0.91);
+            border-radius: 1px;
+        }
+
+
+        @media only screen and (max-width: 480px) {
+
+            .gridWrapper {
+                display: grid;
+                padding-left: 10px;
+                gap: 10px;
+            }
+
+            #nameHeading {
+                font-size: 3rem;
+                color: rebeccapurple;
+            }
+
+            #profile img {
+                height: 100px;
+            }
+
+            .pageInfo {
+                display: grid;
+                gap: 5px;
+                grid-template-rows: auto auto;
+                width: 60vw;
+                margin-top: 15px;
+            }
+
+            .heading {
+                grid-row: 1 / 2;
+                font-size: 2rem;
+                color: rgb(0, 0, 238);
+            }
+
+            .infoContainer {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+                grid-row: 2 / 3;
+                background-color: rgba(214, 223, 218, 0.32);
+                padding: 15px;
+                border-radius: 1px;
+            }
+
+            .screenShot {
+                grid-row: 1 / 2;
+                grid-column: 1 / 2;
+                height: auto;
+                width: 300px;
+            }
+
+            .summary {
+                grid-row: 2 / 3;
+                grid-column: 1 / 2;
+                font-size: 1rem;
+            }
+
+            .summary a {
+                justify-self: end;
+            }
+
+
+
+
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="gridWrapper">
+
+    <header>
+        <div id="nameHeading">Dmitri Fedoruk</div>
+    </header>
+
+    <div id="gridList">
+
+        <div id="item0" class="pageInfo">
+            <div class="heading"></div>
+            <div class="infoContainer">
+                <div class="summary">
+                    <p>I have of late — but wherefore I know not — lost all my mirth... and indeed it goes so heavily with my disposition that this goodly frame, the earth, seems to me a sterile promontory; this most excellent canopy, the air — look you, this brave o'erhanging firmament, this majestical roof fretted with golden fire — why, it appeareth nothing to me but a foul and pestilent congregation of vapors. What a piece of work is a man! How noble in reason, how infinite in faculties! ...How like an angel, in apprehension how like a god! The beauty of the world. The paragon of animals. And yet, to me, what is this quintessence of dust? Man delights not me. No, nor woman neither... nor woman neither.
+                    </p>
+                </div>
+                <img class="screenShot" src="images/profile.JPG"></img>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+</body>
+</html>
