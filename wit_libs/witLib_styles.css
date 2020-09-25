@@ -220,7 +220,7 @@ nav a#main-mc {
     grid-auto-flow: row;
     justify-content: center;
     opacity: 0;
-    margin-top: 120px;
+    margin-top: 60px;
     margin-bottom: 20px;
     width: 310px;
     background-color: rgba(146, 0, 218, 0.7);
@@ -438,7 +438,7 @@ nav a#main-mc {
     font-size: 1.5rem;
     font-weight: bold;
     border-radius: 5px;
-    margin-top: 120px;
+    margin-top: 50px;
     padding: 15px;
     width: 310px;
     opacity: 0;
@@ -568,7 +568,7 @@ nav a#main-mc {
     font-size: 1.3rem;
     font-weight: normal;
     border-radius: 5px;
-    margin-top: 120px;
+    margin-top: 50px;
     padding: 15px;
     width: 310px;
     opacity: 0;
