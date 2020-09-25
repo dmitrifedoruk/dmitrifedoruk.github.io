@@ -16,9 +16,9 @@
             background: seagreen;
             background-image: url("DSC07490_effect.JPG");
             background-attachment: fixed;
+            height: 100vh;
             margin: 0;
             font-family: Spectral, "Bookman Old Style", Tahoma,  serif;
-            color: navy;
             font-size: 120%;
         }
 
@@ -26,9 +26,6 @@
             color:  rebeccapurple;
         }
 
-        ul p::first-letter{
-            color: inherit;
-        }
 
         ul {
             list-style: none;
@@ -39,9 +36,12 @@
             margin: 20px;
         }
 
-        a:hover {
+        a:hover, a:visited:hover {
             color: darkgoldenrod;
-            background: linear-gradient(yellowgreen, greenyellow);
+        }
+
+        a:visited {
+            color: rgb(0, 0, 238);
         }
 
         main {
@@ -53,14 +53,13 @@
 </head>
 <body>
 <main>
-    <h1><i class="fas fa-bowling-ball"></i>Dmitri Fedoruk</h1>
+    <h1>Dmitri Fedoruk</h1>
     <aside>
         <ul>
             <li><a href="colors.html"><p><i class="fas fa-flask"></i>&nbsp;HTML Named Color Explorer</p></a></li>
             <li><a href="random-color-squares.html"><p><i class="fas fa-cloud"></i>&nbsp;Random Color Squares</p></a></li>
             <li><a href="/wit_libs/witLib_home.html"><p><i class="fas fa-coffee"></i>&nbsp;Wit Libs (a variation on Mad Libs)</p></a></li>
             <li><a href="/forest/vector-forest.html"><p><i class="fas fa-tree"></i>&nbsp;The Forest of Vectors</p></a></li>
-            <li><a href="color-change.html"><p><i class="fas fa-wrench"></i>&nbsp;Color changing nav bar</p></a></li>
             <li><a href="speech-grid.html"><p><i class="fas fa-cookie-bite"></i>&nbsp;Text-to-speech button grid</p></a></li>
 
         </ul>
