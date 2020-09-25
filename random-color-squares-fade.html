@@ -2,9 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Random Color Squares</title>
-    <link href="practice_javascript1_styles.css" rel="stylesheet"/>
-
+    <title>Fading Random Color Squares</title>
 
     <style>
 
@@ -14,9 +12,18 @@
             --box-width: 90px;
         }
 
+        body {
+            background-color: deeppink;
+            padding-top: 5px;
+            display: grid;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
 
         #tinyGrid {
-
+            place-self: center;
             width: calc(600px + var(--boxes-across) * var(--border-thickness) * 2);
             height: calc(600px + var(--boxes-across) * var(--border-thickness) * 2);
             background-color: transparent;
@@ -40,30 +47,11 @@
             transition: all 0.5s;
         }
 
-        html {
-
-            font-family: Sarabun, sans-serif;
+        .defaultStyles {
+            background-color: #e2b7ff;
+            border-style: solid;
+            border-color: transparent;
         }
-
-        /*Body Styles*/
-
-
-        body {
-            background-color: deeppink;
-            padding-top: 5px;
-            display: grid;
-            height: 100vh;
-            width: 100vw;
-            margin: 0;
-        }
-
-        #tinyGrid {
-            place-self: center;
-            display: grid;
-        }
-
-
-
 
 
 
@@ -89,16 +77,29 @@
         let newBlock = document.createElement("div");
         newBlock.classList.add("block");
         newBlock.onmouseover = changeStyles;
+        newBlock.onmouseleave = changeBack;
+
         grid.appendChild(newBlock);
+
 
     }
 
-    function changeStyles() {
 
+    function changeBack () {
+        this.style.transition = "all 1s 5s";
+        this.style.backgroundColor = '#e2b7ff';
+        this.style.borderColor = 'transparent';
+    }
+
+
+
+
+
+    function changeStyles() {
+        this.style.transition = "all 0.1s";
         this.style.backgroundColor = randomColor();
         this.style.borderColor = randomColor();
         this.style.borderStyle = randomBorder();
-
     }
 
     function randomColor() {
@@ -119,6 +120,9 @@
 
 
     }
+
+
+
 
 </script>
 
