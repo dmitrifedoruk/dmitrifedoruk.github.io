@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trista's Lib Builder</title>
+
+    <style>
+
+        body{
+            margin: 0;
+            background-color: #1a09a8;
+            color: #b19f35;
+
+        }
+
+        .wrapper {
+            display: grid;
+            gap: 20px;
+            /*grid-template-columns: 350px 350px 500px;*/
+            grid-template-columns: repeat(auto-fit, 400px);
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+
+        fieldset {
+            border: outset #9d0000 5px;
+            border-radius: 3px;
+        }
+
+        .gridWrapper {
+            display: block;
+        }
+
+        #textInputContainer {
+            width: 310px;
+        }
+
+        #textInputContainer .gridWrapper {
+            display: grid;
+            justify-content: center;
+        }
+
+        #textInputContainer .gridWrapper textarea {
+            background-color: #1a09a8;
+            color: #b19f35;
+            font-family: sans-serif;
+            width: 300px;
+            min-height: 400px;
+            border: outset #099d7b 5px;
+            padding: 10px;
+            border-radius: 2px;
+        }
+
+
+        button {
+            background-color: #6f42c1;
+            color: rgb(167, 124, 50);
+            font-family: sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            width: 110px;
+            height: 40px;
+            justify-self: end;
+            border: outset #9d0000 2px;
+            margin-top: 5px;
+            border-radius: 3px;
+        }
+
+        #textInterface {
+            diplay: grid;
+            justify-content: center;
+            width: 330px;
+            padding: 15px;
+        }
+
+        #textInterface span:hover {
+            color: #00d800;
+            background-color: rgba(15, 102, 116, 0.47);
+            border-radius: 10%;
+        }
+
+        #textOutput {
+            width: 400px;
+        }
+
+        #fieldOutput {
+            width: 400px;
+        }
+
+        .copyControls {
+            display: grid;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <fieldset id="textInputContainer">
+        <legend>Place Text Here</legend>
+        <div class="gridWrapper">
+            <textarea></textarea>
+            <button id="submit" type="button">Submit</button>
+        </div>
+
+    </fieldset>
+
+    <fieldset id="textInterface">
+        <legend>Click to apply span</legend>
+        <div class="gridWrapper">
+            <p></p>
+        </div>
+
+    </fieldset>
+
+    <fieldset id="textOutput">
+        <legend>Story Output</legend>
+        <div class="gridWrapper">
+            <p></p>
+        </div>
+        <div class="copyControls">
+            <button>Select All</button>
+        </div>
+    </fieldset>
+
+    <fieldset id="fieldOutput">
+        <legend>Inputs Output</legend>
+        <div class="copyControls">
+        <button>Select All</button>
+        </div>
+        <div class="gridWrapper">
+            <p></p>
+        </div>
+    </fieldset>
+
+
+</div>
+
+<script>
+
+    const textInput = document.querySelector('#textInputContainer textarea');
+
+    const textInterface = document.querySelector('#textInterface .gridWrapper p');
+
+    const textOutput = document.querySelector('#textOutput .gridWrapper p');
+
+    const fieldOutput = document.querySelector('#fieldOutput .gridWrapper p');
+
+    function getWords(){
+        let words = textInput.value.split(' ');
+    }
+
+
+
+    document.querySelector('#submit').addEventListener("click", (event) => {
+
+        let words = textInput.value.split(' ');
+
+        let count = 0;
+
+
+
+        //check for words spliced together with \n and no spaces
+        //and modify array to fix
+        let i = 0;
+        words.forEach(function (word) {
+
+            if(word.indexOf('\n') !== -1) {
+                let wordArray = word.split('\n');
+                let firstWord = word.split('\n')[0];
+                let secondWord = word.split('\n')[1];
+                words.splice(i, 1, [firstWord,'\n'], secondWord);
+            }
+
+            i++;
+
+        })
+
+
+        //check for newline chars at end of words
+        i = 0;
+        words.forEach(function (word) {
+            if (word.indexOf('\n') !== -1) {
+                words.splice(i, 1, word.slice(0, word.length - 1));
+            }
+            i++;
+
+        })
+
+
+
+        words.forEach(function (word) {
+
+            let newLineCheck = false;
+
+            let container = document.createElement('span');
+
+            //if newline was in text originally, preserve this information
+            //to add br elements in the appropriate locations
+            if(Array.isArray(word)){
+
+                word = word[0];
+
+                newLineCheck = true;
+            }
+
+            container.innerText = word;
+
+
+            container.addEventListener('click', function() {
+                let key = this.getAttribute('data-key');
+                let matchWord = textOutput.querySelectorAll('[data-key="' + key + '"]')[0];
+                matchWord.innerText = formatWord(this.innerText);
+                matchWord.style.color = "plum";
+                let fieldContainer = document.createElement('div');
+                fieldContainer.innerText = generateField(this.innerText);
+                fieldOutput.appendChild(fieldContainer);
+            });
+
+            let classKey = count.toString()+word;
+            container.setAttribute("data-key",classKey);
+            textInterface.appendChild(container);
+            if(newLineCheck){textInterface.appendChild(document.createElement('br'))};
+            textOutput.appendChild(container.cloneNode(true));
+            if(newLineCheck){textOutput.appendChild(document.createElement('br'))};
+            textInterface.insertAdjacentText('beforeend',' ');
+            textOutput.insertAdjacentText('beforeend',' ');
+            count++;
+        })
+    });
+
+
+
+    const storySelect = document.querySelector("#textOutput .copyControls button");
+    storySelect.addEventListener('click', function(){
+
+        let selection = window.getSelection();
+        let contents = textOutput.childNodes;
+
+        contents.forEach(function (item) {
+            let range = document.createRange();
+            range.selectNode(item);
+            selection.addRange(range);
+        })
+    })
+
+    const fieldsSelect = document.querySelector("#fieldOutput .copyControls button");
+    fieldsSelect.addEventListener('click', function(){
+
+        let selection = window.getSelection();
+        let contents = fieldOutput.childNodes;
+
+        contents.forEach(function (item) {
+            let range = document.createRange();
+            range.selectNode(item);
+            selection.addRange(range);
+        })
+    })
+
+
+    function fixTrailingChar(word,char) {
+
+        const last = word.charAt(word.length-1);
+
+        const trimmedWord = word.slice(0,word.length-1);
+
+        return trimmedWord;
+    }
+
+
+    function fixTrailingCharSpan(word,char) {
+
+        const last = word.charAt(word.length-1);
+
+        const trimmedWord = word.slice(0,word.length-1);
+
+        return "<span class='"+trimmedWord.toLowerCase()+"'>"+trimmedWord+"</span>"+char;
+    }
+
+
+    function formatWord(word) {
+
+        const last = word.charAt(word.length-1);
+
+        if(last === ','){return fixTrailingCharSpan(word,',');}
+        else if(last === ';'){return fixTrailingCharSpan(word,';');}
+        else if(last === ':'){return fixTrailingCharSpan(word,':');}
+        else if(last === '.'){return fixTrailingCharSpan(word,'.');}
+        else if(last === '?'){return fixTrailingCharSpan(word,'?');}
+        else if(last === '!'){return fixTrailingCharSpan(word,'!');}
+        // else if(last === ')'){return fixTrailingCharSpan(word,')');}
+        else {return "<span class='"+word.toLowerCase()+"'>"+word+"</span>";}
+
+    }
+
+
+
+    function generateField(word) {
+
+        let newWord = '';
+        const last = word.charAt(word.length-1);
+
+        if(last === ','){newWord = fixTrailingChar(word,',');}
+        else if(last === ';'){newWord = fixTrailingChar(word,';');}
+        else if(last === ':'){newWord = fixTrailingChar(word,':');}
+        else if(last === '.'){newWord = fixTrailingChar(word,'.');}
+        else if(last === '?'){newWord = fixTrailingChar(word,'?');}
+        else if(last === '!'){return fixTrailingChar(word,'!');}
+        // else if(last === ')'){newWord = fixTrailingChar(word,')');}
+        else{newWord = word};
+
+        const label = newWord.charAt(0).toUpperCase()+newWord.slice(1,newWord.length);
+
+        const fieldString = "        <div>\n" +
+            "            <label>"+label+"</label>\n" +
+            "            <input class="+newWord.toLowerCase()+" type=\"text\" placeholder=\"\">\n" +
+            "        </div>"
+
+        return fieldString;
+    }
+
+    function addDeleteButton(word) {
+
+    }
+
+</script>
+
+</body>
+</html>

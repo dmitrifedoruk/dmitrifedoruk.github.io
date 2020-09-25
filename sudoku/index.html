@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku Experiment</title>
+
+    <style>
+
+        body {
+            display: grid;
+            /*background-color: #500dab;*/
+            background: linear-gradient(#0055ab, rgb(178, 13, 220));
+            place-content: center;
+            height: 100vh;
+
+        }
+
+        #overallGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 150px);
+            grid-template-rows: repeat(3, 150px);
+            border: 2px ridge rgba(180, 165, 58, 0.6);
+            width: min-content;
+            color: #89b46b;
+
+        }
+
+        .superGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            grid-template-rows: repeat(3, 50px);
+        }
+        
+        .subGridCell {
+            display: grid;
+            /*border: 2px ridge rgba(170, 50, 220, .6);*/
+            border: 2px ridge rgba(180, 165, 58, 0.6);
+            place-content: center;
+        }
+
+        .subGridCell:hover {
+            background-color: #0055ab;
+        }
+
+        .superGrid:nth-of-type(odd) {
+            /*background-color: #0f6674;*/
+            background: linear-gradient(#0f6674,rgb(170, 50, 220));
+        }
+
+        .superGrid:nth-of-type(even) {
+            /*background-color: #6f42c1;*/
+            background: linear-gradient(#500dab,rgb(170, 50, 220));
+        }
+
+        .subGridCell input {
+            width: 44px;
+            height: 44px;
+            color: inherit;
+            background-color: inherit;
+            border-style: none;
+            text-align: center;
+            font-family: Papyrus, sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        #controls {
+            padding-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 100px;
+        }
+
+        #controls button {
+            width: 120px;
+            height: 28px;
+            background-color: #890aaa;
+            color: #9dae92;
+            border: 2px ridge rgba(220, 192, 31, 0.6);
+        }
+
+        #submit {
+            grid-column: 1 / 2;
+            justify-self: end;
+        }
+
+        #reset {
+            grid-column: 2 / 3;
+            justify-self: start;
+        }
+
+        #result {
+            padding-top: 8px;
+            justify-self: center;
+            color: #eec227;
+            font-size: 1.2rem;
+            font-weight: bolder;
+            font-family: Papyrus, sans-serif;
+            text-shadow: /*#913697 */1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+
+<div id="overallGrid">
+
+<div class="upperLeft superGrid">
+    <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+    <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+    <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+    <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+    <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+    <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+    <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+</div>
+
+    <div class="upperCenter superGrid">
+        <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    </div>
+
+    <div class="upperRight superGrid">
+        <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    </div>
+
+    <div class="centerLeft superGrid">
+        <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    </div>
+
+    <div class="centerCenter superGrid">
+        <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    </div>
+
+    <div class="centerRight superGrid">
+        <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    </div>
+
+    <div class="lowerLeft superGrid">
+        <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    </div>
+
+    <div class="lowerCenter superGrid">
+        <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    </div>
+
+    <div class="lowerRight superGrid">
+        <div class="upperLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="upperRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="centerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerLeftCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerCenterCell subGridCell"><input class="gridCellInput" value=""></div>
+        <div class="lowerRightCell subGridCell"><input class="gridCellInput" value=""></div>
+    </div>
+
+
+</div>
+
+<div id="controls">
+    <button id="submit" onclick="submitSolution()">Submit</button>
+    <button id="reset" onclick="initialize()">Reset</button>
+</div>
+
+<div id="result"></div>
+
+<script>
+
+    const numberGrid = [
+        5,3,0,6,0,0,0,9,8,
+        0,7,0,1,9,5,0,0,0,
+        0,0,0,0,0,0,0,6,0,
+        8,0,0,4,0,0,7,0,0,
+        0,6,0,8,0,3,0,2,0,
+        0,0,3,0,0,1,0,0,6,
+        0,6,0,0,0,0,0,0,0,
+        0,0,0,4,1,9,0,8,0,
+        2,8,0,0,0,5,0,7,9
+    ];
+
+    const solutionGrid = [
+        5,3,4,6,7,2,1,9,8,
+        6,7,8,1,9,5,3,4,2,
+        9,1,2,3,4,8,5,6,7,
+        8,5,9,4,2,6,7,1,3,
+        7,6,1,8,5,3,9,2,4,
+        4,2,3,7,9,1,8,5,6,
+        9,6,1,2,8,7,3,4,5,
+        5,3,7,4,1,9,2,8,6,
+        2,8,4,6,3,5,1,7,9
+    ];
+
+    initialize();
+
+    function submitSolution() {
+
+        let userSolution = [];
+
+        let userInput = document.getElementsByClassName('gridCellInput');
+
+        let goodSolution = true;
+
+        for(i in numberGrid) {
+
+            if(userInput[i].value != solutionGrid[i]) {
+                goodSolution = false;
+            }
+
+        }
+
+        if(goodSolution == true) {
+            document.getElementById("result").innerHTML = 'Great!';
+        }
+        else{
+            document.getElementById("result").innerHTML = 'Try Again!';
+        }
+
+    }
+
+
+
+    function initialize() {
+
+        document.getElementById("result").innerHTML = '';
+
+        let gridCells = document.getElementsByClassName('gridCellInput');
+
+        let n;
+
+        let i = 0;
+
+        for (n in numberGrid) {
+
+            if (numberGrid[n] != 0) {
+                gridCells[i].value = numberGrid[n];
+                gridCells[i].setAttribute('readonly', '')
+                gridCells[i].style.color = '#c79227';
+            } else {
+                gridCells[i].value = "";
+            }
+
+            i++;
+        }
+
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

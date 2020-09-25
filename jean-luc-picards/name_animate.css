@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css?family=Iceberg");
+
+
+
+@keyframes revolve1 {
+    0%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 8;
+    }
+    20%{
+        transform: scale(1.0) translateX(55vw);
+        z-index: 8;
+    }
+    36%{
+        transform: scale(.1) translateX(2000%);
+        z-index: 8;
+    }
+    40%{
+        transform: scale(.1) translateX(-275%);
+        z-index: 1;
+    }
+    50%{
+        transform: scale(.2) translateX(-400%);
+        z-index: 1;
+    }
+    100%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 1;
+    }
+}
+
+@keyframes revolve2 {
+    0%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 6;
+    }
+    19%{
+        transform: scale(1.0) translateX(45vw);
+        z-index: 6;
+    }
+    31%{
+        transform: scale(.1) translateX(1700%);
+        z-index: 6;
+    }
+    44%{
+        transform: scale(.1) translateX(-350%);
+        z-index: 3;
+    }
+    50%{
+        transform: scale(.2) translateX(-650%);
+        z-index: 3;
+    }
+    100%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 3;
+    }
+}
+
+@keyframes revolve3 {
+    0%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 5;
+    }
+    19%{
+        transform: scale(1.0) translateX(40vw);
+        z-index: 5;
+    }
+    29%{
+        transform: scale(.1) translateX(1300%);
+        z-index: 5;
+    }
+    42%{
+        transform: scale(.1) translateX(-450%);
+        z-index: 4;
+    }
+    50%{
+        transform: scale(.2) translateX(-1000%);
+        z-index: 4;
+    }
+    100%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 4;
+    }
+}
+
+@keyframes revolve4 {
+    0%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 4;
+    }
+    12%{
+        transform: scale(1.0) translateX(24vw);
+        z-index: 4;
+    }
+    27%{
+        transform: scale(.1) translateX(1050%);
+        z-index: 4;
+    }
+    40%{
+        transform: scale(.1) translateX(-600%);
+        z-index: 4;
+    }
+    50%{
+        transform: scale(.2) translateX(-1200%);
+        z-index: 5;
+    }
+    100%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 5;
+    }
+}
+
+@keyframes revolve5 {
+    0%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 3;
+    }
+    7%{
+        transform: scale(1.0) translateX(10vw);
+        z-index: 3;
+    }
+    24%{
+        transform: scale(.1) translateX(750%);
+        z-index: 3;
+    }
+    34%{
+        transform: scale(.1) translateX(-900%);
+        z-index: 5;
+    }
+    50%{
+        transform: scale(.2) translateX(-1450%);
+        z-index: 6;
+    }
+    100%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 6;
+    }
+}
+
+@keyframes revolve6 {
+    0%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 2;
+    }
+    25%{
+        transform: scale(.1) translateX(550%);
+        z-index: 2;
+    }
+    33%{
+        transform: scale(.1) translateX(-1100%);
+        z-index: 2;
+    }
+    50%{
+        transform: scale(.2) translateX(-1800%);
+        z-index: 7;
+    }
+    100%{
+        transform: scale(1.0) translateX(0%);
+        z-index: 7;
+    }
+}
+
+
+@keyframes spin {
+    0%{
+        transform: scale(1.0) rotateY(0deg);
+    }
+    100%{
+        transform: scale(1.0) rotateY(360deg);
+    }
+}
+
+
+section.name-animation{
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.letter-block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gold;
+    font-family: 'Iceberg', sans-serif;
+    font-size: 4vw;
+    background-color: blueviolet;
+    height: 8vw;
+    width: 8vw;
+    margin-right: 1rem;
+    border-radius: 50% 50%;
+}
+
+.letter-block:nth-of-type(1){
+    background: darkslateblue;
+    color: hsl(248.35, 53.49%, 65%); /*lighter slateblue*/
+}
+
+.letter-block:nth-of-type(2){
+    background: olive;
+    color: hsl(79.63, 60.45%, 40%); /*lighter olivedrab*/
+}
+
+.letter-block:nth-of-type(3){
+    background: firebrick;
+    color: hsl(16.24, 100%, 60%); /*lighter orangered*/
+}
+
+.letter-block:nth-of-type(4){
+    background: mediumvioletred;
+    color: hsl(42.9, 74.4%, 55%); /*lighter goldenrod*/
+}
+
+.letter-block:nth-of-type(5){
+    background: orangered;
+    color: hsl(32.94, 100%, 60%); /*lighter darkorange*/
+}
+
+.letter-block:nth-of-type(6){
+    background: blueviolet;
+    color: hsl(248.35, 53.49%, 65%); /*lighter slateblue*/
+}
+
+
+.letter-block:hover{
+    background: transparent;
+    color: darkorchid;
+}
+
+
+
+#block-d:hover::after{
+    content: "MITRI";
+    color: yellowgreen;
+}
+
+#block-m:hover::before{
+    content: "D";
+    color: yellowgreen;
+}
+
+#block-m:hover::after{
+    content: "ITRI";
+    color: yellowgreen;
+}
+
+#block-i:hover::before{
+    content: "DM";
+    color: yellowgreen;
+}
+
+#block-i:hover::after{
+    content: "TRI";
+    color: yellowgreen;
+}
+
+#block-t:hover::before{
+    content: "DMI";
+    color: yellowgreen;
+}
+
+#block-t:hover::after{
+    content: "RI";
+    color: yellowgreen;
+}
+
+#block-r:hover::before{
+    content: "DMIT";
+    color: yellowgreen;
+}
+
+#block-r:hover::after{
+    content: "I";
+    color: yellowgreen;
+}
+
+#block-i2:hover::before{
+    content: "DMITR";
+    color: yellowgreen;
+}
+
+/*#block-d{
+    animation: revolve1 10000ms linear 3750ms infinite;
+}
+
+#block-m{
+    animation: revolve2 10000ms linear 3000ms infinite;
+}
+
+#block-i{
+    animation: revolve3 10000ms linear 2250ms infinite;
+}
+
+#block-t{
+    animation: revolve4 10000ms linear 1500ms infinite;
+}
+
+#block-r{
+    animation: revolve5 10000ms linear 750ms infinite;
+}
+
+#block-i2{
+    animation: revolve6 10000ms linear 0ms infinite;
+}
+*/
+.letter{
+    animation: spin 6000ms linear infinite;
+}
+
+.game-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Iceberg', sans-serif;
+    font-size: 5vw;
+}
+
+.game-title #title1 {
+    text-align: center;
+    width: 23vw;
+    padding: 20px 0 20px 0;
+    color: olive;
+    background-color: #8c0b7a;
+    border-radius: 10px 0 0 10px;
+    border-bottom: 20px slateblue ridge;
+}
+
+.game-title #title2 {
+    text-align: center;
+    width: 32vw;
+    padding: 20px 0 20px 0;
+    color: navy;
+    background-color: darkorchid;
+    border-bottom: 20px #4b9700 ridge;
+}
+
+.game-title #title3 {
+    text-align: center;
+    width: 23vw;
+    padding: 20px 0 20px 0;
+    color: darkred;
+    background-color: #005252;
+    border-radius: 0 10px 10px 0;
+    border-bottom: 20px darkorchid ridge;
+}
+
+
+@media screen and (min-width: 768px){
+
+
+}

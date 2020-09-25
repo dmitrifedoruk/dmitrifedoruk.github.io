@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 9</title>
+    <script src="vue.js"></script>
+    <style>
+        @import url(main.css);
+    </style>
+</head>
+<body>
+
+
+<header>
+    <section class="name-animation">
+
+        <div class="letter-block" id="block-d"><span class="letter" id="letter-d">D</span></div>
+        <div class="letter-block" id="block-m"><span class="letter" id="letter-m">M</span></div>
+        <div class="letter-block" id="block-i"><span class="letter" id="letter-i">I</span></div>
+        <div class="letter-block" id="block-t"><span class="letter" id="letter-t">T</span></div>
+        <div class="letter-block" id="block-r"><span class="letter" id="letter-r">R</span></div>
+        <div class="letter-block" id="block-i2"><span class="letter" id="letter-i2">I</span></div>
+
+    </section>
+    <section class="game-title">
+        <span id="title1">CAPTAIN</span><span id="title2">JEAN-LUC</span><span id="title3">PICARDS</span>
+    </section>
+</header>
+
+
+<div class="vueWrapper">
+
+    <div class="surface">
+
+    <card-deck>
+        <card-display
+                v-for="card in cards"
+                :key="card.cardType"
+                :card="card"
+                @card-click="commonCards.push(cards.pop())"
+        ></card-display>
+    </card-deck>
+
+
+    <common-area>
+        <card-control
+                v-for="(card, index) in commonCards"
+                :index="index"
+                :key="card.cardType"
+                :card="card"
+                @click="addToPlayerHand"
+        >
+            <card-display :card="card"></card-display>
+        </card-control>
+    </common-area>
+
+    <player-hand>
+        <card-display
+                v-for="(card, index) in handCards"
+                :index="index"
+                :key="card.key"
+                :card="card.card"
+                @card-click="removeFromPlayerHand"
+        ></card-display>
+    </player-hand>
+
+    </div>
+
+
+
+
+</div>
+
+<script src="main.js"></script>
+
+
+</body>
+</html>

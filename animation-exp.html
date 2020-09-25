@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            background-color: #1a09a8;
+            /*overflow: hidden;*/
+        }
+
+        .object {
+            background-color: #00c600;
+            position: absolute;
+            /*height: 20px;*/
+            /*width: 20px;*/
+            border-radius: 50%;
+        }
+
+        /*#element {*/
+        /*    background-color: #c6931d;*/
+        /*    left: 300px;*/
+        /*    top: 300px;*/
+        /*    height: 100px;*/
+        /*    width: 100px;*/
+        /*}*/
+
+        /*#element2 {*/
+        /*    background-color: #ee5d08;*/
+        /*    left: 300px;*/
+        /*    top: 300px;*/
+        /*    height: 100px;*/
+        /*    width: 100px;*/
+        /*    transform: rotateY(60deg);*/
+        /*}*/
+
+        #element {
+            /*background: linear-gradient(90deg, #ee5d08 50%, #c6931d 50%);*/
+            /*background: linear-gradient(90deg, #c6931d 50%, #ee5d08 50%);*/
+            /*background: #c6931d;*/
+            /*background: #ee5d08;*/
+            /*left: 300px;*/
+            /*top: 300px;*/
+            height: 300px;
+            width: 300px;
+        }
+
+        #element2 {
+            /*background: #c6931d;*/
+            /*background: #ee5d08;*/
+            /*background: linear-gradient(90deg, #c6931d 50%, #ee5d08 50%);*/
+            /*background: linear-gradient(90deg, #ee5d08 50%, #c6931d 50%);*/
+            /*left: 300px;*/
+            /*top: 300px;*/
+            height: 300px;
+            width: 300px;
+        }
+
+        #moonContainer {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            width: 300px;
+            height: 300px;
+            /*transform-origin: 400px 400px;*/
+            transform: rotateZ(45deg);
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div id="timer"></div>
+
+<div id="moonContainer">
+
+<div class="object" id="element"></div>
+
+<div class="object" id="element2"></div>
+
+</div>
+
+
+
+<script>
+    let start = null;
+    const element = document.getElementById('element');
+    const element2 = document.getElementById('element2');
+    const timer = document.getElementById("timer");
+
+
+    // function step(timestamp) {
+    //     if (!start) start = timestamp;
+    //     let progress = timestamp - start;
+    //     timer.innerText = progress.toString();
+    //     let x = element.getBoundingClientRect().left;
+    //     let y = element.getBoundingClientRect().top;
+    //     let x2 = element2.getBoundingClientRect().left;
+    //     let y2 = element2.getBoundingClientRect().top;
+    //
+    //     if(y2 < 500) {
+    //         x += 3;
+    //         element.style.left = x.toString()+'px';
+    //         y = y + y*0.05*1*Math.pow(progress/1000,2);
+    //         element.style.top = y.toString()+'px';
+    //
+    //         x2 += 2;
+    //         element2.style.left = x2.toString()+'px';
+    //         y2 = y2 + y2*0.05*1*Math.pow(progress/1000,2);
+    //         element2.style.top = y2.toString()+'px';
+    //     }
+    //     if (progress < 4000) {
+    //         window.requestAnimationFrame(step);
+    //     }
+    // }
+
+    function step(timestamp) {
+        if (!start) start = timestamp;
+        let progress = timestamp - start;
+        //timer.innerText = progress.toString();
+
+        let cycle = (progress%30000)/30000;
+
+        setMoonPhase(element,element2,cycle);
+
+        window.requestAnimationFrame(step);
+
+        // if (progress < 20000) {
+        //     window.requestAnimationFrame(step);
+        // }
+    }
+
+
+    function setMoonPhase(elem1, elem2, ln) {
+
+
+
+        const dark = "#103b9d";
+        const light = "#c6931d";
+        const darkToLight = "linear-gradient(90deg, "+dark+" 50%, "+light+" 50%)";
+        const lightToDark = "linear-gradient(90deg, "+light+" 50%, "+dark+" 50%)";
+
+
+        if(ln >= 0 && ln < .25){
+            elem1.style.background = darkToLight;
+            elem2.style.background = dark;
+            const degrees = (ln/.25)*90;
+            elem2.style.transform = "rotateY("+degrees.toString()+"deg)";
+        }
+
+        else if(ln >= .25 && ln < .5){
+            elem1.style.background = darkToLight;
+            elem2.style.background = light;
+            const degrees = ((ln-.25)/.25)*90;
+            elem2.style.transform = "rotateY("+(degrees+90).toString()+"deg)";
+        }
+
+        else if(ln >= .5 && ln < .75){
+            elem1.style.background = lightToDark;
+            elem2.style.background = light;
+            const degrees = ((ln-.5)/.25)*90;
+            elem2.style.transform = "rotateY("+degrees.toString()+"deg)";
+        }
+
+        else if(ln >= .75 && ln < 1){
+            elem1.style.background = lightToDark;
+            elem2.style.background = dark;
+            const degrees = ((ln-.75)/.25)*90;
+            elem2.style.transform = "rotateY("+(degrees+90).toString()+"deg)";
+        }
+
+        else{
+            elem1.style.background = darkToLight;
+            elem2.style.background = dark;
+        }
+    }
+
+    //setMoonPhase(element,element2,.26);
+
+
+
+
+    window.requestAnimationFrame(step);
+</script>
+
+</body>
+</html>
