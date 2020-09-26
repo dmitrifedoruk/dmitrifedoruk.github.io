@@ -108,8 +108,7 @@
         }
 
         .screenShot {
-            grid-row: 1 / 2;
-            grid-column: 2 / 3;
+
             height: 290px;
             margin-top: 20px;
             box-shadow: 10px 10px 10px rgba(11, 11, 23, 0.91);
@@ -132,6 +131,15 @@
         .techList {
             font-size: 1.5rem;
             color: rgba(24, 112, 86, 0.85);
+        }
+
+        .imageLink {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+        }
+
+        .alternateLayout .imageLink {
+            grid-column: 1 / 2;
         }
 
         @media only screen and (max-width: 480px) {
@@ -238,7 +246,9 @@
                     </p>
                     <a href="task-grid/index.html" target="_blank">View Page</a>
                 </div>
-                <img class="screenShot" src="images/screenshot_vue_notes.png"></img>
+                <a class="imageLink" href="task-grid/index.html" target="_blank">
+                    <img class="screenShot" src="images/screenshot_vue_notes.png"></img>
+                </a>
             </div>
         </div>
 
@@ -247,11 +257,13 @@
             <div class="infoContainer">
                 <div class="summary">
                     <p>
-                        Displays current weather info according to location from DarkSky.net's data; makes use of Mapquest API for geocoding/geolocation; unique features including a moon phase display accoridng to the exact lunation number, dimming of the background according to local daylight, and a flashing UV warning;  coordinates displayed link to Google Maps search; challenges in putting this together arose around dealing timezone and other date-time issues; much was learned about the limitations and advantages of doing different things client-side or server-side;  in the future I would like to add dynamic weather effects as well, such as css animated rainfall and clouds
+                        Displays current weather info according to location from DarkSky.net's data; makes use of Mapquest API for geocoding/geolocation; unique features including a moon phase display accoridng to the exact lunation number, dimming of the background according to local daylight, and a flashing UV warning;  coordinates displayed link to Google Maps search; challenges in putting this together arose around dealing timezone and other date-time issues; much was learned about the limitations and advantages of doing different things client-side or server-side;  in the future I would like to add dynamic weather effects as well, such as css animated rainfall and clouds; in the process of implementing a mobile web version at this time
                     </p>
                     <a href="https://damp-oasis-78791.herokuapp.com/" target="_blank">Visit Page</a>
                 </div>
-                <img class="screenShot" src="images/screenshot_weather.png"></img>
+                <a class="imageLink" href="https://damp-oasis-78791.herokuapp.com/" target="_blank">
+                    <img class="screenShot" src="images/screenshot_weather.png"></img>
+                </a>
             </div>
         </div>
 
@@ -264,7 +276,9 @@
                     </p>
                         <a href="https://pacific-thicket-99102.herokuapp.com/" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="https://pacific-thicket-99102.herokuapp.com/" target="_blank">
                 <img class="screenShot" src="images/screenshot_characters.png"></img>
+                </a>
             </div>
         </div>
 
@@ -277,7 +291,9 @@
                     </p>
                     <a href="https://agile-journey-57165.herokuapp.com/" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="https://agile-journey-57165.herokuapp.com/" target="_blank">
                 <img class="screenShot" src="images/screenshot_slideshow.jpg"></img>
+                </a>
             </div>
         </div>
 
@@ -291,7 +307,9 @@
                     </p>
                     <a href="https://card-creator-d.firebaseapp.com/" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="https://agile-journey-57165.herokuapp.com/" target="_blank">
                 <img class="screenShot" src="images/screenshot_vue_card_creator.png"></img>
+                </a>
             </div>
         </div>
 
@@ -303,7 +321,9 @@
                     </p>
                     <a href="/wit_libs/witLib_home.html" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="/wit_libs/witLib_home.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_wit_libs.png"></img>
+                </a>
             </div>
         </div>
 
@@ -312,11 +332,13 @@
             <div class="infoContainer">
                 <div class="summary">
                     <p>
-                        A tool I put together for quickly assembling the html for Wit Libs pages, by picking the words to be altered and generating the right markup, both the output and the forms
+                        A tool I put together for quickly assembling the html for Wit Libs pages, by picking the words to be altered and generating the right markup, both the output and the forms; mainly designed for desktop use
                     </p>
                         <a href="word-picker-plus.html" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="word-picker-plus.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_lib_builder.png"></img>
+                </a>
             </div>
         </div>
 
@@ -327,7 +349,9 @@
                     <p>Speaks a selection of GRE words; made to entertain my kids</p>
                     <a href="speech-grid.html" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="speech-grid.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_word_grid.png"></img>
+                </a>
             </div>
         </div>
 
@@ -335,10 +359,12 @@
             <div class="heading">The Forest of Vectors<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
-                    <p>Draggable svg icons, reusing my weather app backdrop;  also for the amusement of my children</p>
+                    <p>Draggable svg icons, reusing my weather app backdrop;  also for the amusement of my children; functionality is limited to desktop at this time; in the process of implement touch features for mobile web</p>
                     <a href="/forest/vector-forest.html" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="/forest/vector-forest.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_forest.png"></img>
+                </a>
             </div>
         </div>
 
@@ -349,7 +375,9 @@
                     <p>My own version of an interactive html color list</p>
                     <a href="colors.html" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="colors.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_colors.png"></img>
+                </a>
             </div>
         </div>
 
@@ -357,11 +385,13 @@
             <div class="heading">Random Color Squares<span class="techList"> (html,css,javascript)</span></div>
             <div class="infoContainer">
                 <div class="summary">
-                    <p>My wife's suggestion, which I put together;  meant as another fidget for the kids</p>
+                    <p>My wife's suggestion, which I put together;  meant as another fidget for the kids; mainly for desktop; limited functionality on mobile web at this time</p>
                     <a href="/random-color-squares.html" target="_blank">Visit Page</a>
                     <a href="/random-color-squares-fade.html" target="_blank">Alternate Version with Fade Effects</a>
                 </div>
+                <a class="imageLink" href="/random-color-squares.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_color_squares.png"></img>
+                </a>
             </div>
         </div>
 
@@ -372,7 +402,9 @@
                     <p>My own take on sudoku, design-wise</p>
                     <a href="sudoku/index.html" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="sudoku/index.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_sudoku.png"></img>
+                </a>
             </div>
         </div>
 
@@ -384,7 +416,9 @@
                     <p>Overlapping rotating circles, set to go through phases of the moon, using same basis as the moon in my weather app</p>
                     <a href="animation.html" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="animation.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_moon.png"></img>
+                </a>
             </div>
         </div>
 
@@ -395,7 +429,9 @@
                     <p>One of my first css animations; my instructor was surprised by this; formerly included musical notes on-click, but that feature was removed</p>
                     <a href="name_animate.html" target="_blank">Visit Page</a>
                 </div>
+                <a class="imageLink" href="name_animate.html" target="_blank">
                 <img class="screenShot" src="images/screenshot_name_animate.png"></img>
+                </a>
             </div>
         </div>
 
@@ -407,7 +443,7 @@
                     <p>A very elaborate Symfony app I put together based on a Moqup I also made; was very pleased with this design; have had some difficulty with the templates when deploying it so far, although here is a screenshot from my local machine; please check the Moqup page too</p>
                     <a href="https://app.moqups.com/u2SrpogS34/view/page/ad64222d5" target="_blank">View Moqups Page</a>
                 </div>
-                <img class="screenShot" src="images/screenshot_shopping_list.png"></img>
+                <img class="screenShot imageLink" src="images/screenshot_shopping_list.png"></img>
             </div>
         </div>
 
