@@ -8,7 +8,6 @@
           type="image/png"
           href="icons/woodcut-icon.png">
     <style>
-        /*@import url('https://fonts.googleapis.com/css?family=Spectral');*/
         @import url('https://fonts.googleapis.com/css2?family=Spectral&family=Josefin+Sans:wght@500&family=Gentium+Book+Basic&display=swap');
 
         body{
@@ -49,12 +48,14 @@
             color: rebeccapurple;
             grid-column: 1 / 2;
             margin-left: -5px;
+            line-height: 90px;
         }
 
         #subHeading {
             font-size: 1.7rem;
             font-family: "Gentium Book Basic";
             color: rgba(160, 127, 30, 0.85);
+            margin-left: 3px;
         }
 
         #profile {
@@ -90,9 +91,6 @@
 
         }
 
-        .pageInfo:first-of-type {
-
-        }
 
         .heading {
             font-family: "Gentium Book Basic", serif;
@@ -158,6 +156,19 @@
 
         .pageInfo:nth-of-type(2n+1) .imageLink {
             grid-column: 1 / 2;
+        }
+
+
+        #sudoku .summary{
+            text-align: right;
+        }
+
+        #colors .summary{
+            text-align: right;
+        }
+
+        #speech .summary{
+            text-align: right;
         }
 
 
@@ -277,7 +288,7 @@
 
     <div id="gridList">
 
-        <div id="item2" class="pageInfo">
+        <div id="marvel" class="pageInfo">
             <div class="heading">Characters of The Marvel Universe<span class="techList"> php &middot; html &middot; css &middot; api's</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -292,7 +303,7 @@
             </div>
         </div>
 
-        <div id="item1" class="pageInfo">
+        <div id="weather" class="pageInfo">
             <div class="heading">Weather Plus<span class="techList"> php &middot; html &middot; css &middot; api's</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -307,7 +318,7 @@
             </div>
         </div>
 
-        <div id="item0" class="pageInfo">
+        <div id="notes" class="pageInfo">
             <div class="heading">Notes<span class="techList"> html &middot; css &middot; vue.js </span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -322,7 +333,7 @@
             </div>
         </div>
 
-        <div id="item3" class="pageInfo">
+        <div id="slideshow" class="pageInfo">
             <div class="heading">A's Slideshow<span class="techList"> php &middot; html &middot; css</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -337,7 +348,7 @@
             </div>
         </div>
 
-        <div id="item4" class="pageInfo">
+        <div id="cards" class="pageInfo">
             <div class="heading">Card Creator<span class="techList"> Vue CLI &middot; Node.js &middot; Google Firebase</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -352,7 +363,7 @@
             </div>
         </div>
 
-        <div id="item5" class="pageInfo">
+        <div id="libs" class="pageInfo">
             <div class="heading">Wit Libs<span class="techList"> html &middot; css &middot; javascript</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -366,7 +377,7 @@
             </div>
         </div>
 
-        <div id="item6" class="pageInfo">
+        <div id="builder" class="pageInfo">
             <div class="heading">Lib Builder<span class="techList"> html &middot; css &middot; javascript</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -381,7 +392,7 @@
             </div>
         </div>
 
-        <div id="item7" class="pageInfo">
+        <div id="speech" class="pageInfo">
             <div class="heading">Text-to-Speech Grid<span class="techList"> html &middot; css &middot; javascript</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -394,7 +405,7 @@
             </div>
         </div>
 
-        <div id="item8" class="pageInfo">
+        <div id="forest" class="pageInfo">
             <div class="heading">The Forest of Vectors<span class="techList"> html &middot; css &middot; javascript</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -407,7 +418,7 @@
             </div>
         </div>
 
-        <div id="item9" class="pageInfo">
+        <div id="colors" class="pageInfo">
             <div class="heading">HTML Named Color Explorer<span class="techList"> html &middot; css &middot; javascript</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -420,7 +431,7 @@
             </div>
         </div>
 
-        <div id="item10" class="pageInfo">
+        <div id="squares" class="pageInfo">
             <div class="heading">Random Color Squares<span class="techList"> html &middot; css &middot; javascript</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -434,7 +445,7 @@
             </div>
         </div>
 
-        <div id="item11" class="pageInfo">
+        <div id="sudoku" class="pageInfo">
             <div class="heading">Sudoku<span class="techList"> html &middot; css &middot; javascript</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -448,7 +459,7 @@
         </div>
 
 
-        <div id="item12" class="pageInfo">
+        <div id="moon" class="pageInfo">
             <div class="heading">Moon Animation<span class="techList"> html &middot; css &middot; javascript</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -461,7 +472,7 @@
             </div>
         </div>
 
-        <div id="item13" class="pageInfo">
+        <div id="name" class="pageInfo">
             <div class="heading">Animated Name<span class="techList"> html &middot; css</span></div>
             <div class="infoContainer">
                 <div class="summary">
@@ -473,9 +484,8 @@
                 </a>
             </div>
         </div>
-
-
-        <div id="item14" class="pageInfo">
+        
+        <div id="shopping" class="pageInfo">
             <div class="heading">Smart Shopping List<span class="techList"> Symfony 4 &middot; Twig &middot; Doctrine</span></span></div>
             <div class="infoContainer">
                 <div class="summary">
