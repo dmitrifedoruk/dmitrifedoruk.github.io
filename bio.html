@@ -29,17 +29,14 @@
             color: rgb(0, 0, 238);
         }
 
-
         .gridWrapper {
             display: grid;
             padding-left: 25px;
-            padding-bottom: 50px;
             gap: 10px;
         }
 
         header {
             display: grid;
-            grid-template-columns: 1fr 1fr;
             padding-top: 10px;
         }
 
@@ -49,54 +46,19 @@
             grid-column: 1 / 2;
         }
 
-
         header a{
             text-decoration: none;
         }
-
-        #profile {
-            padding-right: 10px;
-            display: grid;
-            grid-column: 2 / 3;
-        }
-
-        #profile img {
-            border-radius: 1px;
-            justify-self: end;
-            height: 0px;
-        }
-
-        #profile #bioLink {
-            text-align: right;
-        }
-
-        #profile #bioLink a{
-            color: #146097;
-        }
-
-
-        .pageInfo {
-            display: grid;
-            gap: 10px;
-            grid-template-rows: 50px auto;
-            width: 60vw;
-            margin-top: 0px;
-        }
-
-        .heading {
-            grid-row: 1 / 2;
-            font-size: 2.7rem;
-            color: rgb(0, 0, 238);
-        }
-
+        
         .infoContainer {
             display: grid;
             grid-template-columns: 1fr 300px;
             gap: 15px;
             grid-row: 2 / 3;
             background-color: rgba(214, 223, 218, 0.32);
-            padding: 15px;
+            padding: 10px 25px 15px 20px;
             border-radius: 1px;
+            width: 75vw;
         }
 
         .summary {
@@ -110,19 +72,20 @@
             text-decoration: underline;
         }
 
-        .screenShot {
+        .profileImage {
             grid-row: 1 / 2;
             grid-column: 2 / 3;
             height: 290px;
             margin-top: 20px;
             box-shadow: 10px 10px 10px rgba(11, 11, 23, 0.91);
             border-radius: 1px;
+            justify-self: center;
         }
 
         #email, #resume {
             grid-column: 1 / 2;
+            justify-self: end;
         }
-
 
         @media only screen and (max-width: 480px) {
 
@@ -137,25 +100,6 @@
                 color: rebeccapurple;
             }
 
-
-            #profile img {
-                height: 100px;
-            }
-
-            .pageInfo {
-                display: grid;
-                gap: 5px;
-                grid-template-rows: auto auto;
-                width: 60vw;
-                margin-top: 15px;
-            }
-
-            .heading {
-                grid-row: 1 / 2;
-                font-size: 2rem;
-                color: rgb(0, 0, 238);
-            }
-
             .infoContainer {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
@@ -164,9 +108,10 @@
                 background-color: rgba(214, 223, 218, 0.32);
                 padding: 15px;
                 border-radius: 1px;
+                width: 87vw;
             }
 
-            .screenShot {
+            .profileImage {
                 grid-row: 1 / 2;
                 grid-column: 1 / 2;
                 height: auto;
@@ -176,20 +121,14 @@
             .summary {
                 grid-row: 2 / 3;
                 grid-column: 1 / 2;
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .summary a {
                 justify-self: end;
             }
 
-
-
-
         }
-
-
-
 
 
     </style>
@@ -201,22 +140,21 @@
         <a href="https://dmitrifedoruk.github.io"><div id="nameHeading">Dmitri Fedoruk</div></a>
     </header>
 
-    <div id="gridList">
 
-        <div id="item0" class="pageInfo">
-            <div class="heading"></div>
-            <div class="infoContainer">
-                <div class="summary">
-                    <p>Web development and design for me has become a perfect nexus of my interests in art, math, and engineering; I used to pursue all these things separately but it has been nice to watch them come together.  I mostly build things in response to practical problems or to entertain my kids, but whatever I build I try to put some beauty into it. Working on my own projects, CSS (especially Grid), Vanilla Javascript, and PHP are what I usually reach for, but I have enjoyed working with Vue and Symfony as well, as far as frameworks
-                </div>
-                <div id="email">dmitrifedoruk@gmail.com</div>
-                <div id="resume"><a href="Dmitri_Fedoruk_Resume_2020.pdf" target="_blank">Link to my resume</a></div>
-                <img class="screenShot" src="images/profile.JPG"></img>
-            </div>
+    <div class="infoContainer">
+        <div class="summary">
+            <p>Web development and design for me has become a perfect nexus of my interests in art, math, and
+                engineering; I used to pursue all these things separately but it has been nice to watch them come
+                together. I mostly build things in response to practical problems or to entertain my kids, but whatever
+                I build I try to put some beauty into it. Working on my own projects, CSS (especially Grid), Vanilla
+                Javascript, and PHP are what I usually reach for, but I have enjoyed working with Vue and Symfony as
+                well, as far as frameworks
         </div>
-
-
+        <div id="email">dmitrifedoruk@gmail.com</div>
+        <div id="resume"><a href="Dmitri_Fedoruk_Resume_2020.pdf" target="_blank">Link to my resume</a></div>
+        <img class="profileImage" src="images/profile.JPG"></img>
     </div>
+
 
 </div>
 </body>
