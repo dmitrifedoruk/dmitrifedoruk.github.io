@@ -14,19 +14,23 @@
             background: #37005f;
             background-image: url("images/sunset.JPG");
             background-attachment: fixed;
-            background-size: cover;
+            background-size: 100vw;
             height: calc(100vh + 200px);
             margin: 0;
             font-family: Spectral, "Bookman Old Style", Tahoma, serif;
             font-size: 120%;
         }
 
-        a:hover, a:visited:hover {
-            color: darkgoldenrod;
+        a {
+            color: rgb(0, 0, 238);
         }
 
         a:visited {
             color: rgb(0, 0, 238);
+        }
+
+        a:hover {
+            color: darkgoldenrod;
         }
 
         .gridWrapper {
@@ -94,7 +98,6 @@
             width: 95vw;
 
         }
-
 
         .heading {
             font-family: "Gentium Book Basic", serif;
@@ -186,7 +189,6 @@
 
             #nameHeading {
                 font-size: 3rem;
-                color: rebeccapurple;
                 line-height: 48px;
             }
 
@@ -223,7 +225,6 @@
                 display: grid;
                 grid-row: 1 / 2;
                 font-size: 2rem;
-                color: rgb(0, 0, 238);
             }
 
             .techList {
@@ -232,13 +233,8 @@
             }
 
             .infoContainer {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
                 gap: 15px;
-                grid-row: 2 / 3;
-                background-color: rgba(214, 223, 218, 0.32);
                 padding: 15px;
-                border-radius: 1px;
             }
 
             .screenShot {
@@ -326,10 +322,10 @@
                 <div class="summary">
                     <p>
                         Displays current weather info according to location from DarkSky.net's data; makes use of
-                        Mapquest API for geocoding/geolocation; unique features including a moon phase display according
+                        Mapquest API for geocoding and geolocation; unique features including a moon phase display according
                         to the exact lunation number, dimming of the background according to local daylight, and a
                         flashing UV warning; coordinates displayed link to Google Maps search; challenges in putting
-                        this together arose around dealing timezone and other date-time issues; much was learned about
+                        this together arose around dealing with timezone and other date-time issues; much was learned about
                         the limitations and advantages of doing different things client-side or server-side; in the
                         future I would like to add dynamic weather effects as well, such as css animated rainfall and
                         clouds; in the process of implementing a mobile web version at this time
