@@ -57,6 +57,10 @@
       font-size: 2em;
     }
 
+    #startScreen p.instructions span{
+      color: rgba(67, 175, 199, 0.71);
+    }
+
 
     #pauseMessage {
       width: 1000px;
@@ -104,7 +108,7 @@
 <div id="startScreen">
   <p class="heading">PONG 2:</p>
   <p class="subheading">Attack of The Clones</p>
-  <p class="instructions">Press Enter to Start</p>
+  <p class="instructions">Press Enter or Click <span>Here</span> to Start</p>
 </div>
 
 <div id="pauseMessage">
@@ -395,6 +399,14 @@
       main();
     }
   });
+
+
+  document.querySelector("p.instructions").addEventListener("click", (event) => {
+
+      main();
+
+  });
+
 
 
 
