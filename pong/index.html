@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Pong</title>
-
+  <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
   <!-- Basic styling, centering the canvas -->
   <style>
+
+
 
     body {
       background-color: #3137a6;
@@ -41,7 +43,7 @@
       display: block;
       margin: auto;
       color: chartreuse;
-      font-family: "OCR A Extended", monospace;
+      font-family: "VT323","OCR A Extended", monospace;
       font-size: 3em;
     }
 
@@ -51,7 +53,7 @@
       display: block;
       margin: auto;
       color: chartreuse;
-      font-family: "OCR A Extended", monospace;
+      font-family: "VT323","OCR A Extended", monospace;
       font-size: 2em;
     }
 
@@ -71,18 +73,11 @@
     }
 
     #pauseMessage p {
-      width: 500px;
-      height: 200px;
+      width: min-content;
       display: block;
-      position: fixed;
       margin: auto;
-      margin-left: 670px;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
       color: chartreuse;
-      font-family: "OCR A Extended", monospace;
+      font-family: "VT323","OCR A Extended", monospace;
       font-size: 10em;
     }
 
@@ -151,17 +146,18 @@
             width: 20,
             height: 100,
             /**
-             * Update the position depending on pressed keys
+             * Update the position depending on the ball position
              */
             update: function () {
-              if (keystate[UpArrow]) this.y -= 9.5;
-              if (keystate[DownArrow]) this.y += 9.5;
-              //if (keystate[Space]) setTimeout(pauseGame(),10);
+              // calculate ideal position
+              var desty = ball.y - (this.height - ball.side) * 0.5;
+              // ease the movement towards the ideal position
+              this.y += (desty - this.y) * 0.4;
               // keep the paddle inside of the canvas
               this.y = Math.max(Math.min(this.y, HEIGHT - this.height), 0);
             },
             /**
-             * Draw the player paddle to the canvas
+             * Draw the ai paddle to the canvas
              */
             draw: function () {
               ctx.fillRect(this.x, this.y, this.width, this.height);
