@@ -7,8 +7,6 @@
   <!-- Basic styling, centering the canvas -->
   <style>
 
-
-
     body {
       background-color: #3137a6;
     }
@@ -61,6 +59,16 @@
       color: rgba(67, 175, 199, 0.71);
     }
 
+    #startScreen p.controls {
+      width: 800px;
+      height: 200px;
+      display: block;
+      margin: auto;
+      padding-left: 70px;
+      color: chartreuse;
+      font-family: "VT323","OCR A Extended", monospace;
+      font-size: 2em;
+    }
 
     #pauseMessage {
       width: 1000px;
@@ -85,8 +93,6 @@
       font-size: 10em;
     }
 
-
-
     canvas {
       display: block;
       position: fixed;
@@ -109,6 +115,8 @@
   <p class="heading">PONG 2:</p>
   <p class="subheading">Attack of The Clones</p>
   <p class="instructions">Press Enter or Click <span>Here</span> to Start</p>
+  <p class="controls">Control with up & down keys or mouse movement & wheel
+    Press Space Bar to pause game</p>
 </div>
 
 <div id="pauseMessage">
@@ -117,7 +125,8 @@
 
 <script>
 
-  const synth = new Tone.MembraneSynth().toMaster();
+  const synth1 = new Tone.MembraneSynth().toMaster();
+  const synth2 = new Tone.DuoSynth().toDestination();
   const now = Tone.now()
 
   var
@@ -132,7 +141,11 @@
           Space = 32,
           //global variable to toggle pause state
           pause = 0,
-          start = 0,
+          playerCollision = 0,
+          gameStarted = 0,
+          mouseControl = 0,
+          wheelState = 0,
+          controlSwitch = 0,
           /**
            * Game elements
            */
@@ -153,15 +166,44 @@
              * Update the position depending on the ball position
              */
             update: function () {
-              // calculate ideal position
-              var desty = ball.y - (this.height - ball.side) * 0.5;
-              // ease the movement towards the ideal position
-              this.y += (desty - this.y) * 0.4;
+              if (keystate[UpArrow]) {
+                mouseControl = 0;
+                this.y -= 11;
+              }
+              if (keystate[DownArrow]) {
+                mouseControl = 0;
+                this.y += 11;
+              }
+              if (wheelState == -1) {
+                controlSwitch = 1;
+                mouseControl = 0;
+                this.y -= 22;
+              }
+              if (wheelState == 1) {
+                controlSwitch = 1;
+                mouseControl = 0;
+                this.y += 22;
+              }
+
+              //eases between mousewheel and mousemove
+              let currentPos = this.y;
+              if(mouseControl != 0) {
+                if(controlSwitch != 0){
+                  let moveCount = 0;
+                  moveCount += Math.abs(mouseControl - currentPos);
+                  if(moveCount > 75){controlSwitch = 0};
+                }
+                if(controlSwitch == 0) {
+                  var desty = mouseControl - (this.height - ball.side) * 0.5;
+                  this.y += (desty - this.y) * 0.15;
+                }
+              }
+
               // keep the paddle inside of the canvas
               this.y = Math.max(Math.min(this.y, HEIGHT - this.height), 0);
             },
             /**
-             * Draw the ai paddle to the canvas
+             * Draw the player paddle to the canvas
              */
             draw: function () {
               ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -181,10 +223,27 @@
              * Update the position depending on the ball position
              */
             update: function () {
-              // calculate ideal position
-              var desty = ball.y - (this.height - ball.side) * 0.5;
+
+              let desty = 0;
+
+              //dynamically changes depending on player's control choices
+              let speedFactor = 0;
+
+              //AI will chase ball when it is heading toward them and otherwise go to the middle of the court
+              if(playerCollision == 1) {
+                // calculate ideal position
+                desty = ball.y - (this.height - ball.side) * 0.5;
+              }
+              else {desty = HEIGHT * 0.5 - this.height * 0.5;}
+
+              if(mouseControl == 0){
+                speedFactor = 1;
+              }
+              else{speedFactor = 1.3;}
+
+
               // ease the movement towards the ideal position
-              this.y += (desty - this.y) * 0.1;
+              this.y += (desty - this.y) * 0.11 * speedFactor;
               // keep the paddle inside of the canvas
               this.y = Math.max(Math.min(this.y, HEIGHT - this.height), 0);
             },
@@ -241,21 +300,24 @@
                 this.y += 2 * offset;
                 // mirror the y velocity
                 this.vel.y *= -1;
-                paddleCollisionFX();
+                //add sound effect
+                wallCollisionFX();
               }
               // helper function to check intesectiont between two
               // axis aligned bounding boxex (AABB)
               var AABBIntersect = function (ax, ay, aw, ah, bx, by, bw, bh) {
                 return ax < bx + bw && ay < by + bh && bx < ax + aw && by < ay + ah;
               };
-              // check againts target paddle to check collision in x
+              // check against target paddle to check collision in x
               // direction
               var pdle = this.vel.x < 0 ? player : ai;
+              //set playerCollision global variable based on if the ball is heading toward or away from opponent
+              this.vel.x < 0 ? playerCollision = 0 : playerCollision = 1;
               if (AABBIntersect(pdle.x, pdle.y, pdle.width, pdle.height,
                       this.x, this.y, this.side, this.side)
               ) {
 
-                // set the x position and calculate reflection angle
+                // set the x position and calculate reflection.txt angle
                 this.x = pdle === player ? player.x + player.width : ai.x - this.side;
                 var n = (this.y + this.side - pdle.y) / (pdle.height + this.side);
                 var phi = 0.25 * pi * (2 * n - 1); // pi/4 = 45
@@ -264,12 +326,18 @@
                 this.vel.x = smash * (pdle === player ? 1 : -1) * this.speed * Math.cos(phi);
                 this.vel.y = smash * this.speed * Math.sin(phi);
                 //add sound effect
-                //synth.triggerAttackRelease("C2", "8n");
                 paddleCollisionFX();
+
               }
               // reset the ball when ball outside of the canvas in the
               // x direction
               if (0 > this.x + this.side || this.x > WIDTH) {
+                //add sound effect indicating which side lost point
+                if(playerCollision == 1) {
+                  synth2.triggerAttackRelease("B3", "8n");
+                }
+                else {synth2.triggerAttackRelease("D3", "8n");}
+
                 this.serve(pdle === player ? 1 : -1);
               }
             },
@@ -291,6 +359,12 @@
     canvas.height = HEIGHT;
     ctx = canvas.getContext("2d");
     document.body.appendChild(canvas);
+
+    //event listener to track mouse movements to control paddle
+    document.querySelector("canvas").addEventListener("mousemove", (event) => {
+      mouseControl = event.offsetY;
+    });
+
     keystate = {};
     // keep track of keyboard presses
     document.addEventListener("keydown", function (evt) {
@@ -310,7 +384,7 @@
   }
 
   /**
-   * Initatite game objects and set start positions
+   * Initiate game objects and set start positions
    */
   function init() {
     player.x = player.width;
@@ -355,15 +429,14 @@
 
 
 
-
   //function to toggle pause variable
   function pauseGame() {
     if (pause == 0) {
-      synth.triggerAttackRelease("C4", "8n");
+      synth1.triggerAttackRelease("C4", "8n");
       document.querySelector("#pauseMessage").style.display = "grid";
       pause = 1;
     } else {
-      synth.triggerAttackRelease("E4", "8n");
+      synth1.triggerAttackRelease("E4", "8n");
       document.querySelector("#pauseMessage").style.display = "none";
       pause = 0;
 
@@ -375,7 +448,7 @@
     //random sound for variety
     sounds = ["C2","D2","E2","F2","G2","A2","C3"];
     index = Math.floor(Math.random() * 7);
-    synth.triggerAttackRelease(sounds[index], "8n");
+    synth1.triggerAttackRelease(sounds[index], "8n");
   }
 
   //generated sound effects for wall collisions
@@ -383,12 +456,8 @@
     //random sound for variety
     sounds = ["C1","D1","E1","F1","G1","A1","C3"];
     index = Math.floor(Math.random() * 7);
-    synth.triggerAttackRelease(sounds[index], "8n");
+    synth1.triggerAttackRelease(sounds[index], "8n");
   }
-
-
-
-
 
 
 
@@ -396,27 +465,31 @@
   //keyboard event added to start game on enter key pressed
   document.querySelector("body").addEventListener("keydown", (event) => {
     if (event.keyCode == 13) {
+      gameStarted = 1;
       main();
     }
   });
 
-
+  //alternately starts game on clicking highlighted element
   document.querySelector("p.instructions").addEventListener("click", (event) => {
-
-      main();
-
+    gameStarted = 1;
+    main();
   });
 
-
-
-
+  //event listener for wheel controls
+  window.addEventListener("wheel", event => {
+    wheelState = Math.sign(event.deltaY);
+    setTimeout(function (){wheelState = 0}, 100);
+  });
 
 
 
   //keyboard event added to pause game on space key pressed
   document.querySelector("body").addEventListener("keydown", (event) => {
     if (event.keyCode == Space) {
-      pauseGame();
+      if(gameStarted == 1) {
+        pauseGame();
+      }
     }
   });
 
