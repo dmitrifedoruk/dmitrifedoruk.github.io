@@ -3,7 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+
+            color-scheme: light dark;
+            color: rgba(255, 255, 255, 0.87);
+            background-color: #242424;
+
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+
+        }
+
+
+        body {
+            margin: 0;
+            display: flex;
+            place-items: center;
+            /*min-width: 320px;*/
+            /*min-height: 100vh;*/
+        }
+
+        h1 {
+            font-size: 3.2em;
+            line-height: 1.1;
+        }
+
+        #app {
+            width: 100vw;
+            /*max-width: 1280px;*/
+            /*margin: 0 auto;*/
+            padding: 2rem;
+            text-align: center;
+            display: grid;
+            justify-content: center;
+            background-color: #888888;
+        }
+
+        #wrapper {
+            display: grid;
+            justify-content: center;
+            width: 80vw;
+            /*background-color: #646cff;*/
+            background-color: rgba(189, 208, 140, 0.71);
+            padding: 20px 20px 40px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        #monthHeading {
+            display: grid;
+            justify-content: left;
+        }
+
+        #month {
+            font-family: "Baskerville Old Face";
+        }
+
+        #weekdayHeading {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-columns: repeat(7,calc(100vw/12));
+        }
+
+        .weekday:first-child {
+            border-left: solid;
+        }
+
+        .weekday {
+            border-top: solid;
+            border-right: solid;
+            border-bottom: solid;
+            font-family: "Courier New";
+            font-size: 1vw;
+            font-weight: bold;
+        }
+
+        #dateGrid {
+            display: grid;
+            grid-auto-flow: row;
+            grid-template-columns: repeat(7,calc(100vw/12));
+            grid-template-rows: repeat(5,calc(100vw/12));
+            /*height: 80vh;*/
+        }
+
+        .dateBlock:nth-child(7n+1),.dateBlock:first-child{
+            border-left: solid;
+        }
+
+        .dateBlock {
+            display: grid;
+            justify-content: left;
+            align-content: start;
+            padding: 5px;
+            border-right: solid;
+            border-bottom: solid;
+            font-family: Garamond;
+            font-size: 1.5vw;
+            font-weight: bold;
+        }
+
+
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                color: #213547;
+                background-color: #ffffff;
+            }
+            a:hover {
+                color: #747bff;
+            }
+            button {
+                background-color: #f9f9f9;
+            }
+        }
+    </style>
 </head>
 <body>
 <div id="app">
