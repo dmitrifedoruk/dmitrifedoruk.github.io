@@ -184,6 +184,27 @@
 <a href="index.html">Return to Thy Thistle Lord's Keep</a>
 
 <script>
+
+    // Update style for all existing elements
+    document.querySelectorAll('*').forEach(el => {
+        el.style["touch-action"] = "manipulation";
+    });
+
+    // Add the style to any DOM manipulations
+    (new MutationObserver(elms => {
+            elms.forEach(
+                function(elm) {
+                    for (let i = 0; i < elm.addedNodes.length; i++) {
+                        elm.addedNodes[i].style["touch-action"] = "manipulation";
+                    }
+                }
+            );
+        }
+    )).observe(document.body, { childList: true, subtree: true });
+
+
+
+
     //set data attributes with ordered index numbers on p elements
     let paragraphs = document.getElementsByTagName("p");
 
