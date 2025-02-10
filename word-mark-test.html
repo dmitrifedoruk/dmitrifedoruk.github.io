@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taking the Biscuit</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yatra One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster Two">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Marcellus">
+    <style>
+        body {
+            font-family: "Calibri", serif;
+            margin: 5rem;
+            margin-right: 3rem;
+            margin-left: 3rem;
+            background-color: antiquewhite;
+        }
+
+
+        img {
+            display: block;
+            /*margin-top: 25%;*/
+            margin-bottom: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            border-style: ridge;
+            border-color: rebeccapurple;
+            border-radius: 5px;
+            border-width: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        h4 {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        #summary {
+            margin-bottom: 2.5rem;
+        }
+
+        #notes {
+            margin-bottom: 10rem;
+        }
+
+        hr {
+            margin-bottom: 10rem;
+            margin-right: auto;
+            margin-left: auto;
+            width: 50%;
+            border: 3px solid #d30b83;
+
+        }
+
+        p {
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        #firstP::first-letter {
+            font-weight: bold;
+            font-size: 15rem;
+            float: left;
+            line-height: 1;
+            margin-right: 0.2rem;
+            font-family: Marcellus, sans-serif;
+            color: #934817;
+            text-shadow: 5px 5px 5px blueviolet;
+        }
+
+
+
+        a {
+            font-size: 1.5rem;
+            font-family: Yatra One, sans-serif;
+            font-weight: bold;
+            color: black;
+            text-shadow: 3px 3px 3px limegreen;
+            border-style: none;
+            border-radius: 25px;
+            padding: .5rem;
+            /*background-color: rgba(138, 43, 226, 0.65);*/
+            display: block;
+            /*margin-top: 25%;*/
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5rem;
+            width: 80%;
+            text-align: center;
+
+        }
+
+        #navbarContainer {
+            display: grid;
+            grid-auto-flow: column;
+            /*justify-content: right;*/
+            height: 100px;
+        }
+
+        #bookmarkNavbar {
+            display: grid;
+            justify-content: right;
+        }
+
+        #bookmarkLink {
+            border: none;
+            display: none;
+            width: 100px;
+            justify-self: right;
+        }
+
+        #wand {
+            border: none;
+            width: 100px;
+        }
+
+        .bookmarked {
+            background-image: url('smoke.png');
+            background-repeat: no-repeat;
+            background-position: 100% 50%;
+            background-size: 50px 50px;
+        }
+
+        .markedUp {
+            font-weight: bold;
+            color: red;
+        }
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+<a href="index.html">Return to Thy Thistle Lord's Keep</a>
+
+<!--<img src="ChocolatePileBackground1.jpg">-->
+
+<div id="navbarContainer">
+    <div id="bookmarkNavbar">
+        <a id="bookmarkLink" href="#bookmark"><img id="wand" src="magic-wand-ezgif.com-gif-maker(1).gif"></a>
+    </div>
+</div>
+
+<h1>
+    <strong>Taking the Biscuit</strong>
+</h1>
+<h4>
+    <strong>By:</strong> DonnyWhoLovedBowling<br/>
+</h4>
+<p id="summary">
+    <strong>Summary:</strong> Someone has stolen Remus’ chocolate!  Will this
+    old Marauder solve the mystery and have his revenge against the  thief?
+</p>
+<p id="notes">
+    <strong>Notes:</strong> See end of story for notes.
+</p>
+
+<!--<p id="firstP">-->
+<!--    It was early afternoon when Remus finally, and very much reluctantly,-->
+<!--    opened his eyes. He was lying face down in bed with his head resting halfway-->
+<!--    off his pillow, his arms flung out haphazardly from his body and his legs-->
+<!--    hopelessly  tangled within the sheets. He attempted to kick them free-->
+<!--    without much success  while trying to recall exactly what had happened since-->
+<!--    his return to human form.-->
+<!--</p>-->
+
+<p>
+    Remus could vaguely remember Sirius helping him up from the  cellar and into
+    their room at sunrise, but not being placed in the bed. A  delicate kiss on
+    his brow and gentle touch of his cheek were followed by a  whispered, “Sleep
+    now, love.” His memories were always a bit muddled the  morning after, just
+    one of the many downsides to being a werewolf.
+</p>
+
+
+<a href="index.html">Return to Thy Thistle Lord's Keep</a>
+
+<script>
+    //set data attributes with ordered index numbers on p elements
+    let paragraphs = document.getElementsByTagName("p");
+
+    let count = 1;
+    for (let paragraph of paragraphs) {
+        paragraph.setAttribute("data-index",count.toString());
+        count++;
+    }
+
+    //check if local storage has a bookmark index
+    // if(localStorage.getItem("bookmark")) {
+    //     let bookmarkIndex = localStorage.getItem("bookmark");
+    //     console.log(bookmarkIndex);
+    //     document.querySelector(`p[data-index="${bookmarkIndex}"]`).classList.add("bookmarked");
+    //     document.querySelector(`p[data-index="${bookmarkIndex}"]`).setAttribute("id", "bookmark");
+    //     document.querySelector("#bookmarkLink").style.display = "grid";
+    // }
+
+
+    window.ondblclick = e => {
+
+
+
+                    if (e.target.tagName.toLowerCase() === "p" || e.target.parentElement.tagName.toLowerCase() === "p") {
+
+                        if (e.target.tagName.toLowerCase() === "p"){
+
+                            if (document.querySelector("#bookmark") !== null) {
+
+                                if (e.target.getAttribute("id") === "bookmark") {
+                                    localStorage.clear();
+                                    document.querySelector("#bookmark").classList.remove("bookmarked");
+                                    document.querySelector("#bookmark").removeAttribute("id");
+                                    document.querySelector("#bookmarkLink").style.display = "none";
+                                } else {
+                                    document.querySelector("#bookmark").classList.remove("bookmarked");
+                                    document.querySelector("#bookmark").removeAttribute("id");
+                                    e.target.classList.add("bookmarked");
+                                    e.target.setAttribute("id", "bookmark");
+                                    localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
+                                    document.querySelector("#bookmarkLink").style.display = "grid";
+                                }
+                            } else {
+                                e.target.classList.add("bookmarked");
+                                e.target.setAttribute("id", "bookmark");
+                                localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
+                                document.querySelector("#bookmarkLink").style.display = "grid";
+                            }
+
+                        }
+                        else {
+
+                            if (document.querySelector("#bookmark") !== null) {
+
+                                if (e.target.parentElement.getAttribute("id") === "bookmark") {
+                                    localStorage.clear();
+                                    document.querySelector("#bookmark").classList.remove("bookmarked");
+                                    document.querySelector("#bookmark").removeAttribute("id");
+                                    document.querySelector("#bookmarkLink").style.display = "none";
+                                } else {
+                                    document.querySelector("#bookmark").classList.remove("bookmarked");
+                                    document.querySelector("#bookmark").removeAttribute("id");
+                                    e.target.parentElement.classList.add("bookmarked");
+                                    e.target.parentElement.setAttribute("id", "bookmark");
+                                    localStorage.setItem("bookmark", e.target.parentElement.getAttribute("data-index"));
+                                    document.querySelector("#bookmarkLink").style.display = "grid";
+                                }
+                            } else {
+                                e.target.parentElement.classList.add("bookmarked");
+                                e.target.parentElement.setAttribute("id", "bookmark");
+                                localStorage.setItem("bookmark", e.target.parentElement.getAttribute("data-index"));
+                                document.querySelector("#bookmarkLink").style.display = "grid";
+                            }
+
+                        }
+                    }
+
+        // console.log(localStorage.getItem("bookmark"));
+    }
+
+    window.onmouseup = e => {
+        isDown = false;
+    }
+
+
+        window.onclick = e => {
+            console.log(e.target.tagName.toLowerCase());
+            if (e.target.tagName.toLowerCase() === "span") {
+                e.target.classList.toggle("markedUp");
+
+
+
+
+                // if (document.querySelector("#bookmark") !== null) {
+                //     if (e.target.getAttribute("id") == "bookmark") {
+                //         localStorage.clear();
+                //         document.querySelector("#bookmark").classList.remove("bookmarked");
+                //         document.querySelector("#bookmark").removeAttribute("id");
+                //         document.querySelector("#bookmarkLink").style.display = "none";
+                //     } else {
+                //         document.querySelector("#bookmark").classList.remove("bookmarked");
+                //         document.querySelector("#bookmark").removeAttribute("id");
+                //         e.target.classList.add("bookmarked");
+                //         e.target.setAttribute("id", "bookmark");
+                //         localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
+                //         document.querySelector("#bookmarkLink").style.display = "grid";
+                //     }
+                // } else {
+                //     e.target.classList.add("bookmarked");
+                //     e.target.setAttribute("id", "bookmark");
+                //     localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
+                //     document.querySelector("#bookmarkLink").style.display = "grid";
+                // }
+            }
+
+        }
+
+
+
+
+    let wordCount = 1;
+
+    let workingParagraph = paragraphs[2];
+
+    let newParagraph = document.createElement("p");
+
+    let words = workingParagraph.innerText.split(" ");
+
+    for (let word of words) {
+        let newSpan = document.createElement("span");
+        let newWord = document.createTextNode(word);
+        newSpan.appendChild(newWord);
+        newSpan.setAttribute("data-word-count",wordCount.toString());
+        newParagraph.appendChild(newSpan);
+        let newNbsp = document.createTextNode(" ");
+        newParagraph.appendChild(newNbsp);
+        wordCount++;
+    }
+
+    workingParagraph.replaceWith(newParagraph);
+
+</script>
+
+</body>
+
+
+</html>
