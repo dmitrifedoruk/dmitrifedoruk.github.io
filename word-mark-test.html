@@ -211,35 +211,13 @@
 
 <script>
 
-    //allows double click events on mobile browser by disabling double click zoom behavior
-    // Update style for all existing elements
-    document.querySelectorAll('*').forEach(el => {
-        el.style["touch-action"] = "manipulation";
-    });
-    // Add the style to any DOM manipulations
-    (new MutationObserver(elms => {
-            elms.forEach(
-                function(elm) {
-                    for (let i = 0; i < elm.addedNodes.length; i++) {
-                        elm.addedNodes[i].style["touch-action"] = "manipulation";
-                    }
-                }
-            );
-        }
-    )).observe(document.body, { childList: true, subtree: true });
-
-
-
 
     //set data attributes with ordered index numbers on p elements
-    //and apply spans and data attributes to words to allow for marking/indexing typos
     let paragraphs = document.getElementsByTagName("p");
 
     let wordCount = 1;
     let count = 1;
     for (let paragraph of paragraphs) {
-        paragraph.setAttribute("data-index",count.toString());
-        count++;
 
         let workingParagraph = paragraph;
 
@@ -258,14 +236,17 @@
             wordCount++;
         }
 
+        newParagraph.setAttribute("data-index",count.toString());
+        count++;
+
         workingParagraph.replaceWith(newParagraph);
 
     }
 
-    //check if local storage has a bookmark index
-    if(localStorage.getItem("bookmark")) {
+    // check if local storage has a bookmark index
+    if(localStorage.getItem("bookmark") !== null) {
         let bookmarkIndex = localStorage.getItem("bookmark");
-        console.log(bookmarkIndex);
+        console.log("this is bookmark index: "+bookmarkIndex);
         document.querySelector(`p[data-index="${bookmarkIndex}"]`).classList.add("bookmarked");
         document.querySelector(`p[data-index="${bookmarkIndex}"]`).setAttribute("id", "bookmark");
         document.querySelector("#bookmarkLink").style.display = "grid";
@@ -273,8 +254,6 @@
 
 
     window.ondblclick = e => {
-
-
 
         if (e.target.tagName.toLowerCase() === "p" || e.target.parentElement.tagName.toLowerCase() === "p") {
 
@@ -336,16 +315,80 @@
     }
 
 
-    //applies styles to individual words for editing markup
+
     window.onclick = e => {
         console.log(e.target.tagName.toLowerCase());
         if (e.target.tagName.toLowerCase() === "span") {
             e.target.classList.toggle("markedUp");
+
+
+
+
+            // if (document.querySelector("#bookmark") !== null) {
+            //     if (e.target.getAttribute("id") == "bookmark") {
+            //         localStorage.clear();
+            //         document.querySelector("#bookmark").classList.remove("bookmarked");
+            //         document.querySelector("#bookmark").removeAttribute("id");
+            //         document.querySelector("#bookmarkLink").style.display = "none";
+            //     } else {
+            //         document.querySelector("#bookmark").classList.remove("bookmarked");
+            //         document.querySelector("#bookmark").removeAttribute("id");
+            //         e.target.classList.add("bookmarked");
+            //         e.target.setAttribute("id", "bookmark");
+            //         localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
+            //         document.querySelector("#bookmarkLink").style.display = "grid";
+            //     }
+            // } else {
+            //     e.target.classList.add("bookmarked");
+            //     e.target.setAttribute("id", "bookmark");
+            //     localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
+            //     document.querySelector("#bookmarkLink").style.display = "grid";
+            // }
         }
+
     }
 
+    //allows double click events on mobile browser by disabling double click zoom behavior
+    // Update style for all existing elements
+    // document.querySelectorAll('*').forEach(el => {
+    //     el.style["touch-action"] = "manipulation";
+    // });
+    //
+    // // Add the style to any DOM manipulations
+    // (new MutationObserver(elms => {
+    //         elms.forEach(
+    //             function(elm) {
+    //                 for (let i = 0; i < elm.addedNodes.length; i++) {
+    //                     elm.addedNodes[i].style["touch-action"] = "manipulation";
+    //                 }
+    //             }
+    //         );
+    //     }
+    // )).observe(document.body, { childList: true, subtree: true });
 
 
+
+
+    // let wordCount = 1;
+    //
+    // let workingParagraph = paragraphs[2];
+    //
+    // let newParagraph = document.createElement("p");
+    //
+    // let words = workingParagraph.innerText.split(" ");
+    //
+    // for (let word of words) {
+    //     let newSpan = document.createElement("span");
+    //     let newWord = document.createTextNode(word);
+    //     newSpan.appendChild(newWord);
+    //     newSpan.setAttribute("data-word-count",wordCount.toString());
+    //     newParagraph.appendChild(newSpan);
+    //     let newNbsp = document.createTextNode(" ");
+    //     newParagraph.appendChild(newNbsp);
+    //     wordCount++;
+    // }
+    //
+    // workingParagraph.replaceWith(newParagraph);
 
 </script>
 
