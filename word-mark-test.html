@@ -209,6 +209,8 @@
 
                     if (e.target.tagName.toLowerCase() === "p" || e.target.parentElement.tagName.toLowerCase() === "p") {
 
+                        e.preventDefault();
+
                         if (e.target.tagName.toLowerCase() === "p"){
 
                             if (document.querySelector("#bookmark") !== null) {
