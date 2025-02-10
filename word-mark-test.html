@@ -216,7 +216,6 @@
     document.querySelectorAll('*').forEach(el => {
         el.style["touch-action"] = "manipulation";
     });
-
     // Add the style to any DOM manipulations
     (new MutationObserver(elms => {
             elms.forEach(
@@ -233,6 +232,7 @@
 
 
     //set data attributes with ordered index numbers on p elements
+    //and apply spans and data attributes to words to allow for marking/indexing typos
     let paragraphs = document.getElementsByTagName("p");
 
     let wordCount = 1;
@@ -263,135 +263,89 @@
     }
 
     //check if local storage has a bookmark index
-    // if(localStorage.getItem("bookmark")) {
-    //     let bookmarkIndex = localStorage.getItem("bookmark");
-    //     console.log(bookmarkIndex);
-    //     document.querySelector(`p[data-index="${bookmarkIndex}"]`).classList.add("bookmarked");
-    //     document.querySelector(`p[data-index="${bookmarkIndex}"]`).setAttribute("id", "bookmark");
-    //     document.querySelector("#bookmarkLink").style.display = "grid";
-    // }
+    if(localStorage.getItem("bookmark")) {
+        let bookmarkIndex = localStorage.getItem("bookmark");
+        console.log(bookmarkIndex);
+        document.querySelector(`p[data-index="${bookmarkIndex}"]`).classList.add("bookmarked");
+        document.querySelector(`p[data-index="${bookmarkIndex}"]`).setAttribute("id", "bookmark");
+        document.querySelector("#bookmarkLink").style.display = "grid";
+    }
 
 
     window.ondblclick = e => {
 
 
 
-                    if (e.target.tagName.toLowerCase() === "p" || e.target.parentElement.tagName.toLowerCase() === "p") {
+        if (e.target.tagName.toLowerCase() === "p" || e.target.parentElement.tagName.toLowerCase() === "p") {
 
-                        e.preventDefault();
+            e.preventDefault();
 
-                        if (e.target.tagName.toLowerCase() === "p"){
+            if (e.target.tagName.toLowerCase() === "p"){
 
-                            if (document.querySelector("#bookmark") !== null) {
+                if (document.querySelector("#bookmark") !== null) {
 
-                                if (e.target.getAttribute("id") === "bookmark") {
-                                    localStorage.clear();
-                                    document.querySelector("#bookmark").classList.remove("bookmarked");
-                                    document.querySelector("#bookmark").removeAttribute("id");
-                                    document.querySelector("#bookmarkLink").style.display = "none";
-                                } else {
-                                    document.querySelector("#bookmark").classList.remove("bookmarked");
-                                    document.querySelector("#bookmark").removeAttribute("id");
-                                    e.target.classList.add("bookmarked");
-                                    e.target.setAttribute("id", "bookmark");
-                                    localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
-                                    document.querySelector("#bookmarkLink").style.display = "grid";
-                                }
-                            } else {
-                                e.target.classList.add("bookmarked");
-                                e.target.setAttribute("id", "bookmark");
-                                localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
-                                document.querySelector("#bookmarkLink").style.display = "grid";
-                            }
-
-                        }
-                        else {
-
-                            if (document.querySelector("#bookmark") !== null) {
-
-                                if (e.target.parentElement.getAttribute("id") === "bookmark") {
-                                    localStorage.clear();
-                                    document.querySelector("#bookmark").classList.remove("bookmarked");
-                                    document.querySelector("#bookmark").removeAttribute("id");
-                                    document.querySelector("#bookmarkLink").style.display = "none";
-                                } else {
-                                    document.querySelector("#bookmark").classList.remove("bookmarked");
-                                    document.querySelector("#bookmark").removeAttribute("id");
-                                    e.target.parentElement.classList.add("bookmarked");
-                                    e.target.parentElement.setAttribute("id", "bookmark");
-                                    localStorage.setItem("bookmark", e.target.parentElement.getAttribute("data-index"));
-                                    document.querySelector("#bookmarkLink").style.display = "grid";
-                                }
-                            } else {
-                                e.target.parentElement.classList.add("bookmarked");
-                                e.target.parentElement.setAttribute("id", "bookmark");
-                                localStorage.setItem("bookmark", e.target.parentElement.getAttribute("data-index"));
-                                document.querySelector("#bookmarkLink").style.display = "grid";
-                            }
-
-                        }
+                    if (e.target.getAttribute("id") === "bookmark") {
+                        localStorage.clear();
+                        document.querySelector("#bookmark").classList.remove("bookmarked");
+                        document.querySelector("#bookmark").removeAttribute("id");
+                        document.querySelector("#bookmarkLink").style.display = "none";
+                    } else {
+                        document.querySelector("#bookmark").classList.remove("bookmarked");
+                        document.querySelector("#bookmark").removeAttribute("id");
+                        e.target.classList.add("bookmarked");
+                        e.target.setAttribute("id", "bookmark");
+                        localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
+                        document.querySelector("#bookmarkLink").style.display = "grid";
                     }
+                } else {
+                    e.target.classList.add("bookmarked");
+                    e.target.setAttribute("id", "bookmark");
+                    localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
+                    document.querySelector("#bookmarkLink").style.display = "grid";
+                }
 
-        // console.log(localStorage.getItem("bookmark"));
+            }
+            else {
+
+                if (document.querySelector("#bookmark") !== null) {
+
+                    if (e.target.parentElement.getAttribute("id") === "bookmark") {
+                        localStorage.clear();
+                        document.querySelector("#bookmark").classList.remove("bookmarked");
+                        document.querySelector("#bookmark").removeAttribute("id");
+                        document.querySelector("#bookmarkLink").style.display = "none";
+                    } else {
+                        document.querySelector("#bookmark").classList.remove("bookmarked");
+                        document.querySelector("#bookmark").removeAttribute("id");
+                        e.target.parentElement.classList.add("bookmarked");
+                        e.target.parentElement.setAttribute("id", "bookmark");
+                        localStorage.setItem("bookmark", e.target.parentElement.getAttribute("data-index"));
+                        document.querySelector("#bookmarkLink").style.display = "grid";
+                    }
+                } else {
+                    e.target.parentElement.classList.add("bookmarked");
+                    e.target.parentElement.setAttribute("id", "bookmark");
+                    localStorage.setItem("bookmark", e.target.parentElement.getAttribute("data-index"));
+                    document.querySelector("#bookmarkLink").style.display = "grid";
+                }
+
+            }
+        }
+
+        console.log(localStorage.getItem("bookmark"));
+    }
+
+
+    //applies styles to individual words for editing markup
+    window.onclick = e => {
+        console.log(e.target.tagName.toLowerCase());
+        if (e.target.tagName.toLowerCase() === "span") {
+            e.target.classList.toggle("markedUp");
+        }
     }
 
 
 
-        window.onclick = e => {
-            console.log(e.target.tagName.toLowerCase());
-            if (e.target.tagName.toLowerCase() === "span") {
-                e.target.classList.toggle("markedUp");
-
-
-
-
-                // if (document.querySelector("#bookmark") !== null) {
-                //     if (e.target.getAttribute("id") == "bookmark") {
-                //         localStorage.clear();
-                //         document.querySelector("#bookmark").classList.remove("bookmarked");
-                //         document.querySelector("#bookmark").removeAttribute("id");
-                //         document.querySelector("#bookmarkLink").style.display = "none";
-                //     } else {
-                //         document.querySelector("#bookmark").classList.remove("bookmarked");
-                //         document.querySelector("#bookmark").removeAttribute("id");
-                //         e.target.classList.add("bookmarked");
-                //         e.target.setAttribute("id", "bookmark");
-                //         localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
-                //         document.querySelector("#bookmarkLink").style.display = "grid";
-                //     }
-                // } else {
-                //     e.target.classList.add("bookmarked");
-                //     e.target.setAttribute("id", "bookmark");
-                //     localStorage.setItem("bookmark", e.target.getAttribute("data-index"));
-                //     document.querySelector("#bookmarkLink").style.display = "grid";
-                // }
-            }
-
-        }
-
-
-
-
-    // let wordCount = 1;
-    //
-    // let workingParagraph = paragraphs[2];
-    //
-    // let newParagraph = document.createElement("p");
-    //
-    // let words = workingParagraph.innerText.split(" ");
-    //
-    // for (let word of words) {
-    //     let newSpan = document.createElement("span");
-    //     let newWord = document.createTextNode(word);
-    //     newSpan.appendChild(newWord);
-    //     newSpan.setAttribute("data-word-count",wordCount.toString());
-    //     newParagraph.appendChild(newSpan);
-    //     let newNbsp = document.createTextNode(" ");
-    //     newParagraph.appendChild(newNbsp);
-    //     wordCount++;
-    // }
-    //
-    // workingParagraph.replaceWith(newParagraph);
 
 </script>
 
