@@ -170,15 +170,14 @@
     <strong>Notes:</strong> See end of story for notes.
 </p>
 
-<!--<p id="firstP">-->
-<!--    It was early afternoon when Remus finally, and very much reluctantly,-->
-<!--    opened his eyes. He was lying face down in bed with his head resting halfway-->
-<!--    off his pillow, his arms flung out haphazardly from his body and his legs-->
-<!--    hopelessly  tangled within the sheets. He attempted to kick them free-->
-<!--    without much success  while trying to recall exactly what had happened since-->
-<!--    his return to human form.-->
-<!--</p>-->
-
+<p id="firstP">
+    It was early afternoon when Remus finally, and very much reluctantly,
+    opened his eyes. He was lying face down in bed with his head resting halfway
+    off his pillow, his arms flung out haphazardly from his body and his legs
+    hopelessly  tangled within the sheets. He attempted to kick them free
+    without much success  while trying to recall exactly what had happened since
+    his return to human form.
+</p>
 <p>
     Remus could vaguely remember Sirius helping him up from the  cellar and into
     their room at sunrise, but not being placed in the bed. A  delicate kiss on
@@ -186,12 +185,33 @@
     now, love.” His memories were always a bit muddled the  morning after, just
     one of the many downsides to being a werewolf.
 </p>
+<p>
+    His head throbbed slightly as he sat up and looked about the  room. The
+    first thing he noticed was an onslaught of sickly greenish-grey light  being
+    cast from the window that faced the road. He sighed.
+    <em>
+        Bloody weather.
+    </em>
+    Remus had grown accustomed to the nearly constant state of rain and fog this
+    spring, but he rather hoped April would turn around with a few good days
+    before  its end.
+</p>
+<p>
+    He loved the sunshine and the early blooming flowers and the  gentle breezes
+    this time of year. Remus huffed. A leisurely stroll through  Regent’s Park
+    would do wonders for his constitution, but apparition was out of  the
+    question in his fatigued state and Remus knew from the way he was shaking
+    that he would be lucky if he made it half as far as Kings Cross on foot.
+    What he  really needed was a fix, but that would have  to wait until he’d
+    emptied his bladder.
+</p>
 
 
 <a href="index.html">Return to Thy Thistle Lord's Keep</a>
 
 <script>
 
+    //allows double click events on mobile browser by disabling double click zoom behavior
     // Update style for all existing elements
     document.querySelectorAll('*').forEach(el => {
         el.style["touch-action"] = "manipulation";
@@ -215,10 +235,31 @@
     //set data attributes with ordered index numbers on p elements
     let paragraphs = document.getElementsByTagName("p");
 
+    let wordCount = 1;
     let count = 1;
     for (let paragraph of paragraphs) {
         paragraph.setAttribute("data-index",count.toString());
         count++;
+
+        let workingParagraph = paragraph;
+
+        let newParagraph = document.createElement("p");
+
+        let words = workingParagraph.innerText.split(" ");
+
+        for (let word of words) {
+            let newSpan = document.createElement("span");
+            let newWord = document.createTextNode(word);
+            newSpan.appendChild(newWord);
+            newSpan.setAttribute("data-word-count",wordCount.toString());
+            newParagraph.appendChild(newSpan);
+            let newNbsp = document.createTextNode(" ");
+            newParagraph.appendChild(newNbsp);
+            wordCount++;
+        }
+
+        workingParagraph.replaceWith(newParagraph);
+
     }
 
     //check if local storage has a bookmark index
@@ -294,9 +335,6 @@
         // console.log(localStorage.getItem("bookmark"));
     }
 
-    window.onmouseup = e => {
-        isDown = false;
-    }
 
 
         window.onclick = e => {
@@ -334,26 +372,26 @@
 
 
 
-    let wordCount = 1;
-
-    let workingParagraph = paragraphs[2];
-
-    let newParagraph = document.createElement("p");
-
-    let words = workingParagraph.innerText.split(" ");
-
-    for (let word of words) {
-        let newSpan = document.createElement("span");
-        let newWord = document.createTextNode(word);
-        newSpan.appendChild(newWord);
-        newSpan.setAttribute("data-word-count",wordCount.toString());
-        newParagraph.appendChild(newSpan);
-        let newNbsp = document.createTextNode(" ");
-        newParagraph.appendChild(newNbsp);
-        wordCount++;
-    }
-
-    workingParagraph.replaceWith(newParagraph);
+    // let wordCount = 1;
+    //
+    // let workingParagraph = paragraphs[2];
+    //
+    // let newParagraph = document.createElement("p");
+    //
+    // let words = workingParagraph.innerText.split(" ");
+    //
+    // for (let word of words) {
+    //     let newSpan = document.createElement("span");
+    //     let newWord = document.createTextNode(word);
+    //     newSpan.appendChild(newWord);
+    //     newSpan.setAttribute("data-word-count",wordCount.toString());
+    //     newParagraph.appendChild(newSpan);
+    //     let newNbsp = document.createTextNode(" ");
+    //     newParagraph.appendChild(newNbsp);
+    //     wordCount++;
+    // }
+    //
+    // workingParagraph.replaceWith(newParagraph);
 
 </script>
 
