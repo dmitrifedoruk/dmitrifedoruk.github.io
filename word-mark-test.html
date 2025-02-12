@@ -211,6 +211,8 @@
 
 <script>
 
+    let markedWords = [];
+
 
     //set data attributes with ordered index numbers on p elements
     let paragraphs = document.getElementsByTagName("p");
@@ -240,7 +242,6 @@
         count++;
 
         workingParagraph.replaceWith(newParagraph);
-
     }
 
     // check if local storage has a bookmark index
@@ -253,6 +254,31 @@
     }
 
 
+    //check if local storage has markedWords and, if so, load the data
+    if(localStorage.getItem("markedWords") !== null) {
+        let storedWords = JSON.parse(localStorage.getItem("markedWords"));
+        console.log(storedWords);
+
+        for (let i = 0; i < storedWords.length; i++) {
+
+            console.log(storedWords[i]);
+            console.log(document.querySelector(`span[data-word-count="${storedWords[i]}"]`).innerText);
+
+            markedWords.push(storedWords[i]);
+            document.querySelector(`span[data-word-count="${storedWords[i]}"]`).classList.add("markedUp");
+
+        }
+        // document.querySelector(`p[data-index="${bookmarkIndex}"]`).classList.add("bookmarked");
+        // document.querySelector(`p[data-index="${bookmarkIndex}"]`).setAttribute("id", "bookmark");
+        // document.querySelector("#bookmarkLink").style.display = "grid";
+    }
+
+
+
+
+
+    //doubleclick event to set and remove bookmark from paragraphs
+    //extended to work if elements inside paragraph are clicked
     window.ondblclick = e => {
 
         if (e.target.tagName.toLowerCase() === "p" || e.target.parentElement.tagName.toLowerCase() === "p") {
@@ -264,7 +290,7 @@
                 if (document.querySelector("#bookmark") !== null) {
 
                     if (e.target.getAttribute("id") === "bookmark") {
-                        localStorage.clear();
+                        localStorage.removeItem("bookmark");
                         document.querySelector("#bookmark").classList.remove("bookmarked");
                         document.querySelector("#bookmark").removeAttribute("id");
                         document.querySelector("#bookmarkLink").style.display = "none";
@@ -289,7 +315,7 @@
                 if (document.querySelector("#bookmark") !== null) {
 
                     if (e.target.parentElement.getAttribute("id") === "bookmark") {
-                        localStorage.clear();
+                        localStorage.removeItem("bookmark");
                         document.querySelector("#bookmark").classList.remove("bookmarked");
                         document.querySelector("#bookmark").removeAttribute("id");
                         document.querySelector("#bookmarkLink").style.display = "none";
@@ -316,10 +342,22 @@
 
 
 
+    //single click event to mark and unmark words for editing
     window.onclick = e => {
-        console.log(e.target.tagName.toLowerCase());
         if (e.target.tagName.toLowerCase() === "span") {
-            e.target.classList.toggle("markedUp");
+            let wordIndex = e.target.getAttribute("data-word-count");
+            if(e.target.classList.contains("markedUp")){
+                e.target.classList.remove("markedUp");
+                let arrayIndex = markedWords.indexOf(wordIndex);
+                markedWords.splice(arrayIndex,1);
+                localStorage.setItem("markedWords", JSON.stringify(markedWords));
+            }
+            else {
+                e.target.classList.add("markedUp");
+                markedWords.push(wordIndex);
+                localStorage.setItem("markedWords", JSON.stringify(markedWords));
+            }
+            console.log(markedWords);
 
 
 
@@ -376,9 +414,9 @@
     function getDeviceType() {
         const userAgent = navigator.userAgent;
         const width = window.innerWidth;
-        if (/Mobi|Android/i.test(userAgent) || width <= 768) {
+        if (/Mobi|Android/i.test(userAgent) && width <= 768) {
             return "Mobile";
-        } else if (/Tablet|iPad/i.test(userAgent) || (width > 768 && width <= 1024)) {
+        } else if (/Tablet|iPad/i.test(userAgent) && (width > 768 && width <= 1024)) {
             return "Tablet";
         } else {
             return "Desktop";
