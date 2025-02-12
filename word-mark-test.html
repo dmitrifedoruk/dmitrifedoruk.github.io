@@ -1959,7 +1959,7 @@
     document.querySelector("#nextWord").addEventListener("click", () =>
     {
         console.log(currentWordIndex);
-        if(currentWordIndex>0){
+        if(currentWordIndex > 0 && currentWordIndex < markedWords.length){
             document.querySelector(`span[data-word-count="${markedWords[currentWordIndex-1]}"]`).classList.remove("highlighted");
         }
         document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted");
