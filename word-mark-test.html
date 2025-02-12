@@ -414,9 +414,9 @@
     function getDeviceType() {
         const userAgent = navigator.userAgent;
         const width = window.innerWidth;
-        if (/Mobi|Android/i.test(userAgent) && width <= 768) {
+        if (/Mobi|Android/i.test(userAgent)) {
             return "Mobile";
-        } else if (/Tablet|iPad/i.test(userAgent) && (width > 768 && width <= 1024)) {
+        } else if (/Tablet|iPad/i.test(userAgent)) {
             return "Tablet";
         } else {
             return "Desktop";
