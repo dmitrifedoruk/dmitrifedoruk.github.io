@@ -348,23 +348,43 @@
 
     }
 
+
+
     //allows double click events on mobile browser by disabling double click zoom behavior
-    // Update style for all existing elements
-    // document.querySelectorAll('*').forEach(el => {
-    //     el.style["touch-action"] = "manipulation";
-    // });
-    //
-    // // Add the style to any DOM manipulations
-    // (new MutationObserver(elms => {
-    //         elms.forEach(
-    //             function(elm) {
-    //                 for (let i = 0; i < elm.addedNodes.length; i++) {
-    //                     elm.addedNodes[i].style["touch-action"] = "manipulation";
-    //                 }
-    //             }
-    //         );
-    //     }
-    // )).observe(document.body, { childList: true, subtree: true });
+    //update style for all existing elements
+    //verifies device type; not relevant for desktop
+    if(getDeviceType() === "Mobile" || getDeviceType() === "Tablet") {
+
+        document.querySelectorAll('*').forEach(el => {
+            el.style["touch-action"] = "manipulation";
+        });
+
+        // Add the style to any DOM manipulations
+        (new MutationObserver(elms => {
+                elms.forEach(
+                    function (elm) {
+                        for (let i = 0; i < elm.addedNodes.length; i++) {
+                            elm.addedNodes[i].style["touch-action"] = "manipulation";
+                        }
+                    }
+                );
+            }
+        )).observe(document.body, {childList: true, subtree: true});
+    }
+
+
+    function getDeviceType() {
+        const userAgent = navigator.userAgent;
+        const width = window.innerWidth;
+        if (/Mobi|Android/i.test(userAgent) || width <= 768) {
+            return "Mobile";
+        } else if (/Tablet|iPad/i.test(userAgent) || (width > 768 && width <= 1024)) {
+            return "Tablet";
+        } else {
+            return "Desktop";
+        }
+    }
+    console.log(`Device Type: ${getDeviceType()}`);
 
 
 
