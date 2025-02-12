@@ -1872,6 +1872,7 @@
             let wordIndex = e.target.getAttribute("data-word-count");
             if(e.target.classList.contains("markedUp")){
                 e.target.classList.remove("markedUp");
+                e.target.classList.remove("highlighted");
                 let arrayIndex = markedWords.indexOf(wordIndex);
                 markedWords.splice(arrayIndex,1);
                 markedWords.sort(function(a,b) {
