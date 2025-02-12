@@ -1960,6 +1960,7 @@
     {
         console.log(currentWordIndex);
         if(currentWordIndex === 0) {
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted");
             document.querySelector(`span[data-word-count="${markedWords[0]}"]`).scrollIntoView({
                 behavior: "smooth",
                 block: "end"
