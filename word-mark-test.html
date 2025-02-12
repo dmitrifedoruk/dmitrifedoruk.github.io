@@ -1959,18 +1959,38 @@
     document.querySelector("#nextWord").addEventListener("click", () =>
     {
         console.log(currentWordIndex);
-        if(currentWordIndex > 0 && currentWordIndex < markedWords.length){
-            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex-1]}"]`).classList.remove("highlighted");
+        if(currentWordIndex === 0) {
+            document.querySelector(`span[data-word-count="${markedWords[0]}"]`).scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+            });
+            currentWordIndex++;
         }
-        document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted");
-        document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).scrollIntoView({ behavior: "smooth", block: "end" });
-        currentWordIndex++;
+        if(currentWordIndex < markedWords.length) {
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex - 1]}"]`).classList.remove("highlighted");
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted");
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+            });
+            currentWordIndex++;
+        }
     });
 
     document.querySelector("#previousWord").addEventListener("click", () =>
     {
 
-        if(currentWordIndex>0) {
+        if(currentWordIndex > 0 && currentWordIndex === markedWords.length) {
+            currentWordIndex = markedWords.length - 1;
+            console.log(currentWordIndex);
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted")
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+            });
+        }
+
+        if(currentWordIndex > 0) {
             currentWordIndex--;
             console.log(currentWordIndex);
             document.querySelector(`span[data-word-count="${markedWords[currentWordIndex + 1]}"]`).classList.remove("highlighted")
