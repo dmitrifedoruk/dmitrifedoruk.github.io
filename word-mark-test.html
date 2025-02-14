@@ -1993,8 +1993,8 @@
     //event listeners for buttons
     document.querySelector("#nextWord").addEventListener("click", () =>
     {
-        console.log(currentWordIndex);
-        if(currentWordIndex === -1 || currentWordIndex === 0) {
+        // console.log(currentWordIndex);
+        if(currentWordIndex === -1) {
             currentWordIndex++;
             document.querySelector("#currentIndex").innerText = currentWordIndex + 1;
             document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted");
@@ -2002,7 +2002,16 @@
                 behavior: "smooth",
                 block: "end"
             });
-
+        }
+        else if(currentWordIndex === 0) {
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.remove("highlighted");
+            currentWordIndex++;
+            document.querySelector("#currentIndex").innerText = currentWordIndex + 1;
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted");
+            document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).scrollIntoView({
+                behavior: "smooth",
+                block: "end"
+            });
         }
         else if(currentWordIndex < markedWords.length -1 && currentWordIndex > 0) {
             currentWordIndex++;
@@ -2028,6 +2037,8 @@
             console.log("kalamazoo2!");
         }
 
+        console.log(currentWordIndex);
+
 
     });
 
@@ -2036,7 +2047,6 @@
         if(currentWordIndex > 0 && currentWordIndex !== markedWords.length) {
             currentWordIndex--;
             document.querySelector("#currentIndex").innerText = currentWordIndex + 1;
-            console.log(currentWordIndex);
             document.querySelector(`span[data-word-count="${markedWords[currentWordIndex + 1]}"]`).classList.remove("highlighted")
             document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted")
             document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).scrollIntoView({
@@ -2048,13 +2058,14 @@
         if(currentWordIndex > 0 && (currentWordIndex - 1) === markedWords.length) {
             currentWordIndex = markedWords.length - 1;
             document.querySelector("#currentIndex").innerText = currentWordIndex + 1;
-            console.log(currentWordIndex);
             document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).classList.add("highlighted")
             document.querySelector(`span[data-word-count="${markedWords[currentWordIndex]}"]`).scrollIntoView({
                 behavior: "smooth",
                 block: "end"
             });
         }
+
+        console.log(currentWordIndex);
 
     });
 
