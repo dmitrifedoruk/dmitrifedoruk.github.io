@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        :root {
+
+        }
+
+
+
+        #app {
+            width: 100vw;
+        }
+
+        body {
+            background-color: #6f7886;
+            padding-left: 20px;
+        }
+
+        #fields {
+            display: grid;
+            grid-auto-flow: row;
+            gap: 1rem;
+            width: 800px;
+            margin: 10px 0 20px 25px;
+        }
+
+        .inputContainer {
+            width: 100%;
+        }
+
+        input, button {
+            height: 30px;
+        }
+
+        input {
+            background-color: #a7daa7;
+            padding: 10px 0 10px 10px;
+            font-weight: bold;
+            font-family: "Calibri", "sans-serif";
+            font-size: 18px;
+            margin: 15px 0 15px 0;
+            color: #4e8386;
+        }
+
+        #captionText {
+            margin-top: 25px;
+            width: 55%;
+
+        }
+
+        #minutes {
+            width: 50px;
+        }
+
+        #seconds {
+            width: 50px;
+        }
+
+        button {
+            background-color: #9b72a6;
+        }
+
+        #submit {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+        }
+
+        #copyText, #clearText {
+            padding: 0;
+            justify-content: center;
+            background-color: #9b72a6;
+            color: black;
+            font-weight: normal;
+            width: 100px;
+            height: 50px;
+        }
+
+
+        #captionArea {
+
+            margin-top: 15px;
+
+            padding: 10px;
+
+            min-height: 200px;
+            width: 75%;
+
+            background-color: blueviolet;
+
+            white-space: pre-line;
+
+            overflow-y:scroll;
+
+
+        }
+
+        .buttonGroup {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 5px;
+            width: 100%;
+        }
+
+        #controls {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            display: grid;
+            justify-items: right;
+            width: 800px;
+        }
+
+        @media only screen and (max-width: 800px) {
+
+            #fields, #controls {
+                width: 90vw;
+                margin: 5px;
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div>
+    <!--<label for="captionText">Caption:</label>-->
+    <input type="text" id="captionText" name="captionText"/>
+    <!--<label for="minutes">Minutes:</label>-->
+    <input type="text" id="minutes" name="minutes" value="00"/>
+    <!--<label for="seconds">Seconds:</label>-->
+    <input type="text" id="seconds" name="minutes" value="00"/>
+    <button id="submit" onclick="addCaption()">Go</button>
+</div>
+<input type="button" id="copyText" value="Copy"/>
+<input type="button" id="clearText" value="Clear"/>
+<div id="captionArea">
+</div>
+
+<script>
+
+
+    const heading = document.createElement('p');
+    heading.innerHTML = "WEBVTT";
+    document.getElementById("captionArea").append(heading);
+    document.getElementById("captionArea").append(document.createElement('br'));
+
+
+    // 00:02:19.000 --> 00:02:22.000
+    // Time to explore
+
+    function addCaption() {
+
+        // Get the caption field
+        const captionText = document.getElementById("captionText").value;
+        let minutesText = document.getElementById("minutes").value;
+        let secondsText = document.getElementById("seconds").value;
+
+        const minutes = parseInt(minutesText);
+        let minutesPlus = minutes;
+        let minutesPlusText = "";
+
+        const seconds = parseInt(secondsText);
+        let secondsPlus = seconds + 3;
+        let secondsPlusText = "";
+
+        if(minutes < 10) {
+            minutesText = `0${minutes}`
+        }
+
+        if(seconds < 10) {
+            secondsText = `0${seconds}`
+        }
+
+        if(secondsPlus > 59) {
+            minutesPlus = minutes + 1;
+            secondsPlus = secondsPlus % 60;
+        }
+
+        if(minutesPlus < 10) {
+            minutesPlusText = `0${minutesPlus}`
+        }
+        else{minutesPlusText = `${minutesPlus}`}
+
+        if(secondsPlus < 10) {
+            secondsPlusText = `0${secondsPlus}`
+        }
+        else{secondsPlusText = `${secondsPlus}`}
+
+        const minutesSeconds = `${minutesText}:${secondsText}`
+        const minutesSecondsPlus = `${minutesPlusText}:${secondsPlusText}`
+
+
+        const newCaption = document.createElement('p');
+        newCaption.innerHTML = `00:${minutesSeconds}.000 --> 00:${minutesSecondsPlus}.000\n${captionText}`
+
+        document.getElementById("captionArea").append(newCaption);
+
+        document.getElementById("captionArea").append(document.createElement('br'));
+
+        document.getElementById("captionText").value = '';
+        document.getElementById("captionText").focus();
+
+    }
+
+
+    //selects and copies text elements in captionArea
+    document.querySelector("#copyText").addEventListener('click', function(){
+
+        let selection = window.getSelection();
+        let contents = document.querySelector("#captionArea").childNodes;
+
+        contents.forEach(function (item) {
+            let range = document.createRange();
+            range.selectNode(item);
+            selection.addRange(range);
+        })
+
+        navigator.clipboard.writeText(selection.toString().trim());
+
+        selection.removeAllRanges();
+    })
+
+
+    document.querySelector("#clearText").addEventListener('click', function(){
+
+        const newDiv = document.createElement('div');
+        newDiv.setAttribute("id","captionArea");
+
+        document.querySelector("#captionArea").replaceWith(newDiv);
+
+    })
+
+
+
+
+</script>
+
+
+</body>
+</html>
