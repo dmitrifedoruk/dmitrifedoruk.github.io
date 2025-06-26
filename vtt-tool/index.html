@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>VTT Tool</title>
     <style>
 
         :root {
 
         }
-
 
 
         #app {
@@ -32,23 +31,38 @@
             width: 100%;
         }
 
+        #inputs {
+            display: grid;
+            grid-auto-flow: column;
+            width: 65vw;
+            margin: 20px 0 15px 0;
+        }
+
+        fieldset {
+            width: min-content;
+            height: min-content;
+            /*margin: 15px 0 15px 0;*/
+            border: none;
+        }
+
         input, button {
             height: 30px;
         }
 
         input {
             background-color: #a7daa7;
-            padding: 10px 0 10px 10px;
+            padding: 0 0 0 10px;
             font-weight: bold;
             font-family: "Calibri", "sans-serif";
             font-size: 18px;
-            margin: 15px 0 15px 0;
+            /*margin: 15px 0 15px 0;*/
             color: #4e8386;
+
         }
 
         #captionText {
-            margin-top: 25px;
-            width: 55%;
+            /*margin-top: 25px;*/
+            width: 55vw;
 
         }
 
@@ -68,9 +82,15 @@
             width: 50px;
             height: 50px;
             margin: 10px;
+
         }
 
-        #copyText, #clearText {
+        #inputFile {
+            height: 50px;
+            align-content: center;
+        }
+
+        #copyText, #clearText, #download, #import {
             padding: 0;
             justify-content: center;
             background-color: #9b72a6;
@@ -78,6 +98,14 @@
             font-weight: normal;
             width: 100px;
             height: 50px;
+        }
+
+        .show {
+            display: grid;
+        }
+
+        .hide {
+            display: none;
         }
 
 
@@ -88,16 +116,39 @@
             padding: 10px;
 
             min-height: 200px;
+            max-height: 65vh;
             width: 75%;
 
             background-color: blueviolet;
 
             white-space: pre-line;
 
-            overflow-y:scroll;
-
-
+            overflow-y: scroll;
         }
+
+        .captionElement {
+            max-width: 25vw;
+            padding: 10px;
+        }
+
+        .captionElement:hover {
+            background-color: #9a5bd5;
+        }
+
+        .deleteButton {
+            background-color: #8343be;
+            float: right;
+            height: 16px;
+            width: 16px;
+        }
+
+        .deleteButton:hover {
+            background-color: #4e8386;
+            background-image: url("delete.png");
+            background-position: center;
+        }
+
+
 
         .buttonGroup {
             display: grid;
@@ -107,11 +158,11 @@
         }
 
         #controls {
-            margin-left: 25px;
-            margin-bottom: 25px;
             display: grid;
-            justify-items: right;
-            width: 800px;
+            grid-template-columns: repeat(auto-fit, 110px);
+            justify-items: left;
+            width: 65vw;
+            /*width: 800px;*/
         }
 
         @media only screen and (max-width: 800px) {
@@ -122,34 +173,38 @@
             }
 
 
-
-
         }
-
-
-
-
-
-
-
 
 
     </style>
 </head>
 <body>
-<div>
+<div id="inputs">
     <!--<label for="captionText">Caption:</label>-->
-    <input type="text" id="captionText" name="captionText"/>
+    <fieldset>
+        <legend>Caption</legend>
+        <input type="text" id="captionText" name="captionText"/>
+    </fieldset>
     <!--<label for="minutes">Minutes:</label>-->
-    <input type="text" id="minutes" name="minutes" value="00"/>
+    <fieldset>
+        <legend>Minutes</legend>
+        <input type="text" id="minutes" name="minutes" value="00"/>
+    </fieldset>
     <!--<label for="seconds">Seconds:</label>-->
-    <input type="text" id="seconds" name="minutes" value="00"/>
-    <button id="submit" onclick="addCaption()">Go</button>
+    <fieldset>
+        <legend>Seconds</legend>
+        <input type="text" id="seconds" name="minutes" value="00"/>
+    </fieldset>
+    <button id="submit">Go</button>
 </div>
-<input type="button" id="copyText" value="Copy"/>
-<input type="button" id="clearText" value="Clear"/>
-<div id="captionArea">
+<div id="controls">
+    <input type="button" id="copyText" value="Copy"/>
+    <input type="button" id="clearText" value="Clear"/>
+    <input type="button" id="download" value="Download"/>
+    <input type="button" id="import" value="Import"/>
+    <input type="file" name="inputFile" id="inputFile" class="hide"/>
 </div>
+<div id="captionArea"></div>
 
 <script>
 
@@ -159,16 +214,42 @@
     document.getElementById("captionArea").append(heading);
     document.getElementById("captionArea").append(document.createElement('br'));
 
+    // addCaption("Maps from the overworld, before I got stuck down here", "1", "7");
+    // addCaption("more sample text", "1", "58");
+    // addCaption("even more sample text", "2", "57");
+
+    //method to iterate over local storage; will not be sorted
+    // for (const [key, value] of Object.entries(localStorage)) {
+    //     // console.log(key, value);
+    //     const time = key.split(":");
+    //     addCaption(value,time[0],time[1]);
+    // }
+
+    //loads data into local array, then sorts before displaying
+    let storedCaptions = [];
+    for (const [key, value] of Object.entries(localStorage)) {
+        storedCaptions.push([key,value]);
+    }
+    storedCaptions.sort();
+    for (const [key, value] of storedCaptions) {
+        // console.log(key, value);
+        const time = key.split(":");
+        addCaption(value,time[0],time[1]);
+    }
+
 
     // 00:02:19.000 --> 00:02:22.000
     // Time to explore
 
-    function addCaption() {
+    //adds caption; not directly linked to click event so can be used to load sample text too
+    function addCaption(caption,mm,ss) {
+
+        console.log(caption,mm,ss);
 
         // Get the caption field
-        const captionText = document.getElementById("captionText").value;
-        let minutesText = document.getElementById("minutes").value;
-        let secondsText = document.getElementById("seconds").value;
+        const captionText = caption;
+        let minutesText = mm;
+        let secondsText = ss;
 
         const minutes = parseInt(minutesText);
         let minutesPlus = minutes;
@@ -178,74 +259,178 @@
         let secondsPlus = seconds + 3;
         let secondsPlusText = "";
 
-        if(minutes < 10) {
+        if (minutes < 10) {
             minutesText = `0${minutes}`
         }
 
-        if(seconds < 10) {
+        if (seconds < 10) {
             secondsText = `0${seconds}`
         }
 
-        if(secondsPlus > 59) {
+        if (secondsPlus > 59) {
             minutesPlus = minutes + 1;
             secondsPlus = secondsPlus % 60;
         }
 
-        if(minutesPlus < 10) {
+        if (minutesPlus < 10) {
             minutesPlusText = `0${minutesPlus}`
+        } else {
+            minutesPlusText = `${minutesPlus}`
         }
-        else{minutesPlusText = `${minutesPlus}`}
 
-        if(secondsPlus < 10) {
+        if (secondsPlus < 10) {
             secondsPlusText = `0${secondsPlus}`
+        } else {
+            secondsPlusText = `${secondsPlus}`
         }
-        else{secondsPlusText = `${secondsPlus}`}
 
         const minutesSeconds = `${minutesText}:${secondsText}`
         const minutesSecondsPlus = `${minutesPlusText}:${secondsPlusText}`
 
 
+        const newDiv = document.createElement('div');
+        newDiv.classList.add("captionElement");
+        newDiv.setAttribute('data-time', `${minutesSeconds}`);
+
+        //delete button for each caption
+        const newButton = document.createElement('button');
+        newButton.classList.add("deleteButton");
+        newButton.setAttribute('title', 'Delete caption?')
+        newButton.addEventListener('click', function () {
+            newDiv.remove();
+            localStorage.removeItem(`${mm}:${ss}`);
+            console.log(`${mm}:${ss}`);
+        })
+        newDiv.append(newButton);
+
+
         const newCaption = document.createElement('p');
+        newCaption.classList.add("captionP");
         newCaption.innerHTML = `00:${minutesSeconds}.000 --> 00:${minutesSecondsPlus}.000\n${captionText}`
 
-        document.getElementById("captionArea").append(newCaption);
+        newDiv.append(newCaption);
 
-        document.getElementById("captionArea").append(document.createElement('br'));
+        newDiv.append(document.createElement('br'));
+
+        // document.getElementById("captionArea").append(newCaption);
+        document.getElementById("captionArea").append(newDiv);
 
         document.getElementById("captionText").value = '';
         document.getElementById("captionText").focus();
 
+        localStorage.setItem(`${mm}:${ss}`,caption);
+
     }
+
+    //calls addCaption on click
+    document.querySelector("#submit").addEventListener('click', function () {
+
+        const captionText = document.getElementById("captionText").value;
+        const minutesText = document.getElementById("minutes").value;
+        const secondsText = document.getElementById("seconds").value;
+
+        addCaption(captionText,minutesText,secondsText);
+
+        // localStorage.setItem(`${minutesText}:${secondsText}`,captionText);
+
+
+    })
+
 
 
     //selects and copies text elements in captionArea
-    document.querySelector("#copyText").addEventListener('click', function(){
+    document.querySelector("#copyText").addEventListener('click', function () {
 
         let selection = window.getSelection();
         let contents = document.querySelector("#captionArea").childNodes;
-
         contents.forEach(function (item) {
             let range = document.createRange();
             range.selectNode(item);
             selection.addRange(range);
         })
-
         navigator.clipboard.writeText(selection.toString().trim());
-
         selection.removeAllRanges();
     })
 
 
-    document.querySelector("#clearText").addEventListener('click', function(){
+    //clears current contents of caption area
+    document.querySelector("#clearText").addEventListener('click', function () {
 
         const newDiv = document.createElement('div');
-        newDiv.setAttribute("id","captionArea");
+        newDiv.setAttribute("id", "captionArea");
 
         document.querySelector("#captionArea").replaceWith(newDiv);
 
     })
 
 
+    //creates and downloads vtt file from caption area content
+    document.querySelector("#download").addEventListener("click", function () {
+
+        let selection = window.getSelection();
+        let contents = document.querySelector("#captionArea").childNodes;
+        contents.forEach(function (item) {
+            let range = document.createRange();
+            range.selectNode(item);
+            selection.addRange(range);
+        })
+        selection = selection.toString().trim();
+
+        let blobdtMIME = new Blob([selection], { type: "text/vtt" });
+        let url = URL.createObjectURL(blobdtMIME);
+        let anele = document.createElement("a");
+
+
+        const date = new Date();
+
+        let dateString = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}_${date.getHours()}\:${date.getMinutes()}\:${date.getSeconds()}`;
+
+        console.log(dateString);
+
+        anele.setAttribute("download", `captions_${dateString}`);
+        anele.href = url;
+        anele.click();
+
+    })
+
+    //import button hides or shows file input
+    document.querySelector("#import").addEventListener('click', function () {
+        document.querySelector("#inputFile").classList.toggle("hide");
+        document.querySelector("#inputFile").classList.toggle("show");
+    })
+
+    //loads vtt file contents into caption area
+    document.getElementById('inputFile').addEventListener('change', function () {
+
+        let fr = new FileReader();
+        fr.onload = function () {
+            let textString = fr.result;
+
+            let textArray = textString.split("\n");
+
+            let cleanArray = [];
+
+            for (const text of textArray) {
+                if(text.trim().length !== 0){
+                    cleanArray.push(text)
+                }
+            }
+
+            for(let i =1; i < cleanArray.length; i++){
+                let minutes;
+                let seconds;
+                if(i % 2 !== 0) {
+                    let splitTime = cleanArray[i].split(":");
+                    minutes = splitTime[1];
+                    seconds = splitTime[2].split(".")[0];
+                    addCaption(cleanArray[i+1],minutes,seconds);
+                }
+            }
+
+        }
+        fr.readAsText(this.files[0]);
+
+    })
 
 
 </script>
