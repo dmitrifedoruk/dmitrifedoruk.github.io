@@ -2180,14 +2180,14 @@
         paragraphs.forEach(function (element) {
             currentElements.push(element.getAttribute("data-index"));
         })
-        currentElements.sort();
+        currentElements.sort((a, b) => a - b);
         document.querySelector("#currentScroll").innerHTML = currentElements[0];
 
         localStorage.setItem("currentScroll", currentElements[0]);
 
-        console.log(currentElements[1]);
+        console.log(currentElements);
 
-        // setTimeout(() => {}, 100);
+        setTimeout(() => {}, 100);
     });
 
 
