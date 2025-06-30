@@ -171,7 +171,7 @@
             background-color: rgba(155, 114, 166, 0.45);
         }
 
-        #currentIndexDisplay {
+        #currentIndexDisplay, #currentScrollDisplay {
             font-weight: bold;
             font-size: 1.5rem;
             border: 5px ridge rgba(211, 220, 50, .6);
@@ -220,6 +220,14 @@
             &nbsp;out of&nbsp;
             <span id="totalMarkedWords"></span>
         </span>
+
+        <span id="currentScrollDisplay">
+            <span id="currentScroll">0</span>
+            &nbsp;out of&nbsp;
+            <span id="totalParagraphs"></span>
+        </span>
+
+
     </div>
 
 </div>
@@ -1760,10 +1768,32 @@
 
 <script>
 
+    let visibleParagraphs = [];
+
+    function handleIntersection(entries) {
+        entries.map((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible')
+                visibleParagraphs.push(entry.target);
+            } else {
+                entry.target.classList.remove('visible')
+                let index = visibleParagraphs.indexOf(entry.target);
+                visibleParagraphs.splice(index);
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver(handleIntersection);
+
+
+
+
+
     let markedWords = [];
 
     let currentWordIndex = -1;
 
+    let totalParagraphs = 0;
 
     //set data attributes with ordered index numbers on p elements
     let paragraphs = document.getElementsByTagName("p");
@@ -1792,8 +1822,28 @@
         newParagraph.setAttribute("data-index",count.toString());
         count++;
 
+        newParagraph.classList.add("storyP");
+
+        observer.observe(newParagraph);
+
         workingParagraph.replaceWith(newParagraph);
     }
+
+    totalParagraphs = count - 1;
+    document.querySelector("#totalParagraphs").innerHTML = totalParagraphs;
+
+
+    // check if local storage has a bookmark index
+    if(localStorage.getItem("currentScroll") !== null) {
+        let currentIndex = localStorage.getItem("currentScroll");
+        console.log("this is current index: "+currentIndex);
+        document.querySelector(`p[data-index="${currentIndex}"]`).scrollIntoView({
+            behavior: "smooth",
+            block: "end"
+        });
+    }
+
+
 
     // check if local storage has a bookmark index
     if(localStorage.getItem("bookmark") !== null) {
@@ -1830,7 +1880,6 @@
     }
 
     document.querySelector("#totalMarkedWords").innerText = markedWords.length;
-
 
 
 
@@ -2117,6 +2166,35 @@
     // }
     //
     // workingParagraph.replaceWith(newParagraph);
+
+
+
+    document.addEventListener("scroll", (event) => {
+
+        console.log("scroll!");
+
+        let currentElements = [];
+
+        const paragraphs = document.querySelectorAll(".visible");
+
+        paragraphs.forEach(function (element) {
+            currentElements.push(element.getAttribute("data-index"));
+        })
+        currentElements.sort();
+        document.querySelector("#currentScroll").innerHTML = currentElements[0];
+
+        localStorage.setItem("currentScroll", currentElements[0]);
+
+        console.log(currentElements[1]);
+
+        // setTimeout(() => {}, 100);
+    });
+
+
+
+
+
+
 
 </script>
 

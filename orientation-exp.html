@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checking orientation</title>
+
+    <style>
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: grid;
+        }
+
+        #orientationReadout {
+            font-size: 5rem;
+            align-self: center;
+            justify-self: center;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+<h1 id="orientationReadout">0</h1>
+
+<script>
+    screen.orientation.addEventListener("change", (event) => {
+        const type = event.target.type;
+        const angle = event.target.angle;
+        document.querySelector("#orientationReadout").innerHTML = `ScreenOrientation change: ${type}, ${angle} degrees.`;
+        if (type === "landscape-primary" || type === "landscape-secondary") {
+           document.querySelector("body").style.backgroundColor = "green";
+        }
+        else {
+            document.querySelector("body").style.backgroundColor = "blue";
+        }
+    });
+
+</script>
+
+
+</body>
+</html>
