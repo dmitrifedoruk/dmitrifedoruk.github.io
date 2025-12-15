@@ -57,7 +57,6 @@
             font-size: 18px;
             /*margin: 15px 0 15px 0;*/
             color: #4e8386;
-
         }
 
         #captionText {
@@ -171,9 +170,43 @@
 
         @media only screen and (max-width: 800px) {
 
-            #fields, #controls, #inputs, #captionArea {
+            #fields, #controls, #inputs {
                 width: 90vw;
                 margin: 5px;
+            }
+
+            #captionArea {
+                height: 50vh;
+                width: 90vw;
+                margin: 5px;
+            }
+
+            #inputs {
+                display: grid;
+                grid-auto-flow: column;
+                width: 65vw;
+                margin: 20px 0 15px 0;
+            }
+
+            fieldset {
+                width: min-content;
+                height: min-content;
+                /*margin: 15px 0 15px 0;*/
+                border: none;
+            }
+
+            input, button {
+                height: 50px;
+            }
+
+            input {
+                background-color: #a7daa7;
+                padding: 0 0 0 10px;
+                font-weight: bold;
+                font-family: "Calibri", "sans-serif";
+                font-size: 18px;
+                /*margin: 15px 0 15px 0;*/
+                color: #4e8386;
             }
 
 
