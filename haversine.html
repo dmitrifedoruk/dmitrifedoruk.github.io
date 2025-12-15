@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        :root {
+
+        }
+
+
+        #app {
+            width: 100vw;
+        }
+
+        body {
+            background-color: #6f7886;
+            padding-left: 20px;
+        }
+
+        #fields {
+            display: grid;
+            grid-auto-flow: row;
+            gap: 1rem;
+            width: 800px;
+            margin: 10px 0 20px 25px;
+        }
+
+        .inputContainer {
+            width: 100%;
+        }
+
+        #inputs {
+            display: grid;
+            grid-auto-flow: column;
+            width: 65vw;
+            margin: 20px 0 15px 0;
+        }
+
+        fieldset {
+            width: min-content;
+            height: min-content;
+            /*margin: 15px 0 15px 0;*/
+            border: none;
+        }
+
+        input, button {
+            height: 50px;
+        }
+
+        input {
+            background-color: #a7daa7;
+            padding: 0 0 0 10px;
+            font-weight: bold;
+            font-family: "Calibri", "sans-serif";
+            font-size: 18px;
+            /*margin: 15px 0 15px 0;*/
+            color: #4e8386;
+
+        }
+
+        #captionText {
+            /*margin-top: 25px;*/
+            width: 55vw;
+
+        }
+
+        #minutes {
+            width: 50px;
+        }
+
+        #seconds {
+            width: 50px;
+        }
+
+        button {
+            background-color: #9b72a6;
+        }
+
+        #submit {
+            width: 100px;
+            height: 50px;
+            margin: 25px 10px 10px 10px;
+
+        }
+
+        #inputFile {
+            height: 50px;
+            align-content: center;
+        }
+
+        #copyText, #clearText, #download, #import {
+            padding: 0;
+            justify-content: center;
+            background-color: #9b72a6;
+            color: black;
+            font-weight: normal;
+            width: 100px;
+            height: 50px;
+        }
+
+        .show {
+            display: grid;
+        }
+
+        .hide {
+            display: none;
+        }
+
+
+        #captionArea {
+
+            margin-top: 15px;
+
+            padding: 10px;
+
+            min-height: 200px;
+            max-height: 65vh;
+            width: 75%;
+
+            background-color: blueviolet;
+
+            white-space: pre-line;
+
+            overflow-y: scroll;
+        }
+
+        .captionElement {
+            max-width: 25vw;
+            padding: 10px;
+        }
+
+        .captionElement:hover {
+            background-color: #9a5bd5;
+        }
+
+        .deleteButton {
+            background-color: #8343be;
+            float: right;
+            height: 16px;
+            width: 16px;
+        }
+
+        .deleteButton:hover {
+            background-color: #4e8386;
+            /*background-image: url("delete.png");*/
+            background-position: center;
+        }
+
+
+
+        .buttonGroup {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 5px;
+            width: 100%;
+        }
+
+        #controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 110px);
+            justify-items: left;
+            width: 65vw;
+            /*width: 800px;*/
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        @media only screen and (max-width: 800px) {
+
+            #fields, #controls, #inputs, #captionArea {
+                width: 90vw;
+                margin: 5px;
+            }
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="inputs">
+    <!--<label for="captionText">Caption:</label>-->
+<!--    <fieldset>-->
+<!--        <legend>Caption</legend>-->
+<!--        <input type="text" id="captionText" name="captionText"/>-->
+<!--    </fieldset>-->
+
+
+
+<!--    &lt;!&ndash;<label for="minutes">Minutes:</label>&ndash;&gt;-->
+<!--    <fieldset>-->
+<!--        <legend>Lat1</legend>-->
+<!--        <input type="text" id="lat1" name="lat1" value="00"/>-->
+<!--    </fieldset>-->
+<!--    &lt;!&ndash;<label for="seconds">Seconds:</label>&ndash;&gt;-->
+<!--    <fieldset>-->
+<!--        <legend>Lon1</legend>-->
+<!--        <input type="text" id="lon1" name="lon1" value="00"/>-->
+<!--    </fieldset>-->
+<!--    &lt;!&ndash;<label for="minutes">Minutes:</label>&ndash;&gt;-->
+<!--    <fieldset>-->
+<!--        <legend>Lat2</legend>-->
+<!--        <input type="text" id="lat2" name="lat2" value="00"/>-->
+<!--    </fieldset>-->
+<!--    &lt;!&ndash;<label for="seconds">Seconds:</label>&ndash;&gt;-->
+<!--    <fieldset>-->
+<!--        <legend>Lon2</legend>-->
+<!--        <input type="text" id="lon2" name="lon2" value="00"/>-->
+<!--    </fieldset>-->
+
+<!--    <fieldset>-->
+<!--        <legend>Coordinates</legend>-->
+<!--        <textarea-->
+<!--                id= "coordsText"-->
+<!--                name="coordinates"-->
+<!--                rows="4"-->
+<!--                cols="20"-->
+<!--                placeholder="Latitude1,Longitude1-->
+<!--                Latitude2,Longitude2">-->
+<!--        </textarea>-->
+<!--    </fieldset>-->
+
+
+
+        <fieldset>
+            <legend>Starting Point</legend>
+            <input type="text" id="point1" name="point1" placeholder="Latitude,Longitude"/>
+        </fieldset>
+
+        <fieldset>
+            <legend>Ending Point</legend>
+            <input type="text" id="point2" name="point2" placeholder="Latitude,Longitude"/>
+        </fieldset>
+
+    <button id="submit">Go</button>
+
+</div>
+<!--<div id="controls">-->
+<!--    <input type="button" id="copyText" value="Copy"/>-->
+<!--    <input type="button" id="clearText" value="Clear"/>-->
+<!--    <input type="button" id="download" value="Download"/>-->
+<!--    <input type="button" id="import" value="Import"/>-->
+<!--    <input type="file" name="inputFile" id="inputFile" class="hide"/>-->
+<!--</div>-->
+<div id="captionArea"></div>
+
+
+
+
+
+<script>
+
+    // const lat1 = 48.21
+    // const lon1 = 56.84
+    //
+    // const lat2 = -47.87
+    // const lon2= -94.50
+
+    document.querySelector("#submit").addEventListener('click', function () {
+
+        let latitude1;
+        let longitude1;
+        let latitude2;
+        let longitude2;
+
+        const coordsString1 = document.querySelector("#point1").value;
+
+        const coordsString2 = document.querySelector("#point2").value;
+
+        latitude1 = coordsString1.split(",")[0];
+        longitude1 = coordsString1.split(",")[1];
+        latitude2 = coordsString2.split(",")[0];
+        longitude2 = coordsString2.split(",")[1];
+
+        // const coordsString = document.querySelector("#coordsText").value;
+        // const coordsOneAndTwo = coordsString.split("\n");
+        // const latitude1 = coordsOneAndTwo[0].split(",")[0];
+        // const longitude1 = coordsOneAndTwo[0].split(",")[1];
+        // const latitude2 = coordsOneAndTwo[1].split(",")[0];
+        // const longitude2 = coordsOneAndTwo[1].split(",")[1];
+
+
+        // const latitude1 = parseFloat(document.getElementById("lat1").value);
+        // const longitude1 = parseFloat(document.getElementById("lon1").value);
+        // const latitude2 = parseFloat(document.getElementById("lat2").value);
+        // const longitude2 = parseFloat(document.getElementById("lon2").value);
+
+
+        const myBearing = findBearing(latitude1,longitude1,latitude2,longitude2);
+
+        console.log(myBearing.toString() + " " + determineCardDir(myBearing).toString());
+
+        document.querySelector("#captionArea").innerHTML = myBearing.toString() + "° " + determineCardDir(myBearing).toString();
+
+
+
+
+    })
+
+
+
+
+    function findBearing(latitude1,longitude1,latitude2,longitude2) {
+
+        const lat1 = toRadians(latitude1);
+        const lon1 = toRadians(longitude1);
+        const lat2 = toRadians(latitude2);
+        const lon2 = toRadians(longitude2);
+
+        let angle = Math.atan2(Math.sin(lon2 - lon1) * Math.cos(lat2) , Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1))
+        let degrees = angle * (180 / Math.PI);
+        return roundToHundredths((degrees + 360) % 360)
+
+    }
+
+    directionRanges = [];
+
+    let value = 11.25;
+
+    directionRanges[0] = value;
+
+    for (let i = 1; i < 16; i++) {
+
+        value += 22.5;
+
+        directionRanges[i] = value;
+
+    }
+
+    // directionRanges.forEach((element) => console.log(element));
+
+    // const myBearing = findBearing(lat1,lon1,lat2,lon2);
+
+    // console.log(myBearing.toString() + " " + determineCardDir(myBearing).toString());
+
+
+    //test with values in range array
+    // directionRanges.forEach((element) => {
+    //     console.log(element.toString() + " " + determineCardDir(element).toString());
+    // })
+
+    // θ = atan2( sin(Δλ) × cos(φ₂) , cos(φ₁)×sin(φ₂) - sin(φ₁)×cos(φ₂)×cos(Δλ))
+
+
+    // φ₁, φ₂	Latitudes of points 1 and 2 (radians)
+    // λ₁, λ₂	Longitudes of points 1 and 2 (radians)
+    // Δλ	Difference in longitude (λ₂ - λ₁)
+    // θ	Initial bearing (radians)
+
+
+
+    function toDegrees (angle) {
+        return angle * (180 / Math.PI);
+    }
+
+    function toRadians (angle) {
+        return angle * (Math.PI / 180);
+    }
+
+
+
+
+    //to round up to two decimal places
+    function roundToHundredths(num) {
+        return Math.ceil(num * 100) / 100;
+    }
+
+
+    function determineCardDir(bearing) {
+
+        let cardDir = "";
+
+        if (bearing > directionRanges[15] || bearing <= directionRanges[0] ){
+            cardDir = "N";
+        }
+        else if (bearing > directionRanges[0] && bearing <= directionRanges[1] ){
+            cardDir = "NNE";
+        }
+        else if (bearing > directionRanges[1] && bearing <= directionRanges[2] ){
+            cardDir = "NE";
+        }
+        else if (bearing > directionRanges[2] && bearing <= directionRanges[3] ){
+            cardDir = "ENE";
+        }
+        else if (bearing > directionRanges[3] && bearing <= directionRanges[4] ){
+            cardDir = "E";
+        }
+        else if (bearing > directionRanges[4] && bearing <= directionRanges[5] ){
+            cardDir = "ESE";
+        }
+        else if (bearing > directionRanges[5] && bearing <= directionRanges[6] ){
+            cardDir = "SE";
+        }
+        else if (bearing > directionRanges[6] && bearing <= directionRanges[7] ){
+            cardDir = "SSE";
+        }
+        else if (bearing > directionRanges[7] && bearing <= directionRanges[8] ){
+            cardDir = "S";
+        }
+        else if (bearing > directionRanges[8] && bearing <= directionRanges[9] ){
+            cardDir = "SSW";
+        }
+        else if (bearing > directionRanges[9] && bearing <= directionRanges[10] ){
+            cardDir = "SW";
+        }
+        else if (bearing > directionRanges[10] && bearing <= directionRanges[11] ){
+            cardDir = "WSW";
+        }
+        else if (bearing > directionRanges[11] && bearing <= directionRanges[12] ){
+            cardDir = "W";
+        }
+        else if (bearing > directionRanges[12] && bearing <= directionRanges[13] ){
+            cardDir = "WNW";
+        }
+        else if (bearing > directionRanges[13] && bearing <= directionRanges[14] ){
+            cardDir = "NW";
+        }
+        else if (bearing > directionRanges[14] && bearing <= directionRanges[15] ){
+            cardDir = "NNW";
+        }
+
+
+
+        return cardDir
+
+
+
+    }
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
