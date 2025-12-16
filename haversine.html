@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Title</title>
     <style>
 
@@ -59,19 +60,7 @@
             color: #4e8386;
         }
 
-        #captionText {
-            /*margin-top: 25px;*/
-            width: 55vw;
 
-        }
-
-        #minutes {
-            width: 50px;
-        }
-
-        #seconds {
-            width: 50px;
-        }
 
         button {
             background-color: #9b72a6;
@@ -84,7 +73,13 @@
             width: 140px;
             height: 50px;
             /*margin-left: 15px;*/
-            margin: 15px 0px 0px 15px;
+            margin: 15px 0px 0px 0px;
+        }
+
+        #clear {
+            margin: 0;
+            width: 150px;
+            align-self: end;
         }
 
         #inputFile {
@@ -161,6 +156,7 @@
             width: 100%;
         }
 
+
         #controls {
             display: grid;
             grid-template-columns: repeat(auto-fit, 110px);
@@ -175,7 +171,7 @@
 
         @media only screen and (max-width: 800px) {
 
-            #fields, #controls, #inputs {
+            #inputs {
                 width: 90vw;
                 margin: 5px;
             }
@@ -292,7 +288,13 @@
             </div>
         </fieldset>
 
-    <button id="submit">Go</button>
+    <fieldset>
+    <div class="buttonGroup">
+        <button id="submit">Go</button>
+        <button id="clear">Clear</button>
+    </div>
+    </fieldset>
+
 
 </div>
 <!--<div id="controls">-->
@@ -377,6 +379,8 @@
 
     document.querySelector("#p2Copy").addEventListener('click',() => {copyField("point2")});
     document.querySelector("#p2Paste").addEventListener('click',() => {pasteField("point2")});
+
+    document.querySelector("#clear").addEventListener('click',() => {document.querySelector("#captionArea").innerHTML=""});
 
 
 
