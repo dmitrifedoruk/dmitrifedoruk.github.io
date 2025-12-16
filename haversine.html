@@ -75,13 +75,16 @@
 
         button {
             background-color: #9b72a6;
+            font-size: 15px;
+            font-weight: bold;
+            color: rgba(24, 27, 28, 0.75);
         }
 
         #submit {
-            width: 100px;
+            width: 140px;
             height: 50px;
-            margin: 25px 10px 10px 10px;
-
+            /*margin-left: 15px;*/
+            margin: 15px 0px 0px 15px;
         }
 
         #inputFile {
@@ -109,6 +112,8 @@
 
 
         #captionArea {
+
+            font-family: "VT323", "OCR A Extended", monospace;
 
             margin-top: 15px;
 
@@ -176,16 +181,17 @@
             }
 
             #captionArea {
-                height: 50vh;
-                width: 90vw;
+                height: 30vh;
+                width: 80vw;
                 margin: 5px;
-                font-size: 25%;
+                font-size: 10vw;
             }
 
             #inputs {
                 display: grid;
-                grid-auto-flow: column;
-                width: 65vw;
+                grid-auto-flow: row;
+                /*grid-template-columns: repeat(auto-fit, 150px);*/
+                width: 85vw;
                 margin: 20px 0 15px 0;
             }
 
@@ -196,8 +202,14 @@
                 border: none;
             }
 
-            input, button {
+            input {
                 height: 50px;
+                width: 50vw;
+                margin-bottom: 8px;
+            }
+
+            button {
+
             }
 
             input {
@@ -263,12 +275,21 @@
 
         <fieldset>
             <legend>Starting Point</legend>
-            <input type="text" id="point1" name="point1" placeholder="Latitude,Longitude"/>
+            <input class="p1" type="text" id="point1" name="point1" placeholder="Latitude,Longitude"/>
+            <div class="buttonGroup">
+                <button id="p1Copy">Copy</button>
+                <button id="p1Paste">Paste</button>
+            </div>
+
         </fieldset>
 
         <fieldset>
             <legend>Ending Point</legend>
-            <input type="text" id="point2" name="point2" placeholder="Latitude,Longitude"/>
+            <input class="p2" type="text" id="point2" name="point2" placeholder="Latitude,Longitude"/>
+            <div class="buttonGroup">
+                <button id="p2Copy" class="p2">Copy</button>
+                <button id="p2Paste" class="p2">Paste</button>
+            </div>
         </fieldset>
 
     <button id="submit">Go</button>
@@ -329,12 +350,35 @@
 
         console.log(myBearing.toString() + " " + determineCardDir(myBearing).toString());
 
-        document.querySelector("#captionArea").innerHTML = myBearing.toString() + "° " + determineCardDir(myBearing).toString();
+        document.querySelector("#captionArea").innerHTML += myBearing.toString() + "° " + determineCardDir(myBearing).toString() + "\n";
 
 
 
 
     })
+
+    function copyField(field) {
+        // Get the text field
+        const copyText = document.getElementById(field);
+
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(copyText.value);
+    }
+
+    function pasteField(field) {
+        // Get the text field
+        const fieldToPaste = document.getElementById(field);
+        const pasteText = navigator.clipboard.readText()
+            .then((clipText) => (fieldToPaste.value = clipText));
+    }
+
+    document.querySelector("#p1Copy").addEventListener('click',() => {copyField("point1")});
+    document.querySelector("#p1Paste").addEventListener('click',() => {pasteField("point1")});
+
+    document.querySelector("#p2Copy").addEventListener('click',() => {copyField("point2")});
+    document.querySelector("#p2Paste").addEventListener('click',() => {pasteField("point2")});
+
+
 
 
 
