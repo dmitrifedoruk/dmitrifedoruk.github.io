@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Title</title>
+    <title>Bearing Calculator</title>
+    <link rel="icon" href="icons/woodcut-icon.png"/>
     <style>
 
         :root {
@@ -73,10 +74,10 @@
             width: 140px;
             height: 50px;
             /*margin-left: 15px;*/
-            margin: 15px 0px 0px 0px;
+            margin: 15px 10px 0px 0px;
         }
 
-        #clear {
+        #clearResults {
             margin: 0;
             width: 150px;
             align-self: end;
@@ -152,7 +153,7 @@
         .buttonGroup {
             display: grid;
             grid-auto-flow: column;
-            gap: 5px;
+            gap: 7px;
             width: 100%;
         }
 
@@ -169,17 +170,39 @@
             resize: none;
         }
 
+        legend {
+
+            font-family: "VT323", "OCR A Extended", monospace;
+            font-weight: bold;
+            color: rgba(66, 73, 80, 0.99);
+
+
+        }
+
+        #heading {
+            font-size: 1.1rem;
+            color: #302649;
+            margin-top: 5px;
+        }
+
+        #mainControls {
+
+            width: 95vw;
+
+
+        }
+
         @media only screen and (max-width: 800px) {
 
-            #inputs {
-                width: 90vw;
-                margin: 5px;
-            }
+            /*#inputs {*/
+            /*    width: 90vw;*/
+            /*    margin: 5px;*/
+            /*}*/
 
             #captionArea {
                 height: 30vh;
                 width: 80vw;
-                margin: 5px;
+                margin: 5px 5px 5px 0;
                 font-size: 10vw;
             }
 
@@ -200,7 +223,7 @@
 
             input {
                 height: 50px;
-                width: 50vw;
+                width: 70vw;
                 margin-bottom: 8px;
             }
 
@@ -225,31 +248,30 @@
     </style>
 </head>
 <body>
+
+<fieldset id="mainControls">
+
+<legend id="heading">Bearing Calculator</legend>
+
 <div id="inputs">
-    <!--<label for="captionText">Caption:</label>-->
-<!--    <fieldset>-->
-<!--        <legend>Caption</legend>-->
-<!--        <input type="text" id="captionText" name="captionText"/>-->
-<!--    </fieldset>-->
 
 
 
-<!--    &lt;!&ndash;<label for="minutes">Minutes:</label>&ndash;&gt;-->
 <!--    <fieldset>-->
 <!--        <legend>Lat1</legend>-->
 <!--        <input type="text" id="lat1" name="lat1" value="00"/>-->
 <!--    </fieldset>-->
-<!--    &lt;!&ndash;<label for="seconds">Seconds:</label>&ndash;&gt;-->
+
 <!--    <fieldset>-->
 <!--        <legend>Lon1</legend>-->
 <!--        <input type="text" id="lon1" name="lon1" value="00"/>-->
 <!--    </fieldset>-->
-<!--    &lt;!&ndash;<label for="minutes">Minutes:</label>&ndash;&gt;-->
+
 <!--    <fieldset>-->
 <!--        <legend>Lat2</legend>-->
 <!--        <input type="text" id="lat2" name="lat2" value="00"/>-->
 <!--    </fieldset>-->
-<!--    &lt;!&ndash;<label for="seconds">Seconds:</label>&ndash;&gt;-->
+
 <!--    <fieldset>-->
 <!--        <legend>Lon2</legend>-->
 <!--        <input type="text" id="lon2" name="lon2" value="00"/>-->
@@ -275,6 +297,7 @@
             <div class="buttonGroup">
                 <button id="p1Copy">Copy</button>
                 <button id="p1Paste">Paste</button>
+                <button id="p1Clear">Clear</button>
             </div>
 
         </fieldset>
@@ -285,18 +308,25 @@
             <div class="buttonGroup">
                 <button id="p2Copy" class="p2">Copy</button>
                 <button id="p2Paste" class="p2">Paste</button>
+                <button id="p2Clear">Clear</button>
             </div>
         </fieldset>
 
     <fieldset>
     <div class="buttonGroup">
         <button id="submit">Go</button>
-        <button id="clear">Clear</button>
+        <button id="clearResults">Clear Results</button>
     </div>
     </fieldset>
 
 
 </div>
+
+</fieldset>
+
+
+
+
 <!--<div id="controls">-->
 <!--    <input type="button" id="copyText" value="Copy"/>-->
 <!--    <input type="button" id="clearText" value="Clear"/>-->
@@ -304,8 +334,11 @@
 <!--    <input type="button" id="import" value="Import"/>-->
 <!--    <input type="file" name="inputFile" id="inputFile" class="hide"/>-->
 <!--</div>-->
-<div id="captionArea"></div>
 
+<fieldset>
+    <legend>Results</legend>
+<div id="captionArea"></div>
+</fieldset>
 
 
 
@@ -354,9 +387,6 @@
 
         document.querySelector("#captionArea").innerHTML += myBearing.toString() + "° " + determineCardDir(myBearing).toString() + "\n";
 
-
-
-
     })
 
     function copyField(field) {
@@ -376,11 +406,13 @@
 
     document.querySelector("#p1Copy").addEventListener('click',() => {copyField("point1")});
     document.querySelector("#p1Paste").addEventListener('click',() => {pasteField("point1")});
+    document.querySelector("#p1Clear").addEventListener('click',() => {document.querySelector("#point1").value=""});
 
     document.querySelector("#p2Copy").addEventListener('click',() => {copyField("point2")});
     document.querySelector("#p2Paste").addEventListener('click',() => {pasteField("point2")});
+    document.querySelector("#p2Clear").addEventListener('click',() => {document.querySelector("#point2").value=""});
 
-    document.querySelector("#clear").addEventListener('click',() => {document.querySelector("#captionArea").innerHTML=""});
+    document.querySelector("#clearResults").addEventListener('click',() => {document.querySelector("#captionArea").innerHTML=""});
 
 
 
