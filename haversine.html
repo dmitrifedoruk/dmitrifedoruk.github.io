@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>Bearing Calculator</title>
     <link rel="icon" href="icons/woodcut-icon.png"/>
     <style>
@@ -12,38 +12,41 @@
         }
 
 
-        #app {
-            width: 100vw;
-        }
-
         body {
             background-color: #6f7886;
             padding-left: 20px;
         }
 
-        #fields {
-            display: grid;
-            grid-auto-flow: row;
-            gap: 1rem;
-            width: 800px;
-            margin: 10px 0 20px 25px;
-        }
-
-        .inputContainer {
-            width: 100%;
-        }
 
         #inputs {
             display: grid;
-            grid-auto-flow: column;
-            width: 65vw;
+            grid-template-columns: min-content min-content;
+            grid-template-rows: min-content min-content;
+            /*grid-auto-flow: column;*/
+            width: 35vw;
             margin: 20px 0 15px 0;
+        }
+
+        #p1FieldSet {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        #p2FieldSet {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        #submitFieldSet {
+            grid-column: 1 / 3;
+            grid-row: 2 / 3;
+            justify-self: end;
         }
 
         fieldset {
             width: min-content;
             height: min-content;
-            /*margin: 15px 0 15px 0;*/
+            margin: 15px 0 0 0;
             border: none;
         }
 
@@ -57,10 +60,9 @@
             font-weight: bold;
             font-family: "Calibri", "sans-serif";
             font-size: 18px;
-            /*margin: 15px 0 15px 0;*/
+            margin: 0 0 7px 0;
             color: #4e8386;
         }
-
 
 
         button {
@@ -83,29 +85,6 @@
             align-self: end;
         }
 
-        #inputFile {
-            height: 50px;
-            align-content: center;
-        }
-
-        #copyText, #clearText, #download, #import {
-            padding: 0;
-            justify-content: center;
-            background-color: #9b72a6;
-            color: black;
-            font-weight: normal;
-            width: 100px;
-            height: 50px;
-        }
-
-        .show {
-            display: grid;
-        }
-
-        .hide {
-            display: none;
-        }
-
 
         #captionArea {
 
@@ -117,7 +96,7 @@
 
             min-height: 200px;
             max-height: 65vh;
-            width: 75%;
+            width: 25vw;
 
             background-color: blueviolet;
 
@@ -125,29 +104,6 @@
 
             overflow-y: scroll;
         }
-
-        .captionElement {
-            max-width: 25vw;
-            padding: 10px;
-        }
-
-        .captionElement:hover {
-            background-color: #9a5bd5;
-        }
-
-        .deleteButton {
-            background-color: #8343be;
-            float: right;
-            height: 16px;
-            width: 16px;
-        }
-
-        .deleteButton:hover {
-            background-color: #4e8386;
-            /*background-image: url("delete.png");*/
-            background-position: center;
-        }
-
 
 
         .buttonGroup {
@@ -158,14 +114,6 @@
         }
 
 
-        #controls {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 110px);
-            justify-items: left;
-            width: 65vw;
-            /*width: 800px;*/
-        }
-
         textarea {
             resize: none;
         }
@@ -175,8 +123,6 @@
             font-family: "VT323", "OCR A Extended", monospace;
             font-weight: bold;
             color: rgba(66, 73, 80, 0.99);
-
-
         }
 
         #heading {
@@ -186,18 +132,18 @@
         }
 
         #mainControls {
-
-            width: 95vw;
-
-
+            width: min-content;
+            margin: 25px 0 0 0;
         }
 
         @media only screen and (max-width: 800px) {
 
-            /*#inputs {*/
-            /*    width: 90vw;*/
-            /*    margin: 5px;*/
-            /*}*/
+
+            #mainControls {
+                width: 95vw;
+                margin: 25px 0 0 -10px;
+            }
+
 
             #captionArea {
                 height: 30vh;
@@ -206,38 +152,46 @@
                 font-size: 10vw;
             }
 
+
             #inputs {
-                display: grid;
-                grid-auto-flow: row;
-                /*grid-template-columns: repeat(auto-fit, 150px);*/
+                grid-template-columns: min-content;
+                grid-template-rows: min-content min-content min-content;
+                /*grid-auto-flow: column;*/
                 width: 85vw;
-                margin: 20px 0 15px 0;
+            }
+
+            #p1FieldSet {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+
+            #p2FieldSet {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            #submitFieldSet {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                justify-self: auto;
             }
 
             fieldset {
                 width: min-content;
                 height: min-content;
-                /*margin: 15px 0 15px 0;*/
                 border: none;
             }
+
 
             input {
                 height: 50px;
                 width: 70vw;
                 margin-bottom: 8px;
-            }
-
-            button {
-
-            }
-
-            input {
                 background-color: #a7daa7;
                 padding: 0 0 0 10px;
                 font-weight: bold;
                 font-family: "Calibri", "sans-serif";
                 font-size: 18px;
-                /*margin: 15px 0 15px 0;*/
                 color: #4e8386;
             }
 
@@ -249,49 +203,16 @@
 </head>
 <body>
 
+<div id="#app">
+
 <fieldset id="mainControls">
 
-<legend id="heading">Bearing Calculator</legend>
+    <legend id="heading">Bearing Calculator</legend>
 
-<div id="inputs">
-
-
-
-<!--    <fieldset>-->
-<!--        <legend>Lat1</legend>-->
-<!--        <input type="text" id="lat1" name="lat1" value="00"/>-->
-<!--    </fieldset>-->
-
-<!--    <fieldset>-->
-<!--        <legend>Lon1</legend>-->
-<!--        <input type="text" id="lon1" name="lon1" value="00"/>-->
-<!--    </fieldset>-->
-
-<!--    <fieldset>-->
-<!--        <legend>Lat2</legend>-->
-<!--        <input type="text" id="lat2" name="lat2" value="00"/>-->
-<!--    </fieldset>-->
-
-<!--    <fieldset>-->
-<!--        <legend>Lon2</legend>-->
-<!--        <input type="text" id="lon2" name="lon2" value="00"/>-->
-<!--    </fieldset>-->
-
-<!--    <fieldset>-->
-<!--        <legend>Coordinates</legend>-->
-<!--        <textarea-->
-<!--                id= "coordsText"-->
-<!--                name="coordinates"-->
-<!--                rows="4"-->
-<!--                cols="20"-->
-<!--                placeholder="Latitude1,Longitude1-->
-<!--                Latitude2,Longitude2">-->
-<!--        </textarea>-->
-<!--    </fieldset>-->
+    <div id="inputs">
 
 
-
-        <fieldset>
+        <fieldset id="p1FieldSet">
             <legend>Starting Point</legend>
             <input class="p1" type="text" id="point1" name="point1" placeholder="Latitude,Longitude"/>
             <div class="buttonGroup">
@@ -302,7 +223,7 @@
 
         </fieldset>
 
-        <fieldset>
+        <fieldset id="p2FieldSet">
             <legend>Ending Point</legend>
             <input class="p2" type="text" id="point2" name="point2" placeholder="Latitude,Longitude"/>
             <div class="buttonGroup">
@@ -312,36 +233,26 @@
             </div>
         </fieldset>
 
-    <fieldset>
-    <div class="buttonGroup">
-        <button id="submit">Go</button>
-        <button id="clearResults">Clear Results</button>
-    </div>
-    </fieldset>
+        <fieldset id="submitFieldSet">
+            <div class="buttonGroup">
+                <button id="submit">Go</button>
+                <button id="clearResults">Clear Results</button>
+            </div>
+        </fieldset>
 
+
+    </div>
+
+</fieldset>
+
+
+
+<fieldset id="captionFieldSet">
+    <legend>Results</legend>
+    <div id="captionArea"></div>
+</fieldset>
 
 </div>
-
-</fieldset>
-
-
-
-
-<!--<div id="controls">-->
-<!--    <input type="button" id="copyText" value="Copy"/>-->
-<!--    <input type="button" id="clearText" value="Clear"/>-->
-<!--    <input type="button" id="download" value="Download"/>-->
-<!--    <input type="button" id="import" value="Import"/>-->
-<!--    <input type="file" name="inputFile" id="inputFile" class="hide"/>-->
-<!--</div>-->
-
-<fieldset>
-    <legend>Results</legend>
-<div id="captionArea"></div>
-</fieldset>
-
-
-
 
 <script>
 
@@ -367,21 +278,8 @@
         latitude2 = coordsString2.split(",")[0];
         longitude2 = coordsString2.split(",")[1];
 
-        // const coordsString = document.querySelector("#coordsText").value;
-        // const coordsOneAndTwo = coordsString.split("\n");
-        // const latitude1 = coordsOneAndTwo[0].split(",")[0];
-        // const longitude1 = coordsOneAndTwo[0].split(",")[1];
-        // const latitude2 = coordsOneAndTwo[1].split(",")[0];
-        // const longitude2 = coordsOneAndTwo[1].split(",")[1];
 
-
-        // const latitude1 = parseFloat(document.getElementById("lat1").value);
-        // const longitude1 = parseFloat(document.getElementById("lon1").value);
-        // const latitude2 = parseFloat(document.getElementById("lat2").value);
-        // const longitude2 = parseFloat(document.getElementById("lon2").value);
-
-
-        const myBearing = findBearing(latitude1,longitude1,latitude2,longitude2);
+        const myBearing = findBearing(latitude1, longitude1, latitude2, longitude2);
 
         console.log(myBearing.toString() + " " + determineCardDir(myBearing).toString());
 
@@ -404,29 +302,39 @@
             .then((clipText) => (fieldToPaste.value = clipText));
     }
 
-    document.querySelector("#p1Copy").addEventListener('click',() => {copyField("point1")});
-    document.querySelector("#p1Paste").addEventListener('click',() => {pasteField("point1")});
-    document.querySelector("#p1Clear").addEventListener('click',() => {document.querySelector("#point1").value=""});
+    document.querySelector("#p1Copy").addEventListener('click', () => {
+        copyField("point1")
+    });
+    document.querySelector("#p1Paste").addEventListener('click', () => {
+        pasteField("point1")
+    });
+    document.querySelector("#p1Clear").addEventListener('click', () => {
+        document.querySelector("#point1").value = ""
+    });
 
-    document.querySelector("#p2Copy").addEventListener('click',() => {copyField("point2")});
-    document.querySelector("#p2Paste").addEventListener('click',() => {pasteField("point2")});
-    document.querySelector("#p2Clear").addEventListener('click',() => {document.querySelector("#point2").value=""});
+    document.querySelector("#p2Copy").addEventListener('click', () => {
+        copyField("point2")
+    });
+    document.querySelector("#p2Paste").addEventListener('click', () => {
+        pasteField("point2")
+    });
+    document.querySelector("#p2Clear").addEventListener('click', () => {
+        document.querySelector("#point2").value = ""
+    });
 
-    document.querySelector("#clearResults").addEventListener('click',() => {document.querySelector("#captionArea").innerHTML=""});
+    document.querySelector("#clearResults").addEventListener('click', () => {
+        document.querySelector("#captionArea").innerHTML = ""
+    });
 
 
-
-
-
-
-    function findBearing(latitude1,longitude1,latitude2,longitude2) {
+    function findBearing(latitude1, longitude1, latitude2, longitude2) {
 
         const lat1 = toRadians(latitude1);
         const lon1 = toRadians(longitude1);
         const lat2 = toRadians(latitude2);
         const lon2 = toRadians(longitude2);
 
-        let angle = Math.atan2(Math.sin(lon2 - lon1) * Math.cos(lat2) , Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1))
+        let angle = Math.atan2(Math.sin(lon2 - lon1) * Math.cos(lat2), Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1))
         let degrees = angle * (180 / Math.PI);
         return roundToHundredths((degrees + 360) % 360)
 
@@ -446,20 +354,10 @@
 
     }
 
-    // directionRanges.forEach((element) => console.log(element));
-
-    // const myBearing = findBearing(lat1,lon1,lat2,lon2);
-
-    // console.log(myBearing.toString() + " " + determineCardDir(myBearing).toString());
 
 
-    //test with values in range array
-    // directionRanges.forEach((element) => {
-    //     console.log(element.toString() + " " + determineCardDir(element).toString());
-    // })
-
+    //Haversine Formula for bearing given two points
     // θ = atan2( sin(Δλ) × cos(φ₂) , cos(φ₁)×sin(φ₂) - sin(φ₁)×cos(φ₂)×cos(Δλ))
-
 
     // φ₁, φ₂	Latitudes of points 1 and 2 (radians)
     // λ₁, λ₂	Longitudes of points 1 and 2 (radians)
@@ -467,16 +365,13 @@
     // θ	Initial bearing (radians)
 
 
-
-    function toDegrees (angle) {
+    function toDegrees(angle) {
         return angle * (180 / Math.PI);
     }
 
-    function toRadians (angle) {
+    function toRadians(angle) {
         return angle * (Math.PI / 180);
     }
-
-
 
 
     //to round up to two decimal places
@@ -489,67 +384,45 @@
 
         let cardDir = "";
 
-        if (bearing > directionRanges[15] || bearing <= directionRanges[0] ){
+        if (bearing > directionRanges[15] || bearing <= directionRanges[0]) {
             cardDir = "N";
-        }
-        else if (bearing > directionRanges[0] && bearing <= directionRanges[1] ){
+        } else if (bearing > directionRanges[0] && bearing <= directionRanges[1]) {
             cardDir = "NNE";
-        }
-        else if (bearing > directionRanges[1] && bearing <= directionRanges[2] ){
+        } else if (bearing > directionRanges[1] && bearing <= directionRanges[2]) {
             cardDir = "NE";
-        }
-        else if (bearing > directionRanges[2] && bearing <= directionRanges[3] ){
+        } else if (bearing > directionRanges[2] && bearing <= directionRanges[3]) {
             cardDir = "ENE";
-        }
-        else if (bearing > directionRanges[3] && bearing <= directionRanges[4] ){
+        } else if (bearing > directionRanges[3] && bearing <= directionRanges[4]) {
             cardDir = "E";
-        }
-        else if (bearing > directionRanges[4] && bearing <= directionRanges[5] ){
+        } else if (bearing > directionRanges[4] && bearing <= directionRanges[5]) {
             cardDir = "ESE";
-        }
-        else if (bearing > directionRanges[5] && bearing <= directionRanges[6] ){
+        } else if (bearing > directionRanges[5] && bearing <= directionRanges[6]) {
             cardDir = "SE";
-        }
-        else if (bearing > directionRanges[6] && bearing <= directionRanges[7] ){
+        } else if (bearing > directionRanges[6] && bearing <= directionRanges[7]) {
             cardDir = "SSE";
-        }
-        else if (bearing > directionRanges[7] && bearing <= directionRanges[8] ){
+        } else if (bearing > directionRanges[7] && bearing <= directionRanges[8]) {
             cardDir = "S";
-        }
-        else if (bearing > directionRanges[8] && bearing <= directionRanges[9] ){
+        } else if (bearing > directionRanges[8] && bearing <= directionRanges[9]) {
             cardDir = "SSW";
-        }
-        else if (bearing > directionRanges[9] && bearing <= directionRanges[10] ){
+        } else if (bearing > directionRanges[9] && bearing <= directionRanges[10]) {
             cardDir = "SW";
-        }
-        else if (bearing > directionRanges[10] && bearing <= directionRanges[11] ){
+        } else if (bearing > directionRanges[10] && bearing <= directionRanges[11]) {
             cardDir = "WSW";
-        }
-        else if (bearing > directionRanges[11] && bearing <= directionRanges[12] ){
+        } else if (bearing > directionRanges[11] && bearing <= directionRanges[12]) {
             cardDir = "W";
-        }
-        else if (bearing > directionRanges[12] && bearing <= directionRanges[13] ){
+        } else if (bearing > directionRanges[12] && bearing <= directionRanges[13]) {
             cardDir = "WNW";
-        }
-        else if (bearing > directionRanges[13] && bearing <= directionRanges[14] ){
+        } else if (bearing > directionRanges[13] && bearing <= directionRanges[14]) {
             cardDir = "NW";
-        }
-        else if (bearing > directionRanges[14] && bearing <= directionRanges[15] ){
+        } else if (bearing > directionRanges[14] && bearing <= directionRanges[15]) {
             cardDir = "NNW";
         }
-
 
 
         return cardDir
 
 
-
     }
-
-
-
-
-
 
 
 </script>
