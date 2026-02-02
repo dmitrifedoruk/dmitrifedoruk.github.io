@@ -319,7 +319,7 @@
             let date = Date.parse(dateName);
 
             //adding time to advance to evening of date
-            let lunationNumber = getLunationNumber(date);
+            let lunationNumber = getLunationNumber(date + 57600000);
 
             const element = document.getElementById("moonElement_"+dateName);
             const element2 = document.getElementById("moonElement2_"+dateName);
@@ -503,7 +503,7 @@
         // Note: for real numbers use fmod() instead of % operator
         let currentsecs = totalsecs % lunarsecs;
 
-        // If negative number (date before new moon 2000) add $lunarsecs
+        // If negative number (date before new moon 2000) add lunarsecs
         if ( currentsecs < 0 ) {
             currentsecs += lunarsecs;
         }
