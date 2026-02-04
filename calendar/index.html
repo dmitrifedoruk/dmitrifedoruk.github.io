@@ -50,6 +50,26 @@
 <script>
 
 
+    //checks every ten minutes to see if day has advanced and alters display accordingly
+    //in case page has been left open for more than a day
+    setInterval(function() {
+        const today = new Date();
+        const day = today.getDate();
+        const month =  today.getMonth();
+        const year = today.getFullYear();
+
+        if (document.querySelector("#month").innerHTML === months[month]) {
+            updateCalendar(months[month],year.toString());
+        }
+        else if (document.querySelector(".todayBlock") !== null) {
+            if (parseInt(document.querySelector(".todayBlock .dateNumber").innerHTML) !== day) {
+                document.querySelector(".todayBlock").classList.remove("todayBlock");
+            }
+        }
+
+    }, 600000);
+
+
     let color1 = window.getComputedStyle(document.querySelector("#wrapper")).color;
     let color0 = window.getComputedStyle(document.querySelector("#wrapper")).backgroundColor;
     // let color2 = new Color("hsl(50, 100%, 50%)");
