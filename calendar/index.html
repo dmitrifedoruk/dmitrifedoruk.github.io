@@ -100,14 +100,14 @@
 
     let colorPicker1 = document.querySelector("#color1");
     colorPicker1.value = rgbToHex(window.getComputedStyle(document.querySelector("#wrapper")).backgroundColor);
-    // colorPicker1.addEventListener("input", updateFirst, false);
-    colorPicker1.addEventListener("change", updateFirst, false);
+    // colorPicker1.addEventListener("input", setColor, false);
+    colorPicker1.addEventListener("change", setColor, false);
     colorPicker1.select();
 
     let colorPicker2 = document.querySelector("#color2");
     colorPicker2.value = rgbToHex(window.getComputedStyle(document.querySelector("body")).color);
-    // colorPicker2.addEventListener("input", updateFirst, false);
-    colorPicker2.addEventListener("change", updateFirst, false);
+    // colorPicker2.addEventListener("input", setColor, false);
+    colorPicker2.addEventListener("change", setColor, false);
     colorPicker2.select();
 
 
@@ -583,7 +583,7 @@
         }
     }
 
-    function updateFirst(event) {
+    function setColor(event) {
         const wrapper = document.querySelector("#wrapper");
         const body = document.querySelector("body");
         const r = document.querySelector(":root");
