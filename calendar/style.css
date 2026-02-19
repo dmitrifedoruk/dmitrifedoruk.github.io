@@ -457,7 +457,7 @@ option {
 
 /*mobile styles*/
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
 
   html {
     background-color: #888888;
@@ -466,7 +466,7 @@ option {
 
 
   #app {
-    width: 110vw;
+    width: 100vw;
     /*max-width: 1280px;*/
     margin: 0 auto;
     /*padding: 2rem;*/
@@ -488,6 +488,7 @@ option {
     padding: 10px 10px 20px;
     margin-right: auto;
     margin-left: auto;
+
   }
 
 
@@ -514,6 +515,7 @@ option {
   #rightButton {
     justify-self: right;
     left: 3vw;
+    top: 3vw;
     width: 6vw;
     height: 6vw;
   }
@@ -521,6 +523,7 @@ option {
   #leftButton {
     justify-self: left;
     left: -3vw;
+    top: 3vw;
     width: 6vw;
     height: 6vw;
   }
@@ -535,7 +538,7 @@ option {
     /*width: 30vw;*/
     position: relative;
     left: 0vw;
-    top: 10vw;
+    top: 20vw;
     align-content: center;
     font-weight: bold;
   }
@@ -553,14 +556,15 @@ option {
   #monthAndYearMenu {
     display: none;
     opacity: 0;
-    gap: 1rem;
-    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    column-gap: 0.4rem;
+    grid-template-columns: min-content min-content;
     grid-auto-flow: dense;
     height: 2vw;
     /*width: 30vw;*/
     position: relative;
     left: 0vw;
-    top: 8vw;
+    top: 14vw;
     justify-self: center;
     align-content: center;
     font-weight: bold;
@@ -571,6 +575,7 @@ option {
     gap: 0.4rem;
     grid-auto-flow: column;
     justify-self: center;
+    align-items: center;
   }
 
   #yearMenu {
@@ -578,6 +583,7 @@ option {
     gap: 0.4rem;
     grid-auto-flow: column;
     justify-self: right;
+    align-items: center;
   }
 
   #monthSelect, #yearSelect {
@@ -589,6 +595,7 @@ option {
   }
 
   #submit {
+    grid-column: 2 / 3;
     background-color: var(--grid-bg-color);
     color: var(--grid-font-color);
     font-weight: bold;
