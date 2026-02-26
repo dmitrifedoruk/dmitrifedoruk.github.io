@@ -49,6 +49,9 @@
 <!--<script src="color.global.min.js"></script>-->
 <script>
 
+    loadCustomColors();
+    setColorInputs();
+
 
     //checks every ten minutes to see if day has advanced and alters display accordingly
     //in case page has been left open for more than a day
@@ -66,7 +69,6 @@
                 document.querySelector(".todayBlock").classList.remove("todayBlock");
             }
         }
-
     }, 600000);
 
 
@@ -96,19 +98,21 @@
 
 
 
-    let rgbToHex= c=> '#'+c.match(/\d+/g).map(x=>(+x).toString(16).padStart(2,'0')).join``;
 
-    let colorPicker1 = document.querySelector("#color1");
-    colorPicker1.value = rgbToHex(window.getComputedStyle(document.querySelector("#wrapper")).backgroundColor);
-    // colorPicker1.addEventListener("input", setColor, false);
-    colorPicker1.addEventListener("change", setColor, false);
-    colorPicker1.select();
+    function setColorInputs() {
+        let rgbToHex= c=> '#'+c.match(/\d+/g).map(x=>(+x).toString(16).padStart(2,'0')).join``;
+        let colorPicker1 = document.querySelector("#color1");
+        colorPicker1.value = rgbToHex(window.getComputedStyle(document.querySelector("#wrapper")).backgroundColor);
+        // colorPicker1.addEventListener("input", setColor, false);
+        colorPicker1.addEventListener("change", setColor, false);
+        colorPicker1.select();
 
-    let colorPicker2 = document.querySelector("#color2");
-    colorPicker2.value = rgbToHex(window.getComputedStyle(document.querySelector("body")).color);
-    // colorPicker2.addEventListener("input", setColor, false);
-    colorPicker2.addEventListener("change", setColor, false);
-    colorPicker2.select();
+        let colorPicker2 = document.querySelector("#color2");
+        colorPicker2.value = rgbToHex(window.getComputedStyle(document.querySelector("body")).color);
+        // colorPicker2.addEventListener("input", setColor, false);
+        colorPicker2.addEventListener("change", setColor, false);
+        colorPicker2.select();
+    }
 
 
 
@@ -182,6 +186,9 @@
     }
 
     function createCalendar(date) {
+
+        //ensures color inputs are up to date in case of page reload
+        setColorInputs();
 
         //current date to compare for highlighting
         const now = new Date();
@@ -590,7 +597,8 @@
         if (event.target === document.querySelector("#color1")) {
             console.log(event.target);
             // wrapper.style.backgroundColor = event.target.value;
-            r.style.setProperty("--grid-bg-color",event.target.value)
+            r.style.setProperty("--grid-bg-color",event.target.value);
+            localStorage.setItem("calendarColor1",event.target.value);
             console.log(hexToRGB(event.target.value));
 
             setDarkOrLight(hexToRGB(event.target.value));
@@ -599,9 +607,19 @@
             console.log(event.target);
             // body.style.color = event.target.value;
             r.style.setProperty("--grid-font-color",event.target.value)
+            localStorage.setItem("calendarColor2",event.target.value);
         }
 
         colorsContrast();
+    }
+
+
+    function loadCustomColors() {
+        if(localStorage.getItem("calendarColor1") !== null) {
+            const r = document.querySelector(":root");
+            r.style.setProperty("--grid-bg-color",localStorage.getItem("calendarColor1"));
+            r.style.setProperty("--grid-font-color",localStorage.getItem("calendarColor2"));
+        }
     }
 
 
