@@ -444,11 +444,11 @@ option {
 
 
 
-  .highlighted:hover {
+  .dateBlock.highlighted:hover {
     background-color: var(--highlighted-hover);
   }
 
-  .todayBlock:hover {
+  .dateBlock.todayBlock:hover {
     background-color: lch(from var(--today-highlight) calc(l - 10) c h);
   }
 

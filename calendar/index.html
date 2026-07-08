@@ -58,11 +58,18 @@
     setInterval(function() {
         const today = new Date();
         const day = today.getDate();
-        const month =  today.getMonth();
+        const month = today.getMonth();
         const year = today.getFullYear();
+        const monthDisplayed = document.querySelector("#month").innerHTML;
+        const dateDisplayed = document.querySelector(".todayBlock .dateNumber").innerHTML;
+        let d2 = new Date();
+        d2.setFullYear(year, month - 1, 0);
 
-        if (document.querySelector("#month").innerHTML === months[month]) {
-            updateCalendar(months[month],year.toString());
+        if (monthDisplayed === months[month - 1] && dateDisplayed === ) {
+            updateCalendar(months[month], year.toString());
+        }
+        else if (monthDisplayed === months[month]) {
+            updateCalendar(months[month], year.toString());
         }
         else if (document.querySelector(".todayBlock") !== null) {
             if (parseInt(document.querySelector(".todayBlock .dateNumber").innerHTML) !== day) {
