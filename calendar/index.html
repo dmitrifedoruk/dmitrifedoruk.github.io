@@ -61,21 +61,25 @@
         const month = today.getMonth();
         const year = today.getFullYear();
         const monthDisplayed = document.querySelector("#month").innerHTML;
-        const dateDisplayed = document.querySelector(".todayBlock .dateNumber").innerHTML;
-        let d2 = new Date();
-        d2.setFullYear(year, month - 1, 0);
 
-        if (monthDisplayed === months[month - 1] && dateDisplayed === ) {
-            updateCalendar(months[month], year.toString());
-        }
-        else if (monthDisplayed === months[month]) {
-            updateCalendar(months[month], year.toString());
-        }
-        else if (document.querySelector(".todayBlock") !== null) {
-            if (parseInt(document.querySelector(".todayBlock .dateNumber").innerHTML) !== day) {
-                document.querySelector(".todayBlock").classList.remove("todayBlock");
+        if(document.querySelector(".todayBlock") !== null){
+            const dateDisplayed = new Date(document.querySelector(".todayBlock").getAttribute("data-date"));
+            let yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+
+            if (isSameDay(dateDisplayed,yesterday)) {
+                updateCalendar(months[month], year.toString());
+            }
+            else if (monthDisplayed === months[month]) {
+                updateCalendar(months[month], year.toString());
+            }
+            else if (document.querySelector(".todayBlock") !== null) {
+                if (parseInt(document.querySelector(".todayBlock .dateNumber").innerHTML) !== day) {
+                    document.querySelector(".todayBlock").classList.remove("todayBlock");
+                }
             }
         }
+
     }, 600000);
 
 
