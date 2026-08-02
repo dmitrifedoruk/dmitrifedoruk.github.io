@@ -17,6 +17,14 @@
                 <label for="color2">Color 2</label><input id="color2" type="color">
             </div>
         </div>
+
+        <dialog id="importDialog">
+            <p>Warning: Importing notes will overwrite existing data;<br>
+                Backup current data now if desired with "Export Notes"</p>
+            <button id="importOkay">Proceed</button>
+            <button commandfor="importDialog" command="close">Cancel</button>
+        </dialog>
+
         <div id="navBar">
             <div id="leftButton" class="menuButton" title="tap to toggle additional functions menu"></div>
             <div id="otherFunctionsMenu" class="">
@@ -26,8 +34,10 @@
                 <button id="toggleMoon" class="functionButton">Toggle Moon</button>
                 <button id="adjustColors" class="functionButton" popovertarget="colorMenuContainer">Change Colors</button>
                 <button id="clear" class="functionButton">Clear Highlights</button>
-                <button id="notesImport" class="functionButton">Import Notes</button>
+                <button id="notesImport" class="functionButton" command="show-modal" commandfor="importDialog">Import Notes</button>
+                <input type="file" name="inputFile" id="inputFile"  style="display:none;"/>
                 <button id="notesExport" class="functionButton">Export Notes</button>
+
             </div>
             <div id="monthAndYearMenu" class="">
                 <div id="monthMenu">
@@ -215,7 +225,7 @@
         if(window.getComputedStyle(document.getElementById('monthAndYearMenu')).getPropertyValue("display") === "grid"){
             removeFadeOut(document.getElementById('monthAndYearMenu'), menuDelay);
             setTimeout(function () {
-            removeFadeOut(document.getElementById('otherFunctionsMenu'), menuDelay);
+                removeFadeOut(document.getElementById('otherFunctionsMenu'), menuDelay);
             }, switchoverDelay);
         }
         else{removeFadeOut(document.getElementById('otherFunctionsMenu'), menuDelay)}
@@ -289,8 +299,8 @@
 
         //checks for cases where 6 rows of dates are needed
         if(daysInMonth === 31 && firstDayOfWeek > 4){
-             gridLimit = 43;
-         }
+            gridLimit = 43;
+        }
         if(daysInMonth === 30 && firstDayOfWeek > 5){
             gridLimit = 43;
         }
@@ -561,7 +571,7 @@
     });
 
 
-    //creates and downloads vtt file from caption area content
+    //creates and downloads text file with note information sorted by date
     document.querySelector("#notesExport").addEventListener("click", function () {
 
         const map = new Map();
@@ -605,6 +615,77 @@
         link.download = `calendarnotes_${dateString}.txt`;
         link.click();
     })
+
+
+    //activates file selection menu for notes import
+    document.querySelector("#importOkay").addEventListener("click", function () {
+
+        document.getElementById('inputFile').click();
+
+        document.getElementById("importDialog").close();
+
+    })
+
+    //imports notes data from text file, erasing local storage items and rewriting with imported items
+    document.querySelector("#inputFile").addEventListener("change", function () {
+
+        //erases existing notes entries from local storage so only dates with entries in the imported data will remain
+
+        Object.keys(localStorage).forEach(function(key){
+            if(key.split("_")[0] === "calendar"){
+                localStorage.removeItem(key);
+            }
+        });
+
+        let fr = new FileReader();
+        fr.onload = function () {
+            let textString = fr.result;
+
+            // console.log(textString);
+
+            let textArray = textString.split("\n");
+
+            let cleanArray = [];
+
+            for (const text of textArray) {
+                if(text.trim().length !== 0){
+                    cleanArray.push(text)
+                }
+            }
+
+            for(let i =1; i < cleanArray.length; i++){
+                let splitText = cleanArray[i].split(" : ");
+                let noteText = splitText[1].trim().replaceAll("; ","\n\n");
+
+                localStorage.setItem("calendar_"+splitText[0], noteText);
+
+                const monthDisplayed = document.querySelector("#month").innerHTML;
+                const yearDisplayed = document.querySelector("#year").innerHTML;
+
+                updateCalendar(monthDisplayed, yearDisplayed);
+
+
+            }
+
+
+            //
+            //     for(let i =1; i < cleanArray.length; i++){
+            //         let minutes;
+            //         let seconds;
+            //         if(i % 2 !== 0) {
+            //             let splitTime = cleanArray[i].split(":");
+            //             minutes = splitTime[1];
+            //             seconds = splitTime[2].split(".")[0];
+            //             // addCaption(cleanArray[i+1],minutes,seconds);
+            //         }
+            //     }
+            //
+        }
+        fr.readAsText(this.files[0]);
+    })
+
+
+
 
     //console.log(`${value[0]} : ${value[1].replace("\n","; ")}`);
 
