@@ -352,9 +352,17 @@ option {
   /*background-color: color-mix(in srgb, var(--grid-bg-color), slateblue 40%);*/
 }
 
+.darkColor .notesArea {
+  color: #ffffff;
+}
+
 .lightColor .todayBlock {
   background-color: lch(from var(--today-highlight) calc(l - 2) c h);
   /*background-color: color-mix(in srgb, var(--grid-bg-color), slateblue 40%);*/
+}
+
+.lightColor .notesArea {
+  color: rgb(30, 30, 30);
 }
 
 .priorAndNextMonth {
