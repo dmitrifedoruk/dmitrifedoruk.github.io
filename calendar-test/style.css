@@ -9,8 +9,9 @@
 
   /*--grid-bg-color: rgb(144, 78, 162);*/
   /*--grid-bg-color: hsl(287.14, 35%, 47.06%);*/
-  --grid-bg-color: hsl(287.14, 35%, 47.06%);
-  --grid-font-color: #c2af30;
+  --grid-bg-color: hsl(286, 36%, 45%);
+  /*--grid-font-color: #c2af30;*/
+  --grid-font-color: #cebc39;
   /*--grid-bg-color: hsl(105, 35%, 47%);*/
   /*--grid-font-color: lch(from var(--grid-bg-color) calc(l - 20) c calc(h - 20));*/
   /*--grid-font-color: rgba(12, 30, 18, 0.71);*/
