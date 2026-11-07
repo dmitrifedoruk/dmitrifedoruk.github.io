@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        :root {
+
+        }
+
+
+
+        #app {
+            width: 100vw;
+        }
+
+        body {
+            background-color: #6f7886;
+            display: grid;
+            row-gap: 1rem;
+        }
+
+        #stopwatchMain {
+            display: grid;
+            row-gap: 1rem;
+        }
+
+        #mainFunctions button {
+
+            font-family: monospace;
+            font-size: 1rem;
+
+        }
+
+        #stopwatchDisplay {
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
+
+        #stopwatchControls button {
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        #fields {
+            display: grid;
+            grid-auto-flow: row;
+            gap: 1rem;
+            width: 800px;
+            margin: 10px 0 20px 25px;
+        }
+
+        .inputContainer {
+            width: 100%;
+        }
+
+        input, button {
+            height: 50px;
+        }
+
+        input {
+            background-color: #a7daa7;
+            padding: 10px 0 10px 10px;
+            font-weight: bold;
+            font-family: "Calibri", "sans-serif";
+            font-size: 18px;
+            margin: 15px 0 15px 0;
+            color: #4e8386;
+            width: 98%;
+        }
+
+        button {
+            background-color: #9b72a6;
+        }
+
+        #stopwatchControls button {
+            width: 5rem;
+        }
+
+        .paused {
+            background-color: #4e8386;
+        }
+
+        #pauseStopwatch {
+            /*width: 5rem;*/
+        }
+
+        .buttonGroup {
+            display: grid;
+            grid-auto-flow: column;
+            gap: 5px;
+            width: 100%;
+        }
+
+        #controls {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            display: grid;
+            justify-items: right;
+            width: 800px;
+        }
+
+        @media only screen and (max-width: 800px) {
+
+            #fields, #controls {
+                width: 90vw;
+                margin: 5px;
+            }
+
+
+
+
+        }
+
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+<div id="mainFunctions">
+    <button>Stopwatch</button>
+    <button>Timer</button>
+    <button>Alarm</button>
+</div>
+
+<div id="stopwatchMain" class="functionControls">
+
+    <div id="stopwatchDisplay">
+        <div>Start time: <span id="startTime"></span></div>
+        <div>Time elapsed: <span id="timeElapsed"></span></div>
+    </div>
+
+    <div id="stopwatchControls">
+        <button id="startStopwatch">Start</button>
+        <button id="pauseStopwatch">Pause</button>
+        <button id="stopStopwatch">Stop</button>
+        <button id="resetStopwatch">Reset</button>
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+
+    let timerStopped = true;
+    let timerStarted = false;
+    let timerRunning = false;
+
+    let start = 0;
+    let tempTime = 0;
+    let elapsedTime = 0;
+
+
+
+    document.querySelector("#timeElapsed").innerHTML = formatTime(0);
+
+    setInterval(() => {
+
+        if (timerStarted && !timerStopped && timerRunning) {
+            elapsedTime = ((performance.now() - start)/1000) + tempTime;
+            document.querySelector("#timeElapsed").innerHTML = formatTime(Math.floor(elapsedTime));
+            console.log(elapsedTime);
+        }
+
+        // document.querySelector("#timeElapsed").innerHTML = formatTime(Math.floor((performance.now() - start)/1000));
+    }, 1000);
+
+
+    function startTimer() {
+
+        if(!timerStarted) {
+
+            document.querySelector("#timeElapsed").innerHTML = formatTime(0);
+
+            timerStopped = false;
+            timerStarted = true;
+            timerRunning = true;
+
+
+            const d = new Date();
+            document.querySelector("#startTime").innerHTML = d.toLocaleTimeString();
+
+            start = performance.now()
+
+            // setInterval(() => {
+            //     // console.log(performance.now() - start)
+            //
+            //     if (timerStarted && !timerStopped && timerRunning) {
+            //         document.querySelector("#timeElapsed").innerHTML = formatTime(Math.floor((performance.now() - start) / 1000));
+            //     }
+            //
+            //     // document.querySelector("#timeElapsed").innerHTML = formatTime(Math.floor((performance.now() - start)/1000));
+            // }, 1000);
+
+        }
+    }
+
+
+    function pauseTimer() {
+
+        if(timerStarted) {
+
+            if (timerRunning) {
+                document.querySelector("#pauseStopwatch").innerHTML = "Resume";
+                document.querySelector("#pauseStopwatch").classList.toggle("paused");
+            } else {
+                document.querySelector("#pauseStopwatch").innerHTML = "Pause";
+                document.querySelector("#pauseStopwatch").classList.toggle("paused");
+            }
+
+            if (timerStarted && !timerStopped) {
+
+                if (timerRunning) {
+                    tempTime = elapsedTime;
+                    timerRunning = false;
+                } else {
+                    timerRunning = true;
+                    start = performance.now();
+                }
+
+
+                console.log(timerRunning);
+            }
+
+        }
+
+    }
+
+
+    function stopTimer() {
+
+        if(timerStarted && !timerStopped){
+            timerRunning = false;
+            timerStopped = true;
+            console.log("stopped: " + timerStopped);
+        }
+    }
+
+
+    function resetTimer() {
+
+        if(timerStarted && timerStopped){
+            timerStarted = false;
+            start = 0;
+            tempTime = 0;
+            elapsedTime = 0;
+            document.querySelector("#timeElapsed").innerHTML = formatTime(0);
+            document.querySelector("#startTime").innerHTML = "";
+        }
+    }
+
+
+
+    //format time value into hours:minutes:seconds string
+    function formatTime(inputSeconds) {
+
+        return [
+            inputSeconds / 60 / 60,
+            inputSeconds / 60 % 60,
+            inputSeconds % 60
+        ]
+            .map(Math.floor)
+            .map(n => n.toString().padStart(2, '0'))
+            .join(":")
+
+    }
+
+
+    document.querySelector("#startStopwatch").addEventListener("click", function () {
+        startTimer();
+    });
+
+    document.querySelector("#pauseStopwatch").addEventListener("click", function () {
+        pauseTimer();
+    });
+
+
+    document.querySelector("#stopStopwatch").addEventListener("click", function () {
+        stopTimer();
+    });
+
+    document.querySelector("#resetStopwatch").addEventListener("click", function () {
+        resetTimer();
+    });
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
